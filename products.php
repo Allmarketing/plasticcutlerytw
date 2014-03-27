@@ -940,14 +940,14 @@ class PRODUCTS{
         $row = $db->fetch_array($selectrs,1);
         $rsnum  = $db->numRows($selectrs);
         if ($rsnum > 0) {
-            $p_link = $this->get_link($row);
+            $p_link = $this->get_link($row,false,$pc_id);
             $tpl->assignGlobal("TAG_PREVIOUS_PRODUCT","<a href='".$p_link."'>".$TPLMSG['PREV']."</a>");
         }
         $selectrs = $db->query($next_sql);
         $row = $db->fetch_array($selectrs,1);
         $rsnum  = $db->numRows($selectrs);
         if ($rsnum > 0) {
-            $p_link = $this->get_link($row);
+            $p_link = $this->get_link($row,false,$pc_id);
             $tpl->assignGlobal("TAG_NEXT_PRODUCT","<a href='".$p_link."'>".$TPLMSG['NEXT']."</a>");
         }
     }
@@ -1080,7 +1080,7 @@ class PRODUCTS{
        echo json_encode($tmp);
     }    
     //產品自訂layer_link
-    function layer_link($row,$is_product=false){
+    function layer_link($row,$is_product=false,$parent_id=0){
         global $main,$cms_cfg,$db,$TPLMSG;
         if($is_product){
             $item_name = "p_name";
@@ -1094,7 +1094,7 @@ class PRODUCTS{
         if(!isset($row[$parent_name])){
              trigger_error("pc_parent field missing!"); 
         }
-        $parent_id = $row[$parent_name];
+        if(empty($parent_id)) $parent_id = $row[$parent_name];
         $layer[]['name'] = $row[$item_name];
         //取得上層分類
         while($parent_id>0){
