@@ -1021,8 +1021,7 @@ class PRODUCTS{
                                           "VALUE_DESC_TITLE" =>$row["p_desc_title"],
                                           "VALUE_CHARACTER_TITLE" =>$row["p_character_title"],
                                           "VALUE_SPEC_TITLE" =>$row["p_spec_title"],
-                                          "VALUE_P_CROSS_CATE" => $row["p_cross_cate"],
-										  "VALUE_P_SHORT_SPEC" =>$row["p_short_spec"],
+                                          "VALUE_P_CROSS_CATE" => $row["p_cross_cate"]
                 ));
                 //附加檔案
                 if($cms_cfg['ws_module']['ws_products_upfiles']){
@@ -1214,7 +1213,6 @@ class PRODUCTS{
                         ".$add_field_str."
                         p_cross_cate,
                         p_locked,
-						p_short_spec,
                         p_modifyaccount
                     ) VALUES (
                         '".$_REQUEST["pc_id"]."',
@@ -1257,7 +1255,6 @@ class PRODUCTS{
                         ".$add_value_str."
                         '".$_REQUEST["p_cross_cate"]."',
                         '".$_REQUEST["p_locked"]."',
-						'".$_REQUEST["p_short_spec"]."',
                         '".$_SESSION[$cms_cfg['sess_cookie_name']]["USER_ACCOUNT"]."'
                     )";
                 $rs = $db->query($sql);
@@ -1316,7 +1313,6 @@ class PRODUCTS{
                     ".$update_str."
                     p_cross_cate = '".$_REQUEST["p_cross_cate"]."',
                     p_locked = '".$_REQUEST["p_locked"]."',
-					p_short_spec = '".$_REQUEST["p_short_spec"]."',
                     p_modifyaccount = '".$_SESSION[$cms_cfg['sess_cookie_name']]["USER_ACCOUNT"]."'
                 WHERE p_id ='".$_REQUEST["now_p_id"]."' ";
                 $rs = $db->query($sql);
