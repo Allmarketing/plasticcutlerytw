@@ -1046,7 +1046,9 @@ class PRODUCTS{
                                               "STR_P_UP_SORT_CK0" => ($row["p_up_sort"])?"":"checked",
                                               "VALUE_P_SEO_H1" => $row["p_seo_h1"]));
                     $this->get_items_name($row["p_related_products"],"p"); //相關產品
-                }
+                }else{
+                    $tpl->assignGlobal( array("VALUE_P_SEO_H1" => $row["p_seo_h1"]));
+				}
                 //取得大圖資料
                 $sql="select * from ".$cms_cfg['tb_prefix']."_products_img where p_id='".$_REQUEST["p_id"]."'";
                 $selectrs = $db->query($sql);
@@ -1143,7 +1145,11 @@ class PRODUCTS{
                          p_seo_short_desc='".$db->quote($main->content_file_str_replace($_REQUEST["p_seo_short_desc"]))."',
                          p_seo_h1='".htmlspecialchars($_REQUEST["p_seo_h1"])."',
                          p_up_sort='".$_REQUEST["p_up_sort"]."',";
-        }
+        }else{
+            $add_field_str="p_seo_h1,";
+            $add_value_str="'".htmlspecialchars($_REQUEST["p_seo_h1"])."',";
+            $update_str="p_seo_h1='".htmlspecialchars($_REQUEST["p_seo_h1"])."',";
+		}
         if($cms_cfg['ws_module']['ws_products_info_fields']){
             for($j=1;$j<=$cms_cfg['ws_module']['ws_products_info_fields'];$j++){
                 switch($_REQUEST["action_mode"]){
