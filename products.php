@@ -282,7 +282,7 @@ class PRODUCTS{
 						$i++;
 						$p_link = $this->get_link($row2,true);
 						$str .="<li><a href=\"".$p_link."\">".$row2["p_name"]."</a></li>";
-						if($i%10 == 0) $str .="</ul><ul>";
+//						if($i%10 == 0) $str .="</ul><ul>";
 					}
 					$str .="</ul>";
 					$tpl->assign("TAG_PRODUCTS",$str);
