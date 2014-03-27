@@ -1,0 +1,373 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>產品管理</h1>
+<br>
+<form name="myform" method="post" action="products.php?func=p_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>產品名稱:</th>
+            <td>
+                <input name="p_name" id="p_name" type="text" class="validate[required]"  value="{VALUE_P_NAME}" size="40">
+            </td>
+            <th>產品型號:</th>
+            <td>
+                <input type="text" name="p_serial"class="form-textfield"  value="{VALUE_P_SERIAL}" />
+            </td>
+        </tr>
+        <tr>
+            <th>產品分類:</th>
+            <td>
+                <select name="pc_id">
+                    <option value="0" > 未分類 </option> 
+                    {TAG_SELECT_PRODUCTS_CATE}
+                </select>
+            </td>
+            <th>產品狀態:</th>
+            <td>
+                <input type="radio" name="p_status" value="1" {STR_P_STATUS_CK1}> 上架
+                <input type="radio" name="p_status" value="0" {STR_P_STATUS_CK0}> 下架
+            </td>
+        </tr>    
+        <tr>
+        <th>資料權限:</th>
+        <td>
+            <input type="radio" name="p_locked" value="1" {STR_P_LOCK_CK1}> <img src="images/icon-lock.gif">上鎖
+            <input type="radio" name="p_locked" value="0" {STR_P_LOCK_CK0}> <img src="images/icon-key.gif">解鎖
+        </td>
+            <th>產品排序:</th>
+            <td>
+                <input name="p_sort" type="text" id="p_sort" class="validate[custom[onlyNumber]]"  value="{VALUE_P_SORT}" size="4" maxlength="4">
+                <br><font color="red">請輸入數字如：0,1,2,3...數字『愈大』<br>前台的產品排列會愈前面</font>
+            </td>
+        </tr>
+        <!-- START BLOCK : PRODUCTS_APPLICATION_ZONE -->
+        <tr>
+            <th>應用領域</th>
+            <td colspan="3">
+                <!-- START BLOCK : APPLICATION_ITEM -->
+                <input type="checkbox" name="pa_id[{VALUE_PA_ID}]" id="pa_id_{SERIAL}" value="{VALUE_PA_ID}" {TAG_PA_ID_CHK}/><label for="pa_id_{SERIAL}">{VALUE_PA_NAME}</label>
+                <!-- END BLOCK : APPLICATION_ITEM -->
+                <input type="hidden" name="pa_id_str" value="{VALUE_PA_ID_STR}"/>
+            </td>
+        </tr>
+        <!-- END BLOCK : PRODUCTS_APPLICATION_ZONE -->
+        <!-- START BLOCK : CA_ROW -->
+        <tr>
+            <th>產品標章</th>
+            <td colspan="3">
+                <!-- START BLOCK : CA_CHECKBOX_LIST -->
+                <input type="checkbox" name="p_ca[]" id="CA_{VALUE_CA_ID}" value="{VALUE_CA_ID}" {TAG_CHECKED}/><label for="CA_{VALUE_CA_ID}"><img src="{VALUE_CA_IMG}" width="25" height="25"/></label>
+                <!-- END BLOCK : CA_CHECKBOX_LIST -->
+            </td>
+        </tr>
+        <!-- END BLOCK : CA_ROW -->            
+        <tr>
+            <th>自行定義頁面:</th>
+            <td colspan="3">
+                <input type="radio" name="p_custom_status" value="0" {STR_P_CUSTOM_STATUS_CK0} onClick="document.getElementById('div_custom').style.display='none';"> 否
+                <input type="radio" name="p_custom_status" value="1" {STR_P_CUSTOM_STATUS_CK1} onclick="document.getElementById('div_custom').style.display='';"> 是
+                <br><font color="red">(如果選擇【是】的話，產品的詳細資料，只顯示編輯的內容，底下各個欄位資料均不出現在前台)</font>
+            </td>
+        </tr>
+        <tr id="div_custom" style="display:{STR_P_CUSTOM_STATUS_DISPLAY}">
+            <th>&nbsp;</th>
+            <td colspan="3">
+                <textarea id="elm1" name="p_custom" cols="50" rows="15">{VALUE_P_CUSTOM}</textarea>
+            </td>
+        </tr>
+        <!-- START BLOCK : PRODUCTS_TYPE_FIELD -->
+        <tr>
+            <th>產品類型:</th>
+            <td colspan="3">
+                <input type="checkbox" name="p_type1" value="1" {STR_P_TYPE_CK1} onClick="javascript:show_new_sort(myform);" /> 新產品
+                <span id="p_new_sort" style="display: {STR_NEW_SORT_DISPLAY};">排序：<input name="p_new_sort" type="text" size="4" value="{VALUE_NEW_P_SORT}" class="form-textfield"/></span>
+                <input type="checkbox" name="p_type2" value="2" {STR_P_TYPE_CK2} /> 熱門產品
+                <input type="checkbox" name="p_type3"  value="4" {STR_P_TYPE_CK3} /> 促銷產品
+            </td>
+        </tr>
+        <!-- END BLOCK : PRODUCTS_TYPE_FIELD -->
+        <!-- START BLOCK : PRODUCTS_PRICE_FIELD -->
+        <tr>
+            <th>前台價格顯示:</th>
+            <td>
+                <font color="#CC0000">{MSG_PRODUCT_SHOW_PRICE_NOTICE2}</font>
+                <a href="system-config.php">{MSG_PRODUCT_ON_CLICKS_THIS}</a>
+            </td>
+            <th>產品價格:</th>
+            <td> 定價:
+                <input type="text" name="p_list_price" id="p_list_price" class="validate[custom[onlyNumber]]" value="{VALUE_P_LIST_PRICE}" size="7" /><br>
+                特價:
+                <input TYPE="text" name="p_special_price" id="p_special_price" class="validate[custom[onlyNumber]]" value="{VALUE_P_SPECIAL_PRICE}" size="7" />
+            </td>
+        </tr>
+        <!-- END BLOCK : PRODUCTS_PRICE_FIELD -->
+        <tr>
+            <th>產品大圖:</th>
+            <td colspan="3">
+             <ul class="tabs">
+               <li><a href="#smallpic">產品小圖</a></li>
+			   <!-- START BLOCK : PRODUCTS_BIG_IMG_TAB -->
+               <li><a href="#pic{BIG_IMG_NO}">大圖{BIG_IMG_NO}</a></li>
+			   <!-- END BLOCK : PRODUCTS_BIG_IMG_TAB -->
+             </ul>
+               <div class="panes">
+                  <div>
+                  <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+                  <tr>
+                    <th rowspan="3" align="center">
+                      <a href="javascript:mcImageManager.open('myform','p_small_img');">
+                        <img src="{VALUE_SMALL_PIC_PREVIEW1}" border="0" width="120" name="small_pic_preview1" id="small_pic_preview1">
+                      </a>
+                      <br>
+                      <font color="red">點選圖框更換圖片</font>
+                    </th>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;產品小圖</td>
+                    </tr>
+                    <tr>
+                    <td><input type="text" size="60" name="p_small_img" value="{VALUE_SMALL_IMG}" id="p_small_img" onchange="Javascript:onImageSelect(this,'small_pic_preview1');"></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:LoadDefaultPic('p_small_img','small_pic_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+                  </tr>
+                </table>
+                </div>
+			   <!-- START BLOCK : PRODUCTS_BIG_IMG -->				
+                <div>
+                  <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+                  <tr>
+                    <th rowspan="3" align="center">
+                      <a href="javascript:mcImageManager.open('myform','p_big_img{BIG_IMG_NO}');">
+                    <img src="{VALUE_BIG_PIC_PREVIEW}" border="0" width="120" name="big_pic_preview{BIG_IMG_NO}" id="big_pic_preview{BIG_IMG_NO}" /></a>
+                      </a>
+                      <br>
+                      <font color="red">點選圖框更換圖片</font>
+                    </th>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;大圖{BIG_IMG_NO}</td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" size="60" name="p_big_img{BIG_IMG_NO}" value="{VALUE_BIG_PIC}" id="p_big_img{BIG_IMG_NO}" onchange="Javascript:onImageSelect(this,'big_pic_preview{BIG_IMG_NO}');"></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:LoadDefaultPic('p_big_img{BIG_IMG_NO}','big_pic_preview{BIG_IMG_NO}')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+                  </tr>
+                  </table>
+                </div>
+			   <!-- END BLOCK : PRODUCTS_BIG_IMG -->
+               </div>
+            </td>
+        </tr>
+       <tr>
+        <th>產品簡述</th>
+        <td colspan="3">
+            <a name="short_desc" href="#short_desc" onClick="document.getElementById('div_short_desc').style.display='';">展開</a> <a href="#short_desc" onClick="document.getElementById('div_short_desc').style.display='none';">隱藏</a>
+            <div id="div_short_desc" style="display:{TAG_SHORT_DESC_SHOW}">
+            <textarea id="elm5" name="p_seo_short_desc" cols="50" rows="15" >{VALUE_P_SEO_SHORT_DESC}</textarea>
+            </div>            
+        </td>
+      </tr>        
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE1 -->
+            <input type="text" size="25" name="p_desc_title" value="{VALUE_DESC_TITLE}">:<br>&nbsp;(產品說明標題1)
+            <!-- END BLOCK : PRODUCTS_TITLE1 -->
+            {TAG_PRODUCTS_DESC}
+            </th>
+            <td colspan="3"><a name="desc" href="#desc" onClick="document.getElementById('div_desc').style.display='';">展開</a> <a href="#desc" onClick="document.getElementById('div_desc').style.display='none';">隱藏</a>
+                <div id="div_desc" style="display:{TAG_DESC_SHOW}">
+                <textarea id="elm4" name="p_desc" cols="50" rows="15">{VALUE_P_DESC}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE2 -->
+            <input type="text" size="25" name="p_character_title" value="{VALUE_CHARACTER_TITLE}">:<br>&nbsp;(產品說明標題2)
+            <!-- END BLOCK : PRODUCTS_TITLE2 -->
+            {TAG_PRODUCTS_CHARACTER}
+            </th>
+            <td colspan="3"><a name="character" href="#character" onClick="document.getElementById('div_character').style.display='';">展開</a> <a href="#character" onClick="document.getElementById('div_character').style.display='none';">隱藏</a>
+                <div id="div_character" style="display:{TAG_CHARACTER_SHOW}">
+                <textarea id="elm3" name="p_character" cols="50" rows="15">{VALUE_P_CHARACTER}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE3 -->
+            <input type="text" size="25" name="p_spec_title" value="{VALUE_SPEC_TITLE}">:<br>&nbsp;(產品說明標題3)
+            <!-- END BLOCK : PRODUCTS_TITLE3 -->
+            {TAG_PRODUCTS_SPEC}
+            </th>
+            <td colspan="3"><a name="spec" href="#spec" onClick="document.getElementById('div_spec').style.display='';">展開</a> <a href="#spec" onClick="document.getElementById('div_spec').style.display='none';">隱藏</a>
+                <div id="div_spec" style="display:{TAG_SPEC_SHOW}">
+                <textarea id="elm2" name="p_spec" cols="50" rows="15">{VALUE_P_SPEC}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE4 -->
+            <input type="text" size="25" name="p_txt1_title" value="{VALUE_TXT1_TITLE}">:<br>&nbsp;(產品說明標題4)
+            <!-- END BLOCK : PRODUCTS_TITLE4 -->
+            </th>
+            <td colspan="3"><a name="txt1" href="#txt1" onClick="document.getElementById('div_txt1').style.display='';">展開</a> <a href="#txt1" onClick="document.getElementById('div_txt1').style.display='none';">隱藏</a>
+                <div id="div_txt1" style="display:{TAG_TXT1_SHOW}">
+                <textarea id="elm6" name="p_txt1" cols="50" rows="15">{VALUE_P_TXT1}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE5 -->
+            <input type="text" size="25" name="p_txt2_title" value="{VALUE_TXT2_TITLE}">:<br>&nbsp;(產品說明標題5)
+            <!-- END BLOCK : PRODUCTS_TITLE5 -->
+            </th>
+            <td colspan="3"><a name="txt2" href="#txt2" onClick="document.getElementById('div_txt2').style.display='';">展開</a> <a href="#txt2" onClick="document.getElementById('div_txt2').style.display='none';">隱藏</a>
+                <div id="div_txt2" style="display:{TAG_TXT2_SHOW}">
+                <textarea id="elm7" name="p_txt2" cols="50" rows="15">{VALUE_P_TXT2}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE6 -->
+            <input type="text" size="25" name="p_txt3_title" value="{VALUE_TXT3_TITLE}">:<br>&nbsp;(產品說明標題6)
+            <!-- END BLOCK : PRODUCTS_TITLE6 -->
+            </th>
+            <td colspan="3"><a name="txt3" href="#txt3" onClick="document.getElementById('div_txt3').style.display='';">展開</a> <a href="#txt3" onClick="document.getElementById('div_txt3').style.display='none';">隱藏</a>
+                <div id="div_txt3" style="display:{TAG_TXT3_SHOW}">
+                <textarea id="elm8" name="p_txt3" cols="50" rows="15">{VALUE_P_TXT3}</textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>
+            <!-- START BLOCK : PRODUCTS_TITLE7 -->
+            <input type="text" size="25" name="p_txt4_title" value="{VALUE_TXT4_TITLE}">:<br>&nbsp;(產品說明標題7)
+            <!-- END BLOCK : PRODUCTS_TITLE7 -->
+            </th>
+            <td colspan="3"><a name="txt4" href="#txt4" onClick="document.getElementById('div_txt4').style.display='';">展開</a> <a href="#txt4" onClick="document.getElementById('div_txt4').style.display='none';">隱藏</a>
+                <div id="div_txt4" style="display:{TAG_TXT4_SHOW}">
+                <textarea id="elm9" name="p_txt4" cols="50" rows="15">{VALUE_P_TXT4}</textarea>
+                </div>
+            </td>
+        </tr>
+        <!-- START BLOCK : INFO_FIELD_LIST -->
+        <tr>
+            <th>
+            <input type="text" size="25" name="p_info_field{SERIAL}_title" value="{INFO_FIELD_TITLE}">:<br>&nbsp;(產品說明標題{TITLE_SERIAL})
+            </th>
+            <td colspan="3"><a name="info_field{SERIAL}" href="#info_field{SERIAL}" onClick="document.getElementById('div_info_field{SERIAL}').style.display='';">展開</a> <a href="#info_field{SERIAL}" onClick="document.getElementById('div_info_field{SERIAL}').style.display='none';">隱藏</a>
+                <div id="div_info_field{SERIAL}" style="display:{INFO_FIELD_SHOW}">
+                <textarea id="elm{ELM_SERIAL}" name="p_info_field{SERIAL}" cols="50" rows="15">{INFO_FIELD_VALUE}</textarea>
+                </div>
+            </td>
+        </tr>
+        <!-- END BLOCK : INFO_FIELD_LIST -->
+        <!-- START BLOCK : PRODUCTS_ATTACH_FILES -->
+        <tr>
+            <th>附件檔案(1):</th>
+            <td>
+                <input type="text" name="p_attach_file1" value="{VALUE_P_ATTACH_FILE1}" id="attach_file1" size="34"> &nbsp;
+                <a href="javascript:mcFileManager.open('myform','p_attach_file1');">選擇檔案</a>
+            </td>
+            <th>附件檔案(2):</th>
+            <td>
+                <input type="text" name="p_attach_file2" value="{VALUE_P_ATTACH_FILE2}" id="attach_file2" size="34"> &nbsp;
+                <a href="javascript:mcFileManager.open('myform','p_attach_file2');">選擇檔案</a>
+            </td>
+        </tr>
+        <!-- END BLOCK : PRODUCTS_ATTACH_FILES -->
+        <!-- START BLOCK : MV_COLUMN -->
+        <tr>
+            <th>影片</th>
+            <td colspan="3">
+                <input type="text" name="p_mv" value="{VALUE_P_MV}" size="50"/>
+                <div>可輸入youtube影片網址，或是影片識別碼，例如：<br/>
+                    <span style="colro:#ff0000">http://www.youtube.com/watch?v=33SEDYsTj_k</span>或<span style="colro:#ff0000">33SEDYsTj_k</span>
+                </div>
+            </td>
+        </tr>
+        <!-- END BLOCK : MV_COLUMN -->
+        <!-- START BLOCK : SEO_EDIT_ZONE -->
+        <tr>
+            <th colspan="4">SEO 設定區域</th>
+        </tr>
+        <tr>
+            <th>行銷置頂排序</th>
+            <td colspan="3">
+                <input type="radio" name="p_up_sort" value="1" {STR_P_UP_SORT_CK1}> 置頂排序
+                <input type="radio" name="p_up_sort" value="0" {STR_P_UP_SORT_CK0}> 維持原有排序
+            </td>
+        </tr>
+        <tr>
+            <th>相關產品:</th>
+            <td colspan="3">
+            <input name="p_related_products" type="text" id="p_related_products" value="{VALUE_P_RELATED_PRODUCTS}" size="60" readonly>
+            <a href="javascript:upload_window('products.php?func=p_select_products&p_id_str={VALUE_P_RELATED_PRODUCTS}&id={VALUE_P_ID}','p_related_products')">選擇產品</a><br>
+                <table border="0" cellpadding="0" cellspacing="0" class="pagetable">
+                  <tr>
+                     <td>原有相關產品：</td>
+                     <td>新選擇相關產品：</td>
+                  </tr>
+                  <tr>
+                     <td><span id="old_cate">{VALUE_NAME_STR}</span></td>
+                     <td><span id="new_cate"></span></td>
+                  </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <th>網頁檔名:</th>
+            <td>
+                <input name="p_seo_filename" id="{NOW_P_ID}" class="validate[required,ajax[ajaxPfilename]]" type="text" value="{VALUE_P_SEO_FILENAME}" size="40" >
+                <br>&nbsp;&nbsp;<font color="red">檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'<br>&nbsp;&nbsp;特殊符號請用-代替</font>
+            </td>
+                        <th>產品別名:</th>
+            <td>
+                <input name="p_name_alias" type="text" value="{VALUE_P_NAME_ALIAS}" size="40" >
+                <br>&nbsp;&nbsp;<font color="red">別名會出現在產品圖片的alt、title</font>
+            </td>
+        </tr>
+        <tr>
+            <th>網頁標題<br>Meta Title</th>
+            <td>
+                <input name="p_seo_title" type="text" value="{VALUE_P_SEO_TITLE}" size="40" />
+            </td>
+            <th>H1 標題:</th>
+            <td>
+                <input name="p_seo_h1" type="text" value="{VALUE_P_SEO_H1}" size="40" >
+            </td>
+        </tr>
+        <tr>
+            <th>網頁關鍵字<br>Meta Keyword</th>
+            <td>
+                <textarea name="p_seo_keyword" cols="40" rows="5" >{VALUE_P_SEO_KEYWORD}</textarea>
+            </td>
+            <th>網頁敘述<br>Meta Description</th>
+            <td>
+                <textarea name="p_seo_description" cols="40" rows="5" >{VALUE_P_SEO_DESCRIPTION}</textarea>
+            </td>
+        </tr>
+        <!-- END BLOCK : SEO_EDIT_ZONE -->
+        <tr>
+            <th>&nbsp;</th>
+            <td colspan="3">
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input name="root_path" id="root_path" type="hidden"  value="{TAG_ROOT_PATH}">
+    <input type="hidden" name="p_show_style" value="1">
+    <input type="hidden" name="now_p_id" value="{NOW_P_ID}">
+    <input type="hidden" name="now_pc_id" value="{NOW_PC_ID}">
+    <input type="hidden" name="pc_parent" value="{VALUE_PC_PARENT}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+<br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

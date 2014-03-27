@@ -1,0 +1,98 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>詢問信處理</h1>
+<form name="myform" method="post" action="inquiry.php?func=i_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>詢問信編號:</th>
+            <td>
+                {VALUE_I_ID}</td>
+        </tr>
+        <tr>
+            <th>回覆情形:</th>
+            <td>
+                {VALUE_I_STATUS}</td>
+        </tr>
+        <tr>
+            <th>姓名:</th>
+            <!-- START BLOCK : I_CONTACT_S_1 -->
+            <td>{VALUE_I_CONTACT_S} {VALUE_I_NAME}</td>
+            <!-- END BLOCK : I_CONTACT_S_1 -->
+            <!-- START BLOCK : I_CONTACT_S_2 -->
+            <td>{VALUE_I_NAME} {VALUE_I_CONTACT_S}</td>
+            <!-- END BLOCK : I_CONTACT_S_2 -->
+        </tr>
+        <tr>
+            <th>電話:</th>
+            <td>
+                {VALUE_I_TEL}</td>
+        </tr>
+        <tr>
+            <th>手機:</th>
+            <td>
+                {VALUE_I_CELLPHONE}</td>
+        </tr>
+        <tr>
+            <th>郵遞區號:</th>
+            <td>
+                {VALUE_I_ZIP}</td>
+        </tr>
+        <tr>
+            <th>住址:</th>
+            <td>
+                {VALUE_I_ADDRESS}</td>
+        </tr>
+        <tr>
+            <th>e-mail:</th>
+            <td>
+                {VALUE_I_EMAIL}</td>
+        </tr>
+        <tr>
+            <th colspan="2"  valign="top" class="table_title_color">
+                <center>
+                    詢問信內容
+                </center>
+            </th>
+        </tr>
+        <tr>
+            <th>內容:</th>
+            <td>
+                &nbsp;{VALUE_I_CONTENT}</td>
+        </tr>
+        <tr>
+            <th>回覆:</th>
+            <td>
+                &nbsp;<textarea name="i_reply" cols="80" rows="14" id="i_reply">{VALUE_I_REPLY}</textarea></td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}">&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="producttable">
+                    <tr>
+                        <th width="5%"> No.</th>
+                        <th width="65%"> 產品</th>
+                        <th width="30%"> 數量</th>
+                    </tr>
+                    <!-- START BLOCK : INQUIRY_ITEMS_LIST -->
+                    <tr>
+                        <td>{VALUE_P_SERIAL}</td>
+                        <td>{VALUE_P_NAME}</td>
+                        <td>{VALUE_P_AMOUNT}</td>
+                    </tr>
+                    <!-- END BLOCK : INQUIRY_ITEMS_LIST -->
+                </table></td>
+        </tr>
+    </table>
+    <input type="hidden" name="i_id" value="{VALUE_I_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

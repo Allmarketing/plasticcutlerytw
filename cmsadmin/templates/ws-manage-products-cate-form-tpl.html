@@ -1,0 +1,184 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>產品分類管理</h1>
+<br>
+<form name="myform" method="post" action="products.php?func=pc_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+      <tr>
+        <th><font color="red">*</font>分類名稱:</th>
+        <td colspan="3">
+            <input name="pc_name" id="pc_name" type="text" class="validate[required]"  value="{VALUE_PC_NAME}" size="40" maxlength="255">
+        </td>
+      </tr>
+      <tr>
+        <th>所屬分類:</th>
+        <td>
+            <select name="pc_parent">
+              <option value="0" > 未分類</option>
+              {TAG_SELECT_PRODUCTS_CATE}
+            </select>
+        </td>
+        <th>狀態:</th>
+        <td>
+            <input type="radio" name="pc_status" value="1" {STR_PC_STATUS_CK1}> 啟用
+            <input type="radio" name="pc_status" value="0" {STR_PC_STATUS_CK0}> 停用
+        </td>
+      </tr>
+      <tr>
+        <th>資料權限:</th>
+        <td>
+            <input type="radio" name="pc_locked" value="1" {STR_PC_LOCK_CK1}> <img src="images/icon-lock.gif">上鎖
+            <input type="radio" name="pc_locked" value="0" {STR_PC_LOCK_CK0}> <img src="images/icon-key.gif">開放
+        </td>
+        <th>產品分類排序:</th>
+        <td>
+            <input name="pc_sort" id="pc_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_PC_SORT}" size="4" maxlength="4">
+            <br><font color="red">請輸入數字如：0,1,2,3...數字『愈大』<br>前台的{MSG_PRODUCT_CATE}排列會愈前面</font>
+        </td>
+      </tr>
+        <!-- START BLOCK : PRODUCTS_APPLICATION_ZONE -->
+      <tr>
+            <th>應用領域</th>
+            <td colspan="3">
+                <!-- START BLOCK : APPLICATION_ITEM -->
+                <input type="checkbox" name="pa_id[{VALUE_PA_ID}]" id="pa_id_{SERIAL}" value="{VALUE_PA_ID}" {TAG_PA_ID_CHK}/><label for="pa_id_{SERIAL}">{VALUE_PA_NAME}</label>
+                <!-- END BLOCK : APPLICATION_ITEM -->
+                <input type="hidden" name="pa_id_str" value="{VALUE_PA_ID_STR}"/>
+            </td>
+        </tr>
+        <!-- END BLOCK : PRODUCTS_APPLICATION_ZONE -->      
+      <tr>
+        <th>自訂頁面:</th>
+        <td colspan="3">
+            <input type="radio" name="pc_custom_status" value="0" {STR_PC_CUSTOM_STATUS_CK0} onClick="document.getElementById('div_custom').style.display='none';"> 否
+            <input type="radio" name="pc_custom_status" value="1" {STR_PC_CUSTOM_STATUS_CK1} onclick="document.getElementById('div_custom').style.display='';"> 是
+            <br><font color="red">(如果選擇【是】的話，該產品分類列表頁面上方，會出現編輯的內容)</font>
+        </td>
+      </tr>
+      <tr id="div_custom" style="display:{STR_PC_CUSTOM_STATUS_DISPLAY}">
+        <th>&nbsp;</th>
+        <td colspan="3">
+            <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+            <textarea id="elm1" name="pc_custom" cols="50" rows="15">{VALUE_PC_CUSTOM}</textarea>
+            <!-- END BLOCK : WYSIWYG_TINYMCE1 -->
+        </td>
+      </tr>
+      <tr>
+        <th>產品分類小圖:</th>
+        <td colspan="3">
+            <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+              <tr>
+                <th rowspan="2" align="center">
+                  <a href="javascript:mcImageManager.open('myform','pc_cate_img');">
+                    <img src="{VALUE_PIC_PREVIEW1}" border="0" width="120" name="pic_preview1" id="pic_preview1">
+                  </a>
+                  <br>
+                  <font color="red">點選圖框更換圖片</font>
+                </td>
+                <td><input type="text" size="40" name="pc_cate_img" value="{VALUE_PC_CATE_IMG}" id="attach_img1" onchange="onImageSelect(this,'pic_preview1');"></td>
+              </tr>
+              <tr>
+                <td><a href="javascript:LoadDefaultPic('attach_img1','pic_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+      <!-- START BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th colspan="4">SEO 設定區域</th>
+      </tr>
+        <tr>
+            <th>行銷置頂排序</th>
+            <td colspan="3">
+                <input type="radio" name="pc_up_sort" value="1" {STR_PC_UP_SORT_CK1}> 置頂排序
+                <input type="radio" name="pc_up_sort" value="0" {STR_PC_UP_SORT_CK0}> 維持原有排序
+            </td>
+        </tr>
+      <tr>
+        <th>相關分類:</th>
+        <td colspan="3">
+            <input name="pc_related_cate" type="text"  id="pc_related_cate" value="{VALUE_PC_RELATED_CATE}" size="60" readonly>
+            <a href="javascript:upload_window('products.php?func=p_select_cate&pc_id_str={VALUE_PC_RELATED_CATE}&id={VALUE_P_ID}','pc_related_cate')">選擇分類</a><br>
+            <table border="1" cellpadding="1" cellspacing="1" class="pagetable">
+              <tr>
+                 <td>原有分類：</td>
+                 <td>新選擇分類：</td>
+              </tr>
+              <tr>
+                 <td>&nbsp;<span id="old_cate">{VALUE_NAME_STR}</span></td>
+                 <td>&nbsp;<span id="new_cate"></span></td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+       <tr>
+        <th>非自訂頁<br>上方簡述</th>
+        <td colspan="3">
+            <textarea id="elm2" name="pc_seo_short_desc" cols="50" rows="5" >{VALUE_PC_SEO_SHORT_DESC}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>非自訂頁<br>下方簡述</th>
+        <td colspan="3">
+            <textarea id="elm3" name="pc_seo_down_short_desc" cols="50" rows="5" >{VALUE_PC_SEO_DOWN_SHORT_DESC}</textarea>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+      <tr>
+        <th>網頁檔名:</th>
+        <td>
+            <input name="pc_seo_filename"  id="{NOW_PC_ID}" class="validate[required,ajax[ajaxPCfilename]]" type="text" value="{VALUE_PC_SEO_FILENAME}" size="40" >
+            <br>&nbsp;&nbsp;<font color="red">檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'<br>&nbsp;&nbsp;特殊符號請用-代替</font>
+        </td>
+        <th>產品分類別名:</th>
+        <td>
+            <input name="pc_name_alias" type="text" value="{VALUE_PC_NAME_ALIAS}" size="40" >
+            <br>&nbsp;&nbsp;<font color="red">別名會出現在分類圖片的alt、title</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題Meta Title</th>
+        <td>
+            <input name="pc_seo_title" type="text"  value="{VALUE_PC_SEO_TITLE}" size="40" />
+        </td>
+        <th>H1 標題:</th>
+        <td>
+            <input name="pc_seo_h1" type="text"   value="{VALUE_PC_SEO_H1}" size="40" >
+        </td>
+      </tr>
+      <tr>
+        <th>網頁關鍵字Meta Keyword</th>
+        <td>
+            <textarea name="pc_seo_keyword" cols="40" rows="3" >{VALUE_PC_SEO_KEYWORD}</textarea>
+        </td>
+        <th>網頁敘述Meta Description</th>
+        <td>
+            <textarea name="pc_seo_description" cols="40" rows="3" >{VALUE_PC_SEO_DESCRIPTION}</textarea>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+      <!-- END BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th>&nbsp;</th>
+        <td colspan="3">
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+      </tr>
+    </table>
+    <input name="root_path" id="root_path" type="hidden"  value="{TAG_ROOT_PATH}">
+    <input type="hidden" name="now_pc_id" value="{NOW_PC_ID}">
+    <input type="hidden" name="now_pc_parent" value="{NOW_PC_PARENT}">
+    <input type="hidden" name="now_pc_level" value="{NOW_PC_LEVEL}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+    </form>
+    <br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

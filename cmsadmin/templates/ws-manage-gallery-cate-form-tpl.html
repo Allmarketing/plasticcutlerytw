@@ -1,0 +1,52 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>活動剪影分類{MSG_MODE}</h1>
+<form name="myform" method="post" action="gallery.php?func=gc_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>分類名稱:</th>
+            <td>
+                <input name="gc_subject" type="text" id="gc_subject" class="validate[required]"  value="{VALUE_GC_SUBJECT}" size="56" maxlength="255"></td>
+        </tr> 
+        <tr>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="gc_status" value="1" {STR_GC_STATUS_CK1}> 啟用
+                <input type="radio" name="gc_status" value="0" {STR_GC_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="gc_sort" type="text" id="gc_sort" class="validate[custom[onlyNumber]]"  value="{VALUE_GC_SORT}" size="4" maxlength="4"></td>
+        </tr>
+        <tr>
+            <th>說明:</th>
+            <td>
+                <textarea name="gc_desc" type="text" id="elm1" >{VALUE_GC_DESC}</textarea>
+            </td>
+        </tr>
+        <!-- START BLOCK : SETTING_DIR_ZONE -->
+        <tr>
+            <th>設定資料夾:</th>
+            <td>
+                <input name="gc_dir" type="text" id="gc_dir" class="validate[required]"  value="{VALUE_GC_DIR}" size="40" /><br/>
+                請指定此分類所屬圖片存放的資料夾，例如，upload_files/gallery
+            </td>
+        </tr>
+        <!-- END BLOCK : SETTING_DIR_ZONE -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" /></td>
+        </tr>
+    </table>
+    <input type="hidden" name="gc_id" value="{VALUE_GC_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

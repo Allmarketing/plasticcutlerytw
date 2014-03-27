@@ -1,0 +1,91 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>檔案分享</h1>
+<form name="myform" method="post" action="download.php?func=d_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>選擇分類:</th>
+            <td>
+                <select name="dc_id">
+                    <!-- START BLOCK : TAG_SELECT_DOWNLOAD_CATE -->
+                    <option value="{TAG_SELECT_DOWNLOAD_CATE_VALUE}" {STR_DC_SEL}> {TAG_SELECT_DOWNLOAD_CATE_NAME}</option>
+                    <!-- END BLOCK : TAG_SELECT_DOWNLOAD_CATE -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="d_status" value="1" {STR_D_STATUS_CK1}> 啟用
+                <input type="radio" name="d_status" value="0" {STR_D_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <!-- START BLOCK : DOWNLOAD_PUBLIC_OR_NOT -->
+        <tr>
+            <th>公開下載:</th>
+            <td>
+                <input type="radio" name="d_public" id="d_public_1" value="1" {PUBLIC_RAD_1_CHK}/><label for="d_public_1">公開</label>
+                <input type="radio" name="d_public" id="d_public_0" value="0" {PUBLIC_RAD_0_CHK}/><label for="d_public_0">限制</label>
+            </td>
+        </tr>
+        <!-- END BLOCK : DOWNLOAD_PUBLIC_OR_NOT -->
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="d_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_D_SORT}" size="4" maxlength="4"></td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>標題:</th>
+            <td>
+                <input name="d_subject" type="text" value="{VALUE_D_SUBJECT}" class="validate[required]" size="56"></td>
+        </tr>
+        <!-- START BLOCK : THUMB_ROW -->
+        <tr>
+            <th>小圖</th>
+            <td>
+                <input type="hidden" size="60" name="d_thumb" value="{VALUE_D_THUMB}" id="d_thumb" onchange="Javascript:onImageSelect(this,'d_thumb_preview1');">
+                <table border="0" cellpadding="0" cellspacing="0" width="120">
+                    <tr>
+                        <td align="center">
+                            <div>
+                                <a href="javascript:mcImageManager.open('myform','d_thumb');">
+                                <img src="{VALUE_D_THUMB_PREVIEW1}" border="0" width="120" name="d_thumb_preview1" id="d_thumb_preview1">
+                                </a>
+                            </div>
+                            <font color="red">點選圖框更換圖片</font>
+                            <a href="javascript:LoadDefaultPic('d_thumb','d_thumb_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!-- END BLOCK : THUMB_ROW -->
+        <tr>
+            <th>內容:</th>
+            <td>
+                <textarea name="d_content" cols="50" rows="5" >{VALUE_D_CONTENT}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>檔案:</th>
+            <td>
+                <input name="d_filepath" type="text" class="form-textfield" value="{VALUE_D_FILEPATH}" size="50"> &nbsp;
+                <a href="javascript:mcFileManager.open('myform','d_filepath');">選用檔案</a>
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="d_id" value="{VALUE_D_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

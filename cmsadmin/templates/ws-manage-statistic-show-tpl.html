@@ -1,0 +1,68 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+<td width="100%" valign="top">
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="9" valign="top">
+                        <img src="images/main/ws-table-01.jpg" width="9" height="67" /></td>
+                    <td  height="67" style="background:url(images/main/ws-table-02.jpg); background-repeat:repeat-x; height:67px;">
+                        <h1>統計圖表</h1></td>
+                    <td width="11" valign="top">
+                        <img src="images/main/ws-table-03.jpg" width="11" height="67" /></td>
+                </tr>
+                <tr>
+                    <td style="background:url(images/main/ws-table-08.jpg); background-repeat:repeat-y; width:9px;">
+                        &nbsp;</td>
+                    <td bgcolor="#F2F3F5" style="padding:10px;">
+                        <form name="myform" method="post" action="statistic.php" onSubmit="return AboutusFormCheck(myform)">
+                            <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">                          
+                              <tr>
+                                <td>
+                                    <select name="start_year" id="start_year" class="form-select">
+                                    <option value="" > 請選擇 </option>
+                                    <!-- START BLOCK : TAG_SELECT_STATISTIC_YEAR -->
+                                    <option value="{TAG_SELECT_STATISTIC_YEAR_VALUE}" {STR_SEL_Y}> {TAG_SELECT_STATISTIC_YEAR_NAME} </option>
+                                    <!-- END BLOCK : TAG_SELECT_STATISTIC_YEAR -->
+                                  </select> 年
+                                    <select name="start_month" id="start_month" class="form-select">
+                                    <option value="" > 請選擇 </option>
+                                    <!-- START BLOCK : TAG_SELECT_STATISTIC_MONTH -->
+                                    <option value="{TAG_SELECT_STATISTIC_MONTH_VALUE}" {STR_SEL_M}> {TAG_SELECT_STATISTIC_MONTH_NAME} </option>
+                                    <!-- END BLOCK : TAG_SELECT_STATISTIC_MONTH -->
+                                  </select> 月
+                                  <input type="submit" name="Submit" value="輸入">
+                                </td>
+                              </tr>
+                              <tr>
+                                  <th> {TAG_STATISTIC_MODE} </th>
+                              </tr>
+                              <tr>
+                                  <td>
+                                  <!-- START BLOCK : STATISTIC_SHOW -->
+                                      {VALUE_STATISTIC_SHOW}
+                                  <!-- END BLOCK : STATISTIC_SHOW -->
+                                  <!-- START BLOCK : NO_DATA -->
+                                  <div style="text-align:center;color:#ff0000;"> {MSG_NO_DATA} </div>
+                                  <!-- END BLOCK : NO_DATA -->
+                                  </td>
+                              </tr>
+                            </table>
+                            <input type="hidden" name="mode" value="{VALUE_STATISTIC_MODE}">
+                            <input type="hidden" name="date_query" value="1">
+                    </form></td>
+        <td style="background:url(images/main/ws-table-04.jpg); background-repeat:repeat-y; width:11px;">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <img src="images/main/ws-table-07.jpg" width="9" height="13" /></td>
+        <td  style="background:url(images/main/ws-table-06.jpg); background-repeat:repeat-x; height:13px;">
+            &nbsp;</td>
+        <td valign="top">
+            <img src="images/main/ws-table-05.jpg" width="11" height="13" /></td>
+    </tr>
+</table></td>
+</tr>
+</table>
+<!-- INCLUDE BLOCK : FOOTER -->

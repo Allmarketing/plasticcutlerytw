@@ -1,0 +1,48 @@
+<!-- START BLOCK : SEO_SHORT_DESC -->
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+    <h2>{VALUE_SEO_SHORT_DESC}</h2></td>
+  </tr>
+</table>
+<!-- END BLOCK : SEO_SHORT_DESC -->
+<!-- START BLOCK : REAL_STORES_LIST -->
+      <div class="store_list">
+          <div class="store_list_pic"><img src="{VALUE_SD_IMG}" width="200" height="110"/></div>
+          <div class="store_info">
+                <p class="store_title">{VALUE_SD_NAME}</p>
+                {VALUE_SD_DESC}
+          </div>
+          <!-- START BLOCK : GMURL_BLOCK -->
+          <div class="store_map"><a href="#" rel="{VALUE_SD_ID}"><img src="{TAG_THEME_PATH}icon005.png"/></a></div>
+          <!-- END BLOCK : GMURL_BLOCK -->
+      </div>
+<!-- END BLOCK : REAL_STORES_LIST -->   
+<!-- START BLOCK : WEB_STORES_LIST -->
+    <div class="store_online"><a href="{VALUE_SD_URL}" target="_blank" title="{VALUE_SD_NAME}"><img src="{VALUE_SD_IMG}" width="160" height="60"/></a></div>
+<!-- END BLOCK : WEB_STORES_LIST -->
+<!-- INCLUDE BLOCK : ./templates/ws-fn-pagination-tpl.html -->
+<div id="mapzone" title="地圖"></div>
+<script type="text/javascript">
+(function($){
+    $(document).ready(function(){
+        $("#mapzone").dialog({
+            "height":425,
+            "width":455,
+            "modal":true,
+            "autoOpen":false
+        });
+        $(".store_map a").click(function(e){
+            e.preventDefault();
+            var data={ };
+            data.sd_id = $(this).attr('rel');
+            $.post("{TAG_ROOT_PATH}stores.php?func=sd_get_map",data,function(res){
+                if(res){
+                    $("#mapzone").html(res);
+                    $("#mapzone").dialog("open");
+                }
+            });
+        });
+    });
+})(jQuery);    
+</script>

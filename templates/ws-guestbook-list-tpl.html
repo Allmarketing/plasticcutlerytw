@@ -1,0 +1,55 @@
+<table width="550" border="0" cellspacing="2" cellpadding="0">
+        <tr>
+          <td width="31%"><img src="{TAG_THEME_PATH}t_icon_pp.jpg" alt="1" width="11" height="11">&nbsp;<a href="{TAG_ROOT_PATH}guestbook.php?func=gb_add"><font size="3" color="red">新增留言</font></a></td>
+          <td width="69%"> <div align="right"><font size="2" color="blue">總筆數：{VALUE_TOTAL_RECORDS}筆　{VALUE_TOTAL_PAGES}頁</font></div></td>
+        </tr>
+</table>
+  <!-- START BLOCK : GUESTBOOK_LIST -->
+  <table width="550" cellspacing="0">
+    <tr>
+      <td>
+       <table width="100%" border="0" cellspacing="0" bgcolor="#A7E7AD">
+          <tr>
+            <td><font color="#000000">{VALUE_GB_NAME}</font>
+              <!-- START BLOCK : GUESTBOOK_EMAIL -->
+              <a href='mailto:{VALUE_GB_EMAIL}'><img border='0' src='{TAG_THEME_PATH}mail.gif' vspace='2' hspace='2' align='absmiddle'></a>
+              <!-- END BLOCK : GUESTBOOK_EMAIL -->
+              <!-- START BLOCK : GUESTBOOK_URL -->
+              <a href='{VALUE_GB_URL}' target="_BLANK"><img border='0' src='{TAG_THEME_PATH}url.gif' vspace='2' hspace='2' align='absmiddle'></a>
+              <!-- END BLOCK : GUESTBOOK_URL -->
+            </td>
+            <td align="right"><font color="#000000" size="2">留言時間:{VALUE_GB_MODIFYDATE}</font></td>
+          </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td><table width="100%" border="0">
+          <tr> 
+            <td width="15%" rowspan="6" valign="top" align="center">
+            <img border="0" src="{TAG_THEME_PATH}{VALUE_GB_SEX}{VALUE_GB_IMG}"  hspace='20'><br><br>
+             <a href='{TAG_ROOT_PATH}guestbook.php?func=gbr_add&gb_id={VALUE_GB_ID}'>訪客回應</a>
+            </td>
+            <td width="85%">
+              <font color="{VALUE_GB_TEXTCOLOR}">{VALUE_GB_CONTENT}</font> 
+            </td>
+          </tr>
+          <!-- START BLOCK : GUESTBOOK_REPLY_LIST -->
+          <tr> 
+            <td>
+             <hr> <font color="{VALUE_GB_R_TEXTCOLOR}"><strong>{VALUE_GB_R_REPLY_TYPE}回應</strong>:{VALUE_GB_R_CONTENT}</font>
+             <br> <font size="2" color="#FF0000">回應時間</font><font size="2" color="blue">:{VALUE_GB_R_MODIFYDATE}</font> 
+            </td>
+          </tr>
+          <!-- END BLOCK : GUESTBOOK_REPLY_LIST -->
+          <tr> 
+            <td>
+ 
+               </td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+<br>
+<!-- END BLOCK : GUESTBOOK_LIST -->
+<!-- INCLUDE BLOCK : ./templates/ws-fn-pagination-tpl.html -->

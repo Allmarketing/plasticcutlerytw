@@ -1,0 +1,80 @@
+        <!-- START BLOCK : MEMBER_DATA_FORM -->
+        <div id="tp_product">
+        <form name="myform" method="post" action="cart.php?func=s_inquiry_replace" id="formID" class="formular">
+          <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1"  class="member_table">
+            <tr class="altrow">
+              <td>
+                  <font color="red">*</font>{MSG_PRODUCT}</td>
+              <td>
+                  <input name="p_name" type="text" class="validate[required]" value="{VALUE_P_NAME}" size="20" readonly></td>
+            </tr>            
+            <tr class="altrow">
+              <th>{MSG_COMPANY_NAME}</th>
+              <td><input name="m_company_name" size="42" value="{VALUE_M_COMPANY_NAME}" type="text" /></td>
+            </tr>
+            <tr>
+              <th>{MSG_CONTACT_PERSON}</th>
+              <td>
+                 <select name="m_contact_s">
+                  <option value="Mr." {STR_M_CS_CK1}>Mr.</option>
+                  <option value="Miss." {STR_M_CS_CK2}>Miss.</option>
+                  <option value="Mrs." {STR_M_CS_CK3}>Mrs.</option>
+                 </select>
+                &nbsp;{MSG_MEMBER_NAME}:<input name="m_name" id="m_name" class="validate[required]" type="text" value="{VALUE_M_NAME}" size="12" />
+                </td>
+            </tr>
+            <tr class="altrow">
+                <th>{MSG_ZIP}</th>
+                <td>
+                    <input name="m_zip" type="text"   value="{VALUE_M_ZIP}" size="10" ></td>
+            </tr>
+            <tr>
+                <th>{MSG_ADDRESS}</th>
+                <td>
+                    <input name="m_address" type="text"   value="{VALUE_M_ADDRESS}" size="60" ></td>
+            </tr>
+            <tr  class="altrow">
+                <th><font color="#ff0000">*</font>{MSG_TEL}</th>
+                <td>
+                    <input name="m_tel" type="text" id="m_tel" class="validate[required]"   value="{VALUE_M_TEL}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>{MSG_FAX}</th>
+                <td>
+                    <input name="m_fax" type="text" value="{VALUE_M_FAX}" size="40" >
+                    </td>
+            </tr>
+            <tr class="altrow">
+                <th>{MSG_CELLPHONE}</th>
+                <td>
+                    <input name="m_cellphone" type="text"   value="{VALUE_M_CELLPHONE}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>e-mail</th>
+                <td>
+                    <input name="m_email" type="text" id="m_email" class="validate[required,custom[email]]"   value="{VALUE_M_EMAIL}" size="40" >
+                    </td>
+            </tr>
+            <tr  class="altrow">
+              <th>{MSG_CONTENT}</th>
+              <td>
+                 <textarea name="content" cols="50" rows="12" ></textarea>
+              </td>
+            </tr>
+                <tr class="altrow1">
+                  <td>
+                        &nbsp;</td>
+                  <td>
+                     <input type="submit" value="{MSG_MODE}">
+                  </td>
+                </tr>
+                <input type="hidden" name="p_id" value="{VALUE_P_ID}">
+                <input type="hidden" name="ii_amount" value="1">
+            </table>
+            </form>
+            </div>
+        <!-- END BLOCK : MEMBER_DATA_FORM -->
+        <div>{MSG_ACTION_TERM}</div>

@@ -1,0 +1,25 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>{TAG_SERVICE_TERM_TYPE}</h1>
+<form name="myform" method="post" action="service.php?func=st_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>內容:</th>
+            <td>
+                <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+                <textarea id="elm1" name="term_content" cols="50" rows="15">{VALUE_TERM_CONTENT}</textarea>
+                <!-- END BLOCK : WYSIWYG_TINYMCE1 -->
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" value="送出" name="Submit" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="term_type" value="{VALUE_TERM_TYPE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

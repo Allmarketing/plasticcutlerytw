@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language-pack>
+	<header>
+		<!-- Please fill in contact information (author & email), we might contact you when we are doing updates -->
+		<!-- You will also have the chance to participate in beta releases of new versions -->
+		<author>Moxiecode Systems AB (spam@moxiecode.com)</author>
+		<version minor="2" major="1" releasedate="2006-12-05" />
+		<description>
+			This is the Chinese language pack for the MCImageManager.
+		</description>
+	</header>
+
+	<language code="zh" title="Chinese" dir="ltr">
+		<group target="common">
+			<item name="title">圖檔管理員</item>
+			<item name="filemanager">檔案管理</item>
+			<item name="createdir">建立資料夾</item>
+			<item name="refresh">重新整理</item>
+			<item name="upload">上傳</item>
+			<item name="help">說明</item>
+			<item name="edit">編輯</item>
+			<item name="deleteit">刪除</item>
+			<item name="view">檢視</item>
+			<item name="insert">插入</item>
+			<item name="directory">選擇資料夾</item>
+			<item name="loading">載入...</item>
+			<item name="filter">搜尋</item>
+			<item name="alert_ok">Ok</item>
+			<item name="confirm_yes">是</item>
+			<item name="confirm_no">否</item>
+			<item name="prev">上一張</item>
+			<item name="next">下一張</item>
+			<item name="image_data">取得圖片資料, 請稍候...</item>
+			<item name="page">頁</item>
+			<item name="of">of</item>
+                        <item name="download">下載</item>
+
+			<!-- Legacy items -->
+			<item name="add_favorite">新增我的最愛</item>
+			<item name="removefavorite">移除我的最愛</item>
+		</group>
+
+		<group target="button">
+			<!-- think about the length of the text -->
+			<item name="create">建立</item>
+			<item name="cancel">取消</item>
+			<item name="apply">應用</item>
+			<item name="save">儲存</item>
+		</group>
+
+		<group target="error">
+			<!-- common -->
+			<item name="demo">這個動作在展示模式中不執行</item>
+			<item name="no_filesystem">該路徑無檔案系統: {path}.</item>
+			<item name="no_access">沒有這個 檔案/資料夾 的存取權限</item>
+			<item name="no_write_access">資料夾無寫入的權限</item>
+			<item name="file_not_exists">檔案/資料夾 不存在</item>
+			<item name="invalid_filename">檔案名稱不合法</item>
+
+			<!-- create dir -->
+			<item name="template_missing">找不到選擇的樣版</item>
+			<item name="folder_exists">資料夾名稱已存在</item>
+			<item name="createdir_failed">錯誤!無法建立資料夾</item>
+
+			<!-- upload -->
+			<item name="upload_failed">上傳失敗,檢查你的資料夾寫入權限</item>
+			<item name="file_exists">檔名已存在</item>
+			<item name="error_to_large">上傳的檔案過大</item>
+
+			<!-- delete -->
+			<item name="delete_failed">無法刪除檔案</item>
+			
+			<!-- image edit -->
+			<item name="crop_failed">無法裁切圖片</item>
+			<item name="resize_failed">無法調整圖片</item>
+			<item name="rotate_failed">無法旋轉圖片</item>
+			<item name="flip_failed">翻轉失敗</item>
+			<item name="save_failed">儲存失敗</item>
+
+			<!-- Legacy items -->
+			<item name="remove_favorite_failed">從我的最愛中移除失敗</item>
+		</group>
+
+		<group target="message">
+			<!-- common -->
+			<item name="save_success">檔案已儲存</item>
+			<item name="keepalive">Keepalive request.</item>
+
+			<!-- delete -->
+			<item name="delete_success">檔案已刪除</item>
+
+			<!-- create dir -->
+			<item name="directory_ok">資料夾已建立</item>
+
+			<!-- upload -->
+			<item name="upload_ok">上傳成功</item>
+
+			<!-- image edit -->
+			<item name="crop_success">裁切成功</item>
+			<item name="resize_success">調整成功</item>
+			<item name="rotate_success">旋轉成功</item>
+			<item name="flip_success">翻轉成功</item>
+		</group>
+
+		<group target="panel">
+			<item name="categories">分類</item>
+			<item name="folders">資料夾</item>
+
+			<!-- Legacy items -->
+			<item name="favorites">我的最愛</item>
+			<item name="history">歷史記錄</item>
+		</group>
+
+		<group target="view">
+			<item name="title">檢視</item>
+			<item name="mode">檢視模式:</item>
+			<item name="thumbnail">縮圖顯示</item>
+			<item name="textlist">文字列表</item>
+			<item name="images_per_page">圖片/頁</item>
+			<item name="confirm_delete">確定要移除這個檔案?</item>
+			<item name="keyboard_next">鍵盤捷徑: SPACE,N,RIGHTARROW,PAGE DOWN</item>
+			<item name="keyboard_prev">鍵盤捷徑: P,LEFTARROW,PAGE UP</item>
+			<item name="dimensions">尺寸</item>
+
+			<!-- Legacy items -->
+			<item name="confirm_remove_favorite">你確定要從我的最愛中移除?</item>
+		</group>
+
+		<group target="createdir">
+			<item name="title">建立資料夾</item>
+			<item name="description">輸入你想要建立的資料夾名稱</item>
+			<item name="template">樣版:</item>
+			<item name="select_template">-- 選擇樣版 --</item>
+			<item name="directory_name">資料夾名稱:</item>
+			<item name="create_in">建立在:</item>
+			<item name="progress">資料夾建立中,請稍候...</item>
+		</group>
+
+		<group target="upload">
+			<item name="title">上傳</item>
+			<item name="description">使用表單來上傳檔案</item>
+			<item name="valid_extensions">有效的副檔名:</item>
+			<item name="max_upload_size">最大上傳:</item>
+			<item name="file_to_upload">上傳檔案:</item>
+			<item name="as_file_name">檔案名稱:</item>
+			<item name="path">路徑:</item>
+			<item name="button_upload">上傳</item>
+			<item name="browse">新增檔案</item>
+			<item name="progress">上傳中...</item>
+			<item name="upload_warn">檔案已上傳,確定要取消?</item>
+			<item name="statusrow">你有{files}檔案(total {size}) 等待上傳</item>
+			<item name="progressinfo">{loaded} of {total} 已上傳共 {speed}/秒</item>
+			<item name="abort">中止上傳</item>
+			<item name="add_more">要新增其他的嗎?</item>
+			<item name="upload_to_server">上傳到伺服器</item>
+			<item name="cancelled">上傳取消</item>
+			<item name="choose_files">選擇檔案</item>
+			<item name="basic_upload">如果上傳有問題,你可以試著用{a}基本上傳{/a}.</item>
+			<item name="remove">移除</item>
+			<item name="file">檔案</item>
+			<item name="size">大小</item>
+			<item name="status">狀態</item>
+			<item name="no_valid_files">無效的檔案選取,請再重試一次</item>
+		</group>
+
+		<group target="edit_image">
+			<item name="title">圖檔管理員編輯器</item>
+			<item name="save">儲存</item>
+			<item name="revert">回復</item>
+			<item name="crop">裁切</item>
+			<item name="resize">調整</item>
+			<item name="please_wait">圖片處理中,請稍候...</item>
+			<item name="constrain">限制比例</item>
+			<item name="left">左</item>
+			<item name="top">上</item>
+			<item name="width">寬</item>
+			<item name="height">高</item>
+			<item name="save_as">另存新檔</item>
+			<item name="flip">翻轉</item>
+			<item name="rotate">旋轉</item>
+			<item name="reload">重新整理</item>
+			<item name="horizontal">水平</item>
+			<item name="vertical">垂直</item>
+			<item name="saving_wait">儲存圖片中,請稍候...</item>
+			<item name="confirm_revert">你確定要回復之前已儲存的圖片?</item>
+			<item name="loading">載入圖片中,請稍候...</item>
+			<item name="confirm_no_save">你確定不儲存你對圖片所做的變更?</item>
+		</group>
+
+		<group target="tinymce">
+			<item name="insertimage_desc">插入圖片</item>	
+			<item name="replaceimage_desc">取代圖片</item>	
+			<item name="editimage_desc">編輯圖片</item>	
+		</group>
+
+		<group target="favorites">
+			<item name="special_folder_title">我的最愛</item>
+			<item name="addfavorites">新增我的最愛</item>
+			<item name="removefavorites">移除我的最愛</item>
+			<item name="confirm_remove_favorite">你確定要從我的最愛中移除?</item>
+			<item name="remove_favorite_failed">從我的最愛中移除失敗</item>
+		</group>
+
+		<group target="history">
+			<item name="special_folder_title">歷史記錄</item>
+		</group>
+	</language>
+</language-pack>

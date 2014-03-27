@@ -1,0 +1,84 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>好站連結{MSG_MODE}</h1>
+<form name="myform" method="post" action="goodlink.php?func=l_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>分類:</th>
+            <td>
+                <select name="lc_id" >
+                    <!-- START BLOCK : SELECT_OPTION_GOODLINK_CATE -->
+                    <option value="{OPTION_GOODLINK_CATE_VALUE}" {STR_LC_SEL}> {OPTION_GOODLINK_CATE_NAME}</option>
+                    <!-- END BLOCK : SELECT_OPTION_GOODLINK_CATE -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>狀態:</th>
+            <td>
+                <input type="radio" name="l_status" value="0" {STR_L_STATUS_CK0}> 停用&nbsp;
+                <input type="radio" name="l_status" value="1" {STR_L_STATUS_CK1}> 啟用&nbsp;
+                </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="l_sort" type="text"  class="validate[custom[onlyNumber]]" id="type_name" value="{VALUE_L_SORT}" onBlur="CheckNum(this)" size="4" maxlength="4"></td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>標題:</th>
+            <td>
+                <input name="l_subject" type="text" class="validate[required]" value="{VALUE_L_SUBJECT}" size="96" maxlength="255">
+            </td>
+        </tr>
+        <tr>
+            <th>另開視窗:</th>
+            <td> 
+                <input name="l_pop" type="radio" value="0" {STR_L_POP_CK0}> 否
+                <input name="l_pop" type="radio" value="1" {STR_L_POP_CK1}> 是
+            </td>
+        </tr>
+    <tr>
+        <th>相關連結小圖</th>
+        <td>
+        <input type="hidden" name="l_s_pic" value="{VALUE_L_S_PIC}" id="attach_img" onpropertychange="Javascript:onImageSelect(this,'pic_preview');"> &nbsp;
+        <a href="javascript:mcImageManager.open('myform','l_s_pic');">
+        <img src="{VALUE_PIC_PREVIEW}" border="0" width="170" height="70" name="pic_preview" id="pic_preview"></a>
+        <a href="javascript:LoadDefaultPic('attach_img','pic_preview')">取消圖片</a>
+        <br> &nbsp; <br><font color="red">請點選上方圖框更換圖片</font>
+        </td>
+      </tr>
+        <tr>
+            <th>內容:</th>
+            <td>
+                <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+                <textarea id="elm1" name="l_content" cols="50" rows="15">{VALUE_L_CONTENT}</textarea>
+                <!-- END BLOCK : WYSIWYG_TINYMCE1 --> 
+            </td>
+        </tr>
+        <tr>
+            <th>網址連結:</th>
+            <td>
+                <input name="l_url" type="text" class="form-textfield" value="{VALUE_L_URL}" size="96" maxlength="255">
+                <br>
+                <img src="images/icon_004.gif" width="9" height="7"> 必需輸入包含 http:// 的完整網址
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="l_content_type" value="1" >
+    <input type="hidden" name="l_id" value="{VALUE_L_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+
+<!-- INCLUDE BLOCK : FOOTER -->

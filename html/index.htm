@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TAIR CHU</title>
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/fullbg_box.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+<div id="wrapper">
+<div id="left">
+<div id="logo"><a href="#"></a></div>
+
+<div id="language">
+<ul>
+<li><a href="#" class="current">EN</a></li>
+<li><a href="#">繁中</a></li>
+</ul>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.htm" class="current">HOME</a></li>
+<li><a href="company.htm">COMPANY</a></li>
+<li><a href="products.htm">PRODUCTS</a></li>
+<li><a href="news.htm">NEWS</a></li>
+<li><a href="e-catalogue.htm">E-CATALOGUE</a></li>
+<li><a href="contactus.htm">CONTACT US</a></li>
+<li><a href="sitemap.htm">SITEMAP</a></li></ul>
+</div>
+
+<ul id="contacts">
+<li><img src="images/icon-tel.png" />+886-4-22601585</li>
+<li><img src="images/icon-fax.png" />+886-4-22615210</li>
+<li><a href="mailto:sales@tairchu.com.tw"><img src="images/icon-email.png" />sales@tairchu.com.tw</a></li>
+</ul>
+
+</div>
+<!--END left-->
+
+<ul id="products">
+<li id="probtn_01" class="probtn"><a href="#"><img src="images/btn_cutlery_h.png" />Cutlery Series</a></li>
+<li id="probtn_02" class="probtn"><a href="#"><img src="images/btn_food-container_h.png" />Food Container</a></li>
+<li id="probtn_03" class="probtn"><a href="#"><img src="images/btn_cake-cutlery_h.png" />Cake Series</a></li>
+<li id="probtn_04" class="probtn"><a href="#"><img src="images/btn_h_h.png" />Cup</a></li>
+<li id="probtn_05" class="probtn"><a href="#"><img src="images/btn_lid_h.png" />Lid</a></li>
+<li id="probtn_06" class="probtn"><a href="#"><img src="images/btn_oem_h.png" />OEM</a></li>
+<li id="probtn_07" class="probtn"><a href="#"><img src="images/btn_love-arth_h.png" />Love Earth</a></li>
+</ul>
+<!--END products-->
+
+
+<div id="master">
+<div id="main"><p>Tair Chu Enterprise Co., Ltd. founded in Taiwan in 1978 has been engaged in making plastic injection products for more than 30 years. <br />"Customer satisfaction, Quality first, Competitive Price, and On-time Delivery" are our core concepts. </p></div>
+
+
+<div id="footer">© 2013 TAIR CHU All rights reserved.</div>
+<!--END footer-->
+
+</div>
+<!--END master-->
+
+</div>
+<!--END wrapper-->
+
+
+</body>
+</html>
+
+<script>
+	$(function(){
+		$("body").fullbg_box({
+			IMG : "images/banner01.jpg,images/banner02.jpg,images/banner03.jpg,images/banner04.jpg", // 背景圖案 (使用 , 分隔不同圖檔路徑)
+			ACT_SPEED : 2000, //動作花費時間
+			ACT_TIMER : 6000, //動作間隔時間
+		});
+		
+		//----
+		$(".probtn").hover(function(){
+			$(this).find("img").fadeIn();
+		},function(){
+			$(this).find("img").fadeOut();
+		});
+	});
+</script>

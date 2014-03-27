@@ -1,0 +1,814 @@
+<!-- START BLOCK : JQUERY_MCUSTOMSCROLLBAR_SCRIPT -->
+<script src="{TAG_ROOT_PATH}js/scrollbar/jquery-ui-1.8.21.custom.min.js" type="text/javascript"></script>
+<script src="{TAG_ROOT_PATH}js/scrollbar/jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="{TAG_ROOT_PATH}js/scrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+<link href="{TAG_ROOT_PATH}js/scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<!-- END BLOCK : JQUERY_MCUSTOMSCROLLBAR_SCRIPT -->
+<!-- START BLOCK : JQUERY_UI_SCRIPT -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/jquery/jquery-ui-1.9.1.custom.css" />
+<script src="{TAG_ROOT_PATH}js/jquery/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+<script src="{TAG_ROOT_PATH}js/jquery/jquery-ui-i18n.js" type="text/javascript"></script>
+<script type="text/javascript">
+        jQuery.datepicker.setDefaults( jQuery.datepicker.regional[ "zh-TW" ] );    
+</script>
+<!-- END BLOCK : JQUERY_UI_SCRIPT -->
+<!-- START BLOCK : JQUERY_CLEARFIELD_SCRIPT -->
+<script src="{TAG_ROOT_PATH}js/jquery.clearfield.js" type="text/javascript"></script>
+<script>
+(function($){
+    $(document).ready(function(){
+        $("#psearch").clearField();
+     <!-- START BLOCK : SEARCH_FIELD_AUTOCOMPLETE -->   
+        $( "#psearch" ).autocomplete({
+            source: "{TAG_ROOT_PATH}products.php?func=p_ajax_get_p_name",
+            minLength: 2,
+            select: function( event, ui ) {
+            }
+        });        
+     <!-- END BLOCK : SEARCH_FIELD_AUTOCOMPLETE -->   
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : JQUERY_CLEARFIELD_SCRIPT -->
+<!-- START BLOCK : JS_LEFT_MENU -->
+<script type="text/javascript">
+(function($){
+    $(document).ready(function()
+    {
+    <!-- START BLOCK : CLICK_MODE -->
+        //slides the element with class "menu_body" when paragraph with class "menu_head" is clicked 
+        $("#firstpane p.menu_head").click(function() {
+            //$(this).css({ backgroundImage:"url(down.png)" }).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+            //$(this).siblings().css({ backgroundImage:"url(left.png)" });
+            $(this).siblings("div.menu_body").slideUp("slow"); 
+            $(this).next("div.menu_body").slideToggle(300);          
+        });
+        $("#firstpane > p").eq({CLICK_NUM1}).click();
+    <!-- END BLOCK : CLICK_MODE -->
+    <!-- START BLOCK : OVER_MODE -->
+        //slides the element with class "menu_body" when mouse is over the paragraph
+        $("#secondpane p.menu_head").mouseover(function() {
+            //$(this).css({ backgroundImage:"url(down.png)" }).next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+            //$(this).siblings().css({ backgroundImage:"url(left.png)" });
+            $(this).next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");            
+        });
+        $("#secondpane>p").eq({OVER_NUM1}).mouseover();
+    <!-- END BLOCK : OVER_MODE -->
+    });    
+})(jQuery);
+</script>
+<!-- END BLOCK : JS_LEFT_MENU -->
+<!-- START BLOCK : JS_FORMVALID -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/formvalid/validationEngine.jquery.css"/>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/formvalid/jquery.js" ></script>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/formvalid/jquery.validationEngine-{TAG_LANG}.js" ></script>
+<script>    
+(function($){
+    $(document).ready(function() {
+        // SUCCESS AJAX CALL, replace "success: false," by:     success : function() { callSuccessFunction() }, 
+        $("#formID").validationEngine();
+        //$.validationEngine.buildPrompt("#date","This is an example","error")           // Exterior prompt build example
+        //$.validationEngine.closePrompt(".date")                                        // Exterior prompt close example
+    });    
+})(jQuery);
+</script>   
+<!-- END BLOCK : JS_FORMVALID -->
+<!-- START BLOCK : JS_MAIN -->
+<script language="JavaScript" src="{TAG_ROOT_PATH}js/ws_main.js"></script>
+<!-- END BLOCK : JS_MAIN -->
+<!-- START BLOCK : JS_SHOW_STYLE_P1 -->
+<script language="JavaScript" src="{TAG_ROOT_PATH}js/style1/showimages.js"></script>
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/style1/style1.css"/>
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+            $(".products_show").showImages({ 
+                img_limit:4,    //最多幾個圖
+                img_height:272,  //大圖的高度
+                act_mode:"",      //預設(空白為輪動,switch:直接切換    
+                container_id : 'ifocus',   //本效果所有的dom元件的parent     
+                piclist_id : 'ifocus_piclist',//包裝大圖的容器id
+                btn_id : 'ifocus_btn', //包含小圖的容器id
+                txt_id : 'ifocus_tx',  //包含大圖文字的容器id
+                btn_container : "li", //單一小圖的容器標籤
+                txt_container : 'li', //單一大圖文字容器標籤
+                current_className : 'current', //代表當前選擇的小圖樣式
+                normal_className : 'normal', //代表未選擇的小圖樣式
+                scrolling: false, //是否自動輪播
+                on:'click' //切換圖片需觸發的事件
+            }); 
+        });         
+    })(jQuery);   
+</script>  
+<!-- END BLOCK : JS_SHOW_STYLE_P1 -->
+<!-- START BLOCK : JS_POP_IMG -->
+<link rel="stylesheet" href="{TAG_ROOT_PATH}js/lightbox/jquery.lightbox-0.5.css" type="text/css" media="screen" />
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/lightbox/jquery.lightbox-0.5.pack.js"></script>
+<script type="text/javascript">
+(function($){
+    $(document).ready(function(){
+       $('a[rel*=lightbox]').lightBox({
+            overlayBgColor: '#000',
+            overlayOpacity: 0.6,
+            imageLoading: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-ico-loading.gif',
+            imageBtnClose: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-btn-close.gif',
+            imageBtnPrev: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-btn-prev.gif',
+            imageBtnNext: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-btn-next.gif',
+			imageBlank: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-blank.gif',
+            containerResizeSpeed: 1000,
+            txtImage: 'Image',
+            txtOf: 'of'
+       });        
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : JS_POP_IMG -->
+<!-- START BLOCK : JS_IMAGE_FLOW -->
+<link rel="stylesheet" href="{TAG_ROOT_PATH}js/imageflow/cms_imageflow.css" type="text/css" />
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/imageflow/cms_imageflow.js"></script>
+<!-- END BLOCK : JS_IMAGE_FLOW -->
+<!-- START BLOCK : GOOGLE_ANALYTICS -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{VALUE_GA_CODE}']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- END BLOCK : GOOGLE_ANALYTICS -->
+<!-- START BLOCK : DROPDOWN_MENU_SCRIPT -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/ddMenu.js"></script>
+<link href="{TAG_ROOT_PATH}css/submenu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+            $(".btn").ddMenu();
+        });
+    })(jQuery);
+</script>
+<!-- END BLOCK : DROPDOWN_MENU_SCRIPT -->    
+<!-- START BLOCK : SCROLL_FLOAT_SCRIPT -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/floatMark.js"></script>
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+             var floatDiv = new floatMark("cart-mune",20); 
+             floatDiv.setScroll(10);
+        });
+    })(jQuery);
+</script>
+<!-- END BLOCK : SCROLL_FLOAT_SCRIPT -->
+<!-- START BLOCK : DOMTAB_SCRIPT -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/domtab/domtab.css" />
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/domtab/domtab.js"></script>
+<!-- END BLOCK : DOMTAB_SCRIPT -->
+<!-- START BLOCK : EASYACCORDION_SCRIPT -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/easyAccordion/jquery.easyAccordion.css"/>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/easyAccordion/jquery.easyAccordion.js"></script>
+<script type="text/javascript">
+(function($){
+    $(document).ready(function(){
+	$('#accordion-1').easyAccordion({ 
+            autoStart: true, 
+            slideInterval: 3000
+	});        
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : EASYACCORDION_SCRIPT -->
+<!-- START BLOCK : JSCAROUSEL_SCRIPT -->
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+            $('#servies-main').jsCarousel({ onthumbnailclick: function(src) { alert(src); }, autoscroll: true, masked: true, itemstodisplay: 2, orientation: 'v' });
+        });
+    })(jQuery);
+</script>
+<!-- END BLOCK : JSCAROUSEL_SCRIPT -->
+<!--START BLOCK : SLIDE_BOX -->
+<script type="text/javascript">
+//document.onload = timedCount();
+(function($){
+    function timedCount(){
+            $('.barbox').click();
+            TIMER=setTimeout("timedCount()",2000);
+    }
+
+    function IMG_LOAD(SRC){
+            var IMG = new Image();
+            IMG.src = SRC;
+
+            var WINDOW_H = $(window).height();
+            var NOW_TOP =parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+
+            $('#light_box #box_bottom #box_message span').eq(0).html("{SBOX_IMAGE} "+ IMG_POT +" {SBOX_OF} "+ IMG_NUM);
+            $('#light_box #box_close').css({ "top":NOW_TOP +"px" });
+
+            if(IMG.complete == false){
+                    $(IMG).load(function(){
+                            var IMG_W = IMG.width / 2;
+                            var IMG_H = IMG.height / 2;
+                            var CENTER_H = NOW_TOP + WINDOW_H / 2;
+
+                            $('#light_box div#next,#light_box div#prev').css({ "top":CENTER_H +"px","margin-top":"-15px" });
+                            $('#light_box div#main img').attr("src",SRC)
+                            $('#light_box div#main').css({ "margin-left":"-"+ IMG_W +"px","top":CENTER_H +"px","margin-top":"-"+ IMG_H +"px" });
+                    });
+            }else{
+                    $('#light_box div#main img').attr("src",SRC);
+                    var IMG_W = IMG.width / 2;
+                    var IMG_H = IMG.height / 2;
+                    var CENTER_H = NOW_TOP + WINDOW_H / 2;
+
+                    $('#light_box div#next,#light_box div#prev').css({ "top":CENTER_H +"px","margin-top":"-15px" });
+                    $('#light_box div#main').css({ "margin-left":"-"+ IMG_W +"px","top":CENTER_H +"px","margin-top":"-"+ IMG_H +"px" });
+            }
+    }
+
+    //var AD_ROW = new Array();
+    //var AD_NUM = new Array();
+
+    $(document).ready(function(){
+
+            /*
+            //var BOX_ROW = $(".barbox").size()
+            $("body").on("click","div.barbox",function(){
+                    var BOX_NUM = $(".barbox").index(this);
+                    if(!AD_ROW[BOX_NUM]){
+                            AD_ROW[BOX_NUM] = 1;
+                    }
+                    AD_NUM[BOX_NUM] = $(this).children('a').size();
+                    if(AD_ROW[BOX_NUM] < AD_NUM[BOX_NUM]){
+                            AD_ROW[BOX_NUM] = AD_ROW[BOX_NUM] + 1;
+                    }else{
+                            AD_ROW[BOX_NUM] = 1;
+                    }
+                    $(this).children("a").hide();
+                    $(this).children("a.row_"+ AD_ROW[BOX_NUM] +"").show();
+            });
+
+            timedCount();
+            */
+            $("div.barbox").each(function(hide_key){
+                    $(this).children("a").each(function(hide_key_2){
+                            if(hide_key_2 != 0){
+                                    $(this).hide();
+                            }
+                    });
+            });
+
+            $('body').append("<div id=\"light_box\"><div id=\"main\"><img></div><div id=\"box_bottom\"><div id=\"box_message\"><span></span><span>|</span><span id=\"box_toggle\"></span><span>|</span><span id=\"box_close\">{SBOX_BACK}</span></div><div id=\"box_small_img\"></div></div><div id=\"next\">{SBOX_NEXT} ></div><div id=\"prev\">< {Prev}</div><div id=\"bg\"></div></div>");
+
+            $('body').on("click","a.box",function(){
+                    //event.preventDefault();
+                    var FIRST_IMG = $(this).parent("div.barbox").find("a:eq(0)").attr("rel");
+                    IMG_NUM = $(this).parent("div.barbox").children("a").size();
+                    IMG_POT = 1;
+
+                    IMG_ALL_REL = new Array();
+
+                    $(this).parent("div.barbox").children("a").each(function(key){
+                            IMG_ALL_REL[key + 1] = $(this).attr("rel");
+                    });
+
+                    if(FIRST_IMG != ""){
+                            $('#light_box').fadeIn('slow');
+                            if(IMG_NUM == 1){
+                                    $('#light_box #next,#light_box #prev').css({ "display":"none" });
+                            }else{
+                                    $('#light_box #next,#light_box #prev').css({ "display":"block" });
+                            }
+
+                            $('body').css({ "overflow":"hidden" });
+
+                            var WINDOW_H = $(window).height();
+                            var NOW_TOP =parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+                            var BOTTOM_H = WINDOW_H + NOW_TOP;
+
+                            $('#light_box div#bg').css({ "top":NOW_TOP +"px" });
+                            $('#light_box div#box_bottom').css({ "top":BOTTOM_H +"px","margin-top":"-30px" });
+                            $('#light_box #box_bottom #box_message span').eq(0).html("{SBOX_IMAGE} "+ IMG_POT +" {SBOX_OF} "+ IMG_NUM);
+                            $('#light_box #box_bottom #box_message span').eq(2).html("<a>{SBOX_CLICK_VIEW_LIST}</a>");
+
+                            IMG_LOAD(FIRST_IMG);
+                    }
+            });
+
+            $('#light_box #next').click(function(){
+                    if(IMG_POT < IMG_NUM){
+                            IMG_POT++;
+                    }else{
+                            IMG_POT = 1;
+                    }	
+
+                    IMG_LOAD(IMG_ALL_REL[IMG_POT]);
+            });
+
+            $('#light_box #prev').click(function(){
+                    if(IMG_POT > 1){
+                            IMG_POT--;
+                    }else{
+                            IMG_POT = IMG_NUM;
+                    }
+
+                    IMG_LOAD(IMG_ALL_REL[IMG_POT]);
+            });
+
+            $("#light_box #bg,#light_box #box_close").click(function(){
+                    $("#light_box").fadeOut('slow');
+                    $('body').css({ "overflow":"auto" });
+                    //$('#light_box div#main').html("");
+            });
+
+            $("#box_toggle").toggle(function(){
+                    $("div#box_bottom").animate({ "margin-top":"-150px" });
+                    $("#box_message span").eq(2).html("<a>{SBOX_CLICK_CLOSE_LIST}</a>");
+                    $("#box_small_img").html("");
+                    $.each(IMG_ALL_REL, function(KEY,VALUE){
+                            if(KEY != 0){
+                                    $("#box_small_img").append("<img rel=\""+ KEY +"\" src=\""+ IMG_ALL_REL[KEY] +"\" >");
+                            }
+                    });
+            } ,function(){
+                    $("div#box_bottom").animate({ "margin-top":"-30px" });
+                    $("#box_message span").eq(2).html("<a>{SBOX_CLICK_VIEW_LIST}</a>");
+            });
+
+            $('body').on("hover","#box_small_img img",function(){
+                    var IMG_OVER = $(this).attr("rel");
+                    IMG_POT = IMG_OVER - 1;
+                    $('#light_box #next').click();
+            });
+    });    
+})(jQuery);
+</script>
+<!-- END BLOCK : SLIDE_BOX -->
+
+<!-- START BLOCK : AU_BOX -->
+<script type="text/javascript">
+(function($){
+    function IMG_LOAD(SRC){
+            var IMG = new Image();
+            IMG.src = SRC;
+
+            var WINDOW_H = $(window).height();
+            var NOW_TOP =parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+
+            $('#light_box #box_bottom #box_message span').eq(0).html("{SBOX_IMAGE} "+ IMG_POT +" {SBOX_OF} "+ IMG_NUM);
+            $('#light_box #box_close').css({ "top":NOW_TOP +"px" });
+
+            if(IMG.complete == false){
+                    $(IMG).load(function(){
+                            var IMG_W = IMG.width / 2;
+                            var IMG_H = IMG.height / 2;
+                            var CENTER_H = NOW_TOP + WINDOW_H / 2;
+
+                            $('#light_box div#next,#light_box div#prev').css({ "top":CENTER_H +"px","margin-top":"-15px" });
+                            $('#light_box div#main img').attr("src",SRC)
+                            $('#light_box div#main').css({ "margin-left":"-"+ IMG_W +"px","top":CENTER_H +"px","margin-top":"-"+ IMG_H +"px" });
+                    });
+            }else{
+                    $('#light_box div#main img').attr("src",SRC);
+                    var IMG_W = IMG.width / 2;
+                    var IMG_H = IMG.height / 2;
+                    var CENTER_H = NOW_TOP + WINDOW_H / 2;
+
+                    $('#light_box div#next,#light_box div#prev').css({ "top":CENTER_H +"px","margin-top":"-15px" });
+                    $('#light_box div#main').css({ "margin-left":"-"+ IMG_W +"px","top":CENTER_H +"px","margin-top":"-"+ IMG_H +"px" });
+            }
+    }
+
+
+    $(document).ready(function(){
+            $('body').append("<div id=\"light_box\"><div id=\"main\"><img></div><div id=\"box_bottom\"><div id=\"box_message\"><span></span><span>|</span><span id=\"box_toggle\"></span><span>|</span><span id=\"box_close\">{SBOX_BACK}</span></div><div id=\"box_small_img\"></div></div><div id=\"next\">{SBOX_NEXT} ></div><div id=\"prev\">< {SBOX_PREV}</div><div id=\"bg\"></div></div>");
+
+            $('body').on("click",".service_pic a",function(){
+                    //event.preventDefault();
+                    var FIRST_IMG = $(this).parents("div.service_list").find("a:eq(0)").attr("rel");
+                    IMG_NUM = $(this).parents("div.service_list").find("a").size();
+                    IMG_POT = 1;
+
+                    IMG_ALL_REL = new Array();
+
+                    $(this).parents("div.service_list").find("a").each(function(key){
+                            IMG_ALL_REL[key + 1] = $(this).attr("rel");
+                    });
+
+                    if(FIRST_IMG != ""){
+                            $('#light_box').fadeIn('slow');
+                            if(IMG_NUM == 1){
+                                    $('#light_box #next,#light_box #prev').css({ "display":"none" });
+                            }else{
+                                    $('#light_box #next,#light_box #prev').css({ "display":"block" });
+                            }
+
+                            $('body').css({ "overflow":"hidden" });
+
+                            var WINDOW_H = $(window).height();
+                            var NOW_TOP =parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+                            var BOTTOM_H = WINDOW_H + NOW_TOP;
+
+                            $('#light_box div#bg').css({ "top":NOW_TOP +"px" });
+                            $('#light_box div#box_bottom').css({ "top":BOTTOM_H +"px","margin-top":"-30px" });
+                            $('#light_box #box_bottom #box_message span').eq(0).html("{SBOX_IMAGE} "+ IMG_POT +" {SBOX_OF} "+ IMG_NUM);
+                            $('#light_box #box_bottom #box_message span').eq(1).html("|");
+                            $('#light_box #box_bottom #box_message span').eq(2).html("<a>{SBOX_CLICK_VIEW_LIST}</a>");
+
+                            IMG_LOAD(FIRST_IMG);
+                    }
+            });
+
+            //-----
+
+            $('body').on("click",".service_list_01 a",function(){
+                    //event.preventDefault();
+                    var FIRST_IMG = $(this).parents("div.service_list_01").find("div.box:eq(0) a").attr("rel");	
+                    IMG_NUM = $(this).parents("div.service_list_01").find("div.box").size();
+                    IMG_POT = 1;
+
+                    IMG_ALL_REL = new Array();
+
+                    $(this).parents("div.service_list_01").find("div.box a").each(function(key){
+                            IMG_ALL_REL[key + 1] = $(this).attr("rel");
+                    });
+
+                    if(FIRST_IMG != ""){
+                            $('#light_box').fadeIn('slow');
+                            if(IMG_NUM == 1){
+                                    $('#light_box #next,#light_box #prev').css({ "display":"none" });
+                            }else{
+                                    $('#light_box #next,#light_box #prev').css({ "display":"block" });
+                            }
+
+                            $('body').css({ "overflow":"hidden" });
+
+                            var WINDOW_H = $(window).height();
+                            var NOW_TOP =parseInt(document.body.scrollTop, 10) ||parseInt(document.documentElement.scrollTop, 10);
+                            var BOTTOM_H = WINDOW_H + NOW_TOP;
+
+                            $('#light_box div#bg').css({ "top":NOW_TOP +"px" });
+                            $('#light_box div#box_bottom').css({ "top":BOTTOM_H +"px","margin-top":"-30px" });
+                            $('#light_box #box_bottom #box_message span').eq(0).html("{SBOX_IMAGE} "+ IMG_POT +" {SBOX_OF} "+ IMG_NUM);
+                            $('#light_box #box_bottom #box_message span').eq(2).html("<a>{SBOX_CLICK_VIEW_LIST}</a>");
+
+                            IMG_LOAD(FIRST_IMG);
+                    }
+            });
+
+            //-----
+
+            $('#light_box #next').click(function(){
+                    if(IMG_POT < IMG_NUM){
+                            IMG_POT++;
+                    }else{
+                            IMG_POT = 1;
+                    }
+
+                    IMG_LOAD(IMG_ALL_REL[IMG_POT]);
+            });
+
+            $('#light_box #prev').click(function(){
+                    if(IMG_POT > 1){
+                            IMG_POT--;
+                    }else{
+                            IMG_POT = IMG_NUM;
+                    }
+
+                    IMG_LOAD(IMG_ALL_REL[IMG_POT]);
+            });
+
+            $("#light_box #bg,#light_box #box_close").click(function(){
+                    $("#light_box").fadeOut('slow');
+                    $('body').css({ "overflow":"auto" });
+                    //$('#light_box div#main').html("");
+            });
+
+            $("#box_toggle").toggle(function(){
+                    $("div#box_bottom").animate({ "margin-top":"-150px" });
+                    $("#box_message span").eq(2).html("<a>{SBOX_CLICK_CLOSE_LIST}</a>");
+                    $("#box_small_img").html("");
+                    $.each(IMG_ALL_REL, function(KEY,VALUE){
+                            if(KEY != 0){
+                                    $("#box_small_img").append("<img rel=\""+ KEY +"\" src=\""+ IMG_ALL_REL[KEY] +"\" >");
+                            }
+                    });
+            } ,function(){
+                    $("div#box_bottom").animate({ "margin-top":"-30px" });
+                    $("#box_message span").eq(2).html("<a>{SBOX_CLICK_VIEW_LIST}</a>");
+            });
+
+            $('body').on("hover","#box_small_img img",function(){
+                    var IMG_OVER = $(this).attr("rel");
+                    IMG_POT = IMG_OVER - 1;
+                    $('#light_box #next').click();
+            });
+    });    
+})(jQuery);
+
+</script>
+<!-- END BLOCK : AU_BOX -->
+
+<!-- START BLOCK : AU_PAGING -->
+<script type="text/javascript">
+(function($){
+    $.extend({ 
+            getUrlVars: function(){ 
+              var vars = [], hash; 
+              var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&'); 
+              for(var i = 0; i < hashes.length; i++) 
+              { 
+                    hash = hashes[i].split('='); 
+                    vars.push(hash[0]); 
+                    vars[hash[0]] = hash[1]; 
+              } 
+              return vars; 
+            }, 
+            getUrlVar: function(name){ 
+              return $.getUrlVars()[name]; 
+            } 
+    }); 
+
+    var AU_PAGE = $.getUrlVar('au_page');
+
+    $(document).ready(function(){
+            if(AU_PAGE){
+                    $(".domtabs li").removeClass("active");
+                    $(".domtabs li").eq(AU_PAGE - 1).addClass("active");
+                    $(".page-word").hide();
+                    $(".page-word").eq(AU_PAGE - 1).show();
+            }else{
+                    $(".page-word:eq(0)").show();
+                    $(".domtabs li:eq(0)").addClass("active");
+            }
+
+            $(".domtabs li").click(function(){
+                    $(".domtabs li").removeClass("active");
+                    $(this).addClass("active");
+                    var ROW_NUM = $(this).index();
+
+                    $(".page-word").hide();
+                    $(".page-word").eq(ROW_NUM).show();
+
+                    if(ROW_NUM != 0){
+                            $("#au_bottom").hide();
+                    }else{
+                            $("#au_bottom").show();
+                    }
+            });
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : AU_PAGING -->
+<!-- START BLOCK : CALENDAR_SCRIPT -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/calendar/dhtmlgoodies_calendar.css" media="screen"/>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/calendar/dhtmlgoodies_calendar.js"></script>
+<!-- END BLOCK : CALENDAR_SCRIPT -->
+<!-- START BLOCK : EMBED_MV_SCRIPT -->
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('ytplayer', {
+        height: '315',
+        width: '420',
+        videoId: '{VALUE_MV_ID}',
+        events: {
+            'onError': onError
+        }      
+    });
+  }
+
+function onYouTubePlayerReady(playerId){
+    alert('d');
+}
+
+function onError(event){
+    switch(event.data){
+      case 2:
+          alert('invalid parameter');
+          break;
+      case 5:
+          alert('HTML5 compatibility');
+          break;
+      case 100:
+          alert('video requested was not found');
+          break;
+      case 101:
+          alert('video does not allow to be played in embedded player('+101+")");
+          break;
+      case 150: //same as 101
+          alert('video does not allow to be played in embedded player('+150+")");
+    }
+}
+function playVideo(){
+    if(player.playVideo){
+        player.playVideo();
+    }else{
+        setTimeout(playVideo,100);
+    }
+}
+(function($){
+    $(document).ready(function(){
+        $(".video a").click(function(e){
+            e.preventDefault();
+            $("#movie").dialog({
+                modal: true,
+                position:{
+                    my:'center',
+                    at:'center',
+                    of:$('#show-pic')
+                },
+                width:600,
+                height:368,
+                beforeClose: function( event, ui ) {
+                    if(player) player.stopVideo();
+                },
+                open : function(event, ui){
+                    playVideo();
+                }
+            });
+        });
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : EMBED_MV_SCRIPT -->
+<!-- START BLOCK : FAQ_SP_SCRIPT -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/faq/ddaccordion.js"></script>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/faq/dd2.js"></script>
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/faq/dd2.css" />
+<!-- END BLOCK : FAQ_SP_SCRIPT -->
+<!-- START BLOCK : ANYTHING_SLIDER_SCRIPT -->
+<link href="{TAG_ROOT_PATH}js/anythingslider/css/anythingslider.css" rel="stylesheet" type="text/css" media="screen" />	
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/anythingslider/js/jquery.anythingslider.js"></script>
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/anythingslider/js/jquery.easing.1.2.js"></script>
+<script type="text/javascript">
+myslidertitle = [{ITITLE_STRS}];
+function nav_formatter(idx,pan){
+    return myslidertitle[idx-1];
+}
+(function($){
+    $(document).ready(function(){
+        $("#slider").anythingSlider({
+            buildStartStop:false,
+            autoPlay:true,
+            buildArrows:false,
+            buildNavigation:true,
+            navigationFormatter: nav_formatter,
+            hashTags:false
+        });
+    });
+})(jQuery);    
+</script>
+<!-- END BLOCK : ANYTHING_SLIDER_SCRIPT -->
+<!-- START BLOCK : JS_CLOUD_ZOOM -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/cloudzoom/cloud-zoom.1.0.2.js"></script>
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/cloudzoom/cloud-zoom.css" />
+<!-- END BLOCK : JS_CLOUD_ZOOM -->
+<!-- START BLOCK : NIVO_SLIDER_SCRIPT -->
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/nivo/themes/nivo-slider.css" />
+<link type="text/css" rel="stylesheet" href="{TAG_ROOT_PATH}js/nivo/themes/default/default.css" />
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/nivo/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+    jQuery(function($){
+        $(document).ready(function(){
+            $('#slider').nivoSlider({ controlNav:false }); 
+        });
+    });
+</script>
+<!-- END BLOCK : NIVO_SLIDER_SCRIPT -->
+<!-- START BLOCK : CHCAROUSEL_SCRIPT -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/jquery.chcarousel.js"></script>
+<script type="text/javascript">
+    jQuery(function($){
+        $(document).ready(function(){
+             $("#activity-zone").chcarousel({
+                nums:1,   //單一頁的項目
+                toLeftId:'go-left',
+                toRightId:'go-right',
+                recycle:false,
+                pageId:'chcarouselpage'
+             });
+        });
+    });
+</script>
+<!-- END BLOCK : CHCAROUSEL_SCRIPT -->
+<!-- START BLOCK : DATEPICKER_SCRIPT -->
+<script type="text/javascript">
+    jQuery(function($){
+        $(document).ready(function(){
+            $('.datepicker').datepicker({
+                'dateFormat':'yy/mm/dd'
+            });
+        });
+    });                        
+</script>
+<!-- END BLOCK : DATEPICKER_SCRIPT -->
+<!-- START BLOCK : DATEPICKER_SCRIPT_IN_CART -->
+<script type="text/javascript">
+    jQuery(function($){
+        $(document).ready(function(){
+           //設定到貨日期
+           $("#o_deliver_date").datepicker({ 
+               dateFormat    : 'yy/mm/dd',
+               minDate       : '+3',
+               maxDate       : '+2M' ,
+               beforeShowDay : function(date){
+                   return [date.getDay()!=0 && date.getDay()!=1,''];
+               }
+           });
+        });
+    });                        
+</script>
+<!-- START BLOCK : DATEPICKER_SCRIPT_IN_CART -->
+<!-- START BLOCK : AJAX_GET_VIDEO_CONTENT -->
+<script type="text/javascript">
+    jQuery(function($){
+        $(document).ready(function(){
+            $("#movie").dialog({
+                autoOpen:false,
+                modal: true,
+                width:520,
+                height:410,
+                beforeClose: function( event, ui ) {
+                    $("#movie").empty();
+                }
+            });  
+            $(".video a").click(function(e){
+                e.preventDefault();
+                var v_id = $(this).attr('rel');
+                $.get("{TAG_ROOT_PATH}video.php",{ func:'ajax_get_video_content',v_id:v_id },function(req){
+                    if(req.res){
+                        var player = $("<iframe></iframe>").attr("src","http://www.youtube.com/embed/"+req.content+"?autoplay=1").width(480).height(360);
+                        $("#movie").dialog("open").dialog('option','title',req.subject).append(player);   
+                    }
+                },'json');
+            });
+        });
+    });                
+</script>
+<!-- END BLOCK : AJAX_GET_VIDEO_CONTENT -->
+<!-- START BLOCK : JS_YOUTUBEDIALOG -->
+        <script type="text/javascript" src="{TAG_ROOT_PATH}js/jquery.youtubedialog.js"></script>
+        <script type="text/javascript">
+            jQuery(function($){
+               $(document).ready(function(){
+                  $("a[rel^=youtubedialog]").youtubedialog({
+                        autoImage:true,
+                        container_id: '#movie',
+                        container_width:520,
+                        container_height:420,
+                        container_title:'youtubedialog',
+                        video_width:450,
+                        video_height:320,
+                        dialog_options:{
+                            resizable:false
+                        }
+                  }); 
+               });
+            });
+        </script>
+<!-- END BLOCK : JS_YOUTUBEDIALOG -->
+<!-- START BLOCK : JS_LAZYLOAD -->
+<script type="text/javascript" src="{TAG_ROOT_PATH}js/jquery.lazyload.js"></script>
+<script type="text/javascript" >
+    jQuery(function($){
+       $(document).ready(function(){
+          $("img.lazy").lazyload();
+       });
+    });                      
+</script>
+<!-- END BLOCK : JS_LAZYLOAD -->
+<!-- START BLOCK : JS_SLIDE_BOX_RELATED -->
+<script src="{TAG_ROOT_PATH}js/slide_box.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function($){
+	$(document).ready(function(){
+		 $("#probox").slide_box({
+			SHOW_NUM : 3, //一次顯示數量
+			OUTER_WIDTH : 30, //額外間距
+			ACT_TIMER : 3000, //動作間隔時間
+			POSITION : 0, // 起始位置
+			AUTO : true, // true => 自動動作 , false => 手動動作
+			WIDTH : 184, // 圖片大小
+			HOVER : false, // 滑鼠hover停止動作 , true => 停止 , false => 不停止
+			CYCLE : true, // 循環 / 回放切換 , true => 循環 , false => 回放
+			VERTICAL : false, //移動方向 , true => 垂直 , false => 水平
+			AFTER :  function() { function_name() } // 動作後執行擴充
+		});
+	});
+ })(jQuery);
+</script>
+<!-- END BLOCK : JS_SLIDE_BOX_RELATED -->

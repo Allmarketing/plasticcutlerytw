@@ -1,0 +1,67 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>電子型錄分類管理</h1>
+<br>
+<form action="ebook.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="11">
+      目前分類 : <a href="ebook.php?func=ebc_list&ebc_parent=0">主分類</a> > {TAG_EBOOK_CATE_LAYER}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="ebook.php?func=ebc_add&ebc_parent={VALUE_EBC_PARENT}" >新增</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+          <li><img src="images/icon-copy.gif" /><a href="#" Onclick="Javascript:return FormCheckCopy(myform)">複製</a></li>
+          <li><img src="images/icon-lock.gif" /><a href="#" Onclick="Javascript:return FormCheckLock(myform)">上鎖</a></li>
+          <li><img src="images/icon-key.gif" /><a href="#" Onclick="Javascript:return FormCheckUnlock(myform)">開放</a></li>
+        </ul>
+        <ul class="se">
+          <li>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="15%">電子型錄分類圖片</th>
+      <th width="32%">電子型錄分類名稱</th>
+      <th width="10%">最新編輯</th>
+      <th width="8%">編輯權限</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : EBOOK_CATE_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_EBC_ID}"></td>
+      <td>{VALUE_EBC_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_EBC_ID}]" value="{VALUE_EBC_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td><img src="{VALUE_EBC_CATE_IMG}" border="0" width="75"></td>
+      <td><a href="ebook.php?func=ebc_list&ebc_parent={VALUE_EBC_ID}">{VALUE_EBC_NAME}</a></td>
+      <td>{VALUE_EBC_MODIFYACCOUNT}<br>{VALUE_EBC_MODIFYDATE}</td>
+      <td><img src="images/{VALUE_LOCK_IMG}" border="0" /></td>
+      <td><a href="ebook.php?func=ebc_mod&ebc_id={VALUE_EBC_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','ebook.php?func=ebc_del&ebc_id={VALUE_EBC_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}'  border="0" /></td>
+    </tr>
+    <!-- END BLOCK : EBOOK_CATE_LIST -->
+ </table>
+ <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+ <input type="hidden" name="box_check" value="1" />
+ <input type="hidden" name="ws_table" value="ebc" />
+ <input type="hidden" name="ebc_parent" value="{VALUE_EBC_PARENT}" />
+ <br>
+</form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

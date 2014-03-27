@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>電子報管理</h1>
+<form action="epaper.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+       <tr>
+          <!-- START BLOCK : EPAPER_CATE_LIST -->
+          <td width="25%" valign="top">
+           <table>
+             <tr>
+               <td valign="top">
+               <a href="epaper.php?func=e_list&ec_id={VALUE_EC_ID}"><div class="on">{VALUE_EC_SUBJECT}</div></a>
+               </td>
+             </tr>
+          </table>
+          </td>
+          {TAG_EPAPER_CATE_TRTD}
+          <!-- END BLOCK : EPAPER_CATE_LIST -->
+        </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="9">目前分類 : <a href="epaper.php?func=e_list">TOP</a> > {TAG_NOW_CATE}</td>
+    </tr>
+    <tr>
+      <td colspan="9">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="epaper.php?func=e_add" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+        </ul>
+        <ul>
+          <li><select name="st" class="seinput">
+                      <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                      <option value="e_subject" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                      <option value="e_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                    </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="15%">分類</th>
+      <th width="55%">標題</th>
+      <th width="5%">發送</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : EPAPER_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_E_ID}"></td>
+      <td>{VALUE_E_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_E_ID}]" value="{VALUE_E_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_EC_SUBJECT}</td>
+      <td><a href="epaper.php?func=e_preview&e_id={VALUE_E_ID}" target="_blank">{VALUE_E_SUBJECT}</a></td>
+      <td>
+          <!-- START BLOCK : EPAPER_SEND_BUTTON -->
+          <a href="epaper.php?func=e_send&e_id={VALUE_E_ID}">發送</a>
+          <!-- END BLOCK : EPAPER_SEND_BUTTON -->          
+      </td>
+      <td><a href="epaper.php?func=e_mod&e_id={VALUE_E_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','epaper.php?func=e_del&e_id={VALUE_E_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}' border="0" /></td>
+    </tr>
+    <!-- END BLOCK : EPAPER_LIST -->
+      <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+      <input type="hidden" name="box_check" value="1" />
+      <input type="hidden" name="ws_table" value="e" />
+    </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

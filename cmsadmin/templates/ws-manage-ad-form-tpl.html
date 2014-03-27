@@ -1,0 +1,125 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>廣告管理{MSG_MODE}</h1>
+<form name="myform" method="post" action="ad.php?func=ad_replace" class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>分類:</th>
+            <td>
+                <select name="ad_cate">
+                    <!-- START BLOCK : TAG_SELECT_AD_CATE -->
+                    <option value="{TAG_SELECT_AD_CATE_VALUE}" {STR_ADC_SEL}> {TAG_SELECT_AD_CATE_NAME} </option>
+                    <!-- END BLOCK : TAG_SELECT_AD_CATE -->
+                </select></td>
+        </tr>
+        <tr>
+            <th>開始廣告日期:</th>
+            <td>
+                <input type="text" name="ad_startdate" id="ad_startdate" size="15" value="{VALUE_AD_STARTDATE}"/><a href="#" onclick="displayCalendar(document.myform.ad_startdate,'yyyy-mm-dd',this)"><img src="../js/calendar/calendar.gif" border="0"></a>
+        </tr>
+        <tr>
+            <th>廣告期間:</th>
+            <td>
+                <input type="radio" name="ad_status" value="0" {STR_AD_STATUS_CK0}> 停止廣告&nbsp;
+                <input type="radio" name="ad_status" value="1" {STR_AD_STATUS_CK1}> 永久廣告&nbsp;
+                <input type="radio" name="ad_status" value="2" {STR_AD_STATUS_CK2}> 廣告至
+                <input type="text" name="ad_enddate" id="ad_enddate" size="15" value="{VALUE_AD_ENDDATE}"><a href="#" onclick="displayCalendar(document.myform.ad_enddate,'yyyy-mm-dd',this)"><img src="../js/calendar/calendar.gif" border="0"></a>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="ad_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_AD_SORT}" size="4" maxlength="4">
+            </td>
+        </tr>
+        <tr>
+            <th><font color="#cc0000">*</font>標題:</th>
+            <td>
+                <input name="ad_subject" type="text" class="validate[required]" value="{VALUE_AD_SUBJECT}" size="40" maxlength="255">
+            </td>
+        </tr>
+        <tr>
+            <th>廣告區域:</th>
+            <td>
+                <input type="radio" name="ad_show_type" value="0" {STR_AD_SHOW_TYPE_CK0} > 全站顯示
+                <input type="radio" name="ad_show_type" value="1" {STR_AD_SHOW_TYPE_CK1} > 自訂廣告區域
+            </td>
+        </tr>
+        <tr>
+            <th>自訂廣告區域:</th>
+            <td>
+            <input name="ad_show_zone" type="text" id="ad_show_zone" value="{VALUE_AD_SHOW_ZONE}" size="50" />
+            <a href="javascript:upload_window('products.php?func=p_select_cate&pc_id_str={VALUE_PC_RELATED_CATE}&id={VALUE_P_ID}','ad_show_zone')">選擇廣告出現的分類</a><br>
+            <table border="1" cellpadding="1" cellspacing="1" class="pagetable">
+              <tr>
+                 <td>原有分類：</td>
+                 <td>新選擇分類：</td>
+              </tr>
+              <tr>
+                 <td>&nbsp;<span id="old_cate">{VALUE_NAME_STR}</span></td>
+                 <td>&nbsp;<span id="new_cate"></span></td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <th>廣告類型:</th>
+            <td>
+                <input type="radio" name="ad_file_type" value="image"  {STR_AD_FILE_TYPE_IMAGE} onClick="ChangeAdFileType('image')"> 圖片&nbsp;
+                <input type="radio" name="ad_file_type" value="flash"  {STR_AD_FILE_TYPE_FLASH} onClick="ChangeAdFileType('flash')"> Flash&nbsp;
+                <input type="radio" name="ad_file_type" value="txt"  {STR_AD_FILE_TYPE_TXT} onClick="ChangeAdFileType('txt')"> 文字&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <th>廣告圖片:</th>
+            <td>
+                <div id="ad_file_type_image" style="display:{FILE_TYPE_DISPLAY_IMAGE}">
+                
+                <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+                  <tr>
+                    <th rowspan="2" align="left">
+                      <a href="javascript:mcImageManager.open('myform','ad_file1');">
+                        <img src="{VALUE_PIC_PREVIEW1}" border="0"  name="pic_preview1" id="pic_preview1" width="150"></a>
+                      </a>
+                      <br>
+                      <font color="red">點選圖框更換圖片</font>
+                    </td>
+                    <td><input type="text" size="40" name="ad_file1" value="{VALUE_AD_FILE1}" id="fi" onchange="Javascript:onImageSelect(this,'pic_preview1');"></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:LoadDefaultPic('ad_file1','pic_preview1')">取消圖片</a></td>
+                  </tr>
+                </table>
+                </div>
+                <div id="ad_file_type_flash" style="display:{FILE_TYPE_DISPLAY_FLASH}">
+                    <input type="text" name="ad_file2" value="{VALUE_AD_FILE2}" id="ff" size="80"> &nbsp;
+                    <a href="javascript:mcFileManager.open('myform','ad_file2');">選擇Flash</a>
+                </div>
+                <div id="ad_file_type_txt" style="display:{FILE_TYPE_DISPLAY_TXT}">
+                    <input type="text" name="ad_file3" value="{VALUE_AD_FILE3}" id="ft" size="80"> &nbsp;請輸入顯示文字
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>網址連結:</th>
+            <td>
+                <input name="ad_link" type="text" value="{VALUE_AD_LINK}" size="50">
+                必需輸入包含 http:// 的完整網址
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input name="root_path" id="root_path" type="hidden"  value="{TAG_ROOT_PATH}">
+    <input type="hidden" name="ad_id" value="{VALUE_AD_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

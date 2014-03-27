@@ -1,0 +1,212 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>網站管理員</h1>
+<br>
+<form name="myform" method="post" action="admin.php?func=ai_replace" class="formular" id="formID">
+<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+      <tr><th colspan="4">{MSG_MODE}管理員</th></tr>
+      <tr>
+        <th><font color="#CC0000">*</font>帳號:</th>
+        <td>
+            <!-- START BLOCK : MOD_ADMIN -->
+            <input name="ai_account" type="hidden" value="{TAG_AI_ACCOUNT}">&nbsp;&nbsp;&nbsp;&nbsp;{TAG_AI_ACCOUNT}
+            <!-- END BLOCK : MOD_ADMIN -->
+            <!-- START BLOCK : ADD_ADMIN -->
+            <input name="ai_account" id="ai_account" type="text" class="validate[required,length[2,10],ajax[ajaxAdmin]]" value="{VALUE_AI_ACCOUNT}" size="30" >
+            <!-- END BLOCK : ADD_ADMIN -->
+        </td>
+        <th>排序:</th>
+        <td>
+            <input name="ai_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_AI_SORT}" size="4" maxlength="4">
+        </td>
+      </tr>
+      <tr>
+        <th><font color="#CC0000">*</font>密碼:</th>
+        <td>
+            <input name="ai_password" id="ai_password" type="password" class="validate[required,length[4,10]]" value="{VALUE_AI_PASSWORD}" size="20" maxlength="20">
+        </td>
+        <th><font color="#CC0000">*</font>驗証密碼:</th>
+        <td>
+            <input name="v_password" id="v_password" type="password" class="validate[required,confirm[ai_password]]" value="{VALUE_AI_PASSWORD}" size="20" maxlength="20">
+        </td>
+      </tr>
+      <!-- START BLOCK : NORMAL_ADMIN -->
+      <tr>
+        <th>帳號狀態:</th>
+        <td colspan="3">
+          <input type="radio" name="ai_status" value="1" {STR_AI_STATUS_CK1}> 啟用
+          <input type="radio" name="ai_status" value="0" {STR_AI_STATUS_CK0}> 停權
+        </td>
+      </tr>
+      <!-- END BLOCK : NORMAL_ADMIN -->
+      <!-- START BLOCK : ROOT_ADMIN -->
+        <input name="ai_status" type="hidden" value="1">
+      <!-- END BLOCK : ROOT_ADMIN -->
+      <tr>
+        <th>姓名:</th>
+        <td>
+            <input name="ai_name" type="text" value="{VALUE_AI_NAME}" size="20">
+        </td>
+        <th>電話:</th>
+        <td>
+            <input name="ai_tel" type="text" value="{VALUE_AI_TEL}" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>手機:</th>
+        <td>
+            <input name="ai_cellphone" type="text" value="{VALUE_AI_CELLPHONE}" size="20">
+        </td>
+        <th><font color="#CC0000">*</font>e-mail</th>
+        <td>
+            <input name="ai_email" type="text" class="validate[required,custom[email]]" value="{VALUE_AI_EMAIL}" size="50">
+        </td>
+      </tr>
+      <tr>
+        <th>住址:</th>
+        <td colspan="3">
+            <input name="ai_address" type="text" value="{VALUE_AI_ADDRESS}" size="50">
+        </td>
+      </tr>
+          <tr>
+      <th>&nbsp;</th>
+      <td colspan="3">
+        <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" id="back" value="回到上一頁" onclick="history.back();" />
+      </td>
+    </tr>
+    </table>
+    <!-- START BLOCK : NORMAL_ADMIN_AUTHORITY -->
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtable">
+      <tr><th colspan="2">權限設定</td></tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td>
+            <ul class="tabs">
+            <li><a href="#system">系統管理</a></li>
+            <li><a href="#products">產品權限</a></li>
+            <li><a href="#message">網站訊息</a></li>
+            <li><a href="#ebook">型錄相關</a></li>
+            <li><a href="#seo">網站行銷</a></li>
+            </ul>
+            <div class="panes">
+            <div> 
+                 <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+                  <tr>
+                     <!-- START BLOCK : SYSCONFIG_AUTH -->
+                     <td><input type="checkbox" name="aa_sysconfig"  value="1" {STR_AA_SYSCONFIG_CK}>系統設定</td>
+                     <!-- END BLOCK : SYSCONFIG_AUTH -->
+                    <!-- START BLOCK : SYSTOOL_AUTH -->
+                    <td><input type="checkbox" name="aa_systool"  value="1" {STR_AA_SYSTOOL_CK}>系統工具</td>
+                    <!-- END BLOCK : SYSTOOL_AUTH -->
+                    <!-- START BLOCK : ADMIN_AUTH -->
+                    <td><input type="checkbox" name="aa_admin"  value="1" {STR_AA_ADMIN_CK}>後台管理員</td>
+                    <!-- END BLOCK : ADMIN_AUTH -->
+                    <!-- START BLOCK : MEMBER_AUTH -->
+                    <td><input type="checkbox" name="aa_member"  value="1" {STR_AA_MEMBER_CK}>會員管理</td>
+                    <!-- END BLOCK : MEMBER_AUTH -->
+                  </tr>
+                </table>
+            </div>
+            <div>
+                 <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+                  <tr>
+                    <!-- START BLOCK : PRODUCTS_CATE_AUTH -->
+                    <td><input type="checkbox" name="aa_products_cate"  value="1" {STR_AA_PRODUCTS_CATE_CK}>產品分類管理</td>
+                    <!-- END BLOCK : PRODUCTS_CATE_AUTH -->
+                    <!-- START BLOCK : PRODUCTS_AUTH -->
+                    <td><input type="checkbox" name="aa_products" value="1" {STR_AA_PRODUCTS_CK}>產品管理</td>
+                    <!-- END BLOCK : PRODUCTS_AUTH -->
+                    <!-- START BLOCK : INQUIRY_AUTH -->
+                    <td><input type="checkbox" name="aa_inquiry" value="1" {STR_AA_INQUIRY_CK}>詢價管理</td>
+                    <!-- END BLOCK : INQUIRY_AUTH -->
+                    <!-- START BLOCK : ORDER_AUTH -->
+                    <td><input type="checkbox" name="aa_order" value="1" {STR_AA_ORDER_CK}>訂單管理</td>
+                    <!-- END BLOCK : ORDER_AUTH -->
+                    <!-- START BLOCK : BONUS_AUTH -->
+                    <td><input type="checkbox" name="aa_bonus" value="1" {STR_AA_BONUS_CK}>紅利點數</td>
+                    <!-- END BLOCK : BONUS_AUTH -->
+                  </tr>
+                </table>
+            </div>
+            <div>
+                 <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+                  <tr>
+                    <!-- START BLOCK : ABOUTUS_AUTH -->
+                    <td><input type="checkbox" name="aa_aboutus" value="1" {STR_AA_ABOUTUS_CK}>關於我們</td>
+                    <!-- END BLOCK : ABOUTUS_AUTH -->
+                    <!-- START BLOCK : CONTACTUS_AUTH -->
+                    <td><input type="checkbox" name="aa_contactus" value="1" {STR_AA_CONTACTUS_CK}>聯絡我們</td>
+                    <!-- END BLOCK : CONTACTUS_AUTH -->
+                    <!-- START BLOCK : NEWS_AUTH -->
+                    <td><input type="checkbox" name="aa_news" value="1" {STR_AA_NEWS_CK}>最新消息</td>
+                    <!-- END BLOCK : NEWS_AUTH -->
+                    <!-- START BLOCK : FAQ_AUTH -->
+                    <td><input type="checkbox" name="aa_faq" value="1" {STR_AA_FAQ_CK}>問與答</td>
+                    <!-- END BLOCK : FAQ_AUTH -->
+                    <!-- START BLOCK : FORUM_AUTH -->
+                    <td><input type="checkbox" name="aa_forum" value="1" {STR_AA_FORUM_CK}>討論區</td>
+                    <!-- END BLOCK : FORUM_AUTH -->
+                    <!-- START BLOCK : GUESTBOOK_AUTH -->
+                    <td><input type="checkbox" name="aa_guestbook" value="1" {STR_AA_GUESTBOOK_CK}>留言版</td>
+                    <!-- END BLOCK : GUESTBOOK_AUTH -->
+                  </tr>
+                </table>
+            </div>
+            <div>
+                 <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+                  <tr>
+                    <!-- START BLOCK : DOWNLOAD_AUTH -->
+                    <td><input type="checkbox" name="aa_download" value="1" {STR_AA_DOWNLOAD_CK}>檔案下載</td>
+                    <!-- END BLOCK : DOWNLOAD_AUTH -->
+                    <!-- START BLOCK : EBOOK_AUTH -->
+                    <td><input type="checkbox" name="aa_ebook" value="1" {STR_AA_EBOOK_CK}>電子型錄</td>
+                    <!-- END BLOCK : EBOOK_AUTH -->
+                    <!-- START BLOCK : GALLERY_AUTH -->
+                    <td><input type="checkbox" name="aa_gallery" value="1" {STR_AA_GALLERY_CK}>活動剪影</td>
+                    <!-- END BLOCK : GALLERY_AUTH -->
+                    <!-- START BLOCK : GOODLINK_AUTH -->
+                    <td><input type="checkbox" name="aa_goodlink" value="1" {STR_AA_GOODLINK_CK}>好站連結</td>
+                    <!-- END BLOCK : GOODLINK_AUTH -->
+                    <!-- START BLOCK : EPAPER_AUTH -->
+                    <td><input type="checkbox" name="aa_epaper" value="1" {STR_AA_EPAPER_CK}>電子報</td>
+                    <!-- END BLOCK : EPAPER_AUTH -->
+                  </tr>
+                </table>
+            </div>
+            <div>
+                 <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+                  <tr>
+                    <!-- START BLOCK : AD_AUTH -->
+                    <td><input type="checkbox" name="aa_ad" value="1" {STR_AA_AD_CK}>廣告管理</td>
+                    <!-- END BLOCK : AD_AUTH -->
+                    <!-- START BLOCK : BLOG_AUTH -->
+                    <td><input type="checkbox" name="aa_blog" value="1" {STR_AA_BLOG_CK}>部落格管理</td>
+                    <!-- END BLOCK : BLOG_AUTH -->
+                    <!-- START BLOCK : SEO_AUTH -->
+                    <td><input type="checkbox" name="aa_seo" value="1" {STR_AA_SEO_CK}>SEO設定</td>
+                    <!-- END BLOCK : SEO_AUTH -->
+                    <!-- START BLOCK : GOOGLE_SITEMAP_AUTH -->
+                    <td><input type="checkbox" name="aa_google_sitemap" value="1" {STR_AA_GOOGLE_SITEMAP_CK}>Google Sitemap</td>
+                    <!-- END BLOCK : GOOGLE_SITEMAP_AUTH -->
+                    <!-- START BLOCK : GOOGLE_ANALYTICS_AUTH -->
+                    <td><input type="checkbox" name="aa_google_analytics" value="1" {STR_AA_GOOGLE_ANALYTICS_CK}>Google Analytics</td>
+                    <!-- END BLOCK : GOOGLE_ANALYTICS_AUTH -->
+                  </tr>
+                </table>
+            </div>
+        </div>
+    </td>
+   </tr>
+   </table>
+   <!-- END BLOCK : NORMAL_ADMIN_AUTHORITY -->
+    <input type="hidden" name="old_ai_account" value="{VALUE_AI_ACCOUNT}">
+    <input type="hidden" name="ai_id" value="{VALUE_AI_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+  </form>
+  <br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

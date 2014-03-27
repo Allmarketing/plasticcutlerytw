@@ -1,0 +1,22 @@
+        <form name="myform" method="post" action="forgetpw.php?func=getpw">
+        <table width="450" border="0" cellpadding="5" cellspacing="1" align="center">
+          <tr>
+            <td>
+            E-mail：</td>
+            <td>
+            <input name="m_email" type="text" class="input" value="{VALUE_M_EMAIL}" size="50"></td>
+          </tr>
+          <tr>
+            <td>
+            {MSG_LOGIN_SECURITY}</td>
+            <td>
+            {TAG_INPUT_SECURITY}&nbsp;{TAG_IMAGE_SECURITY_IMAGE}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+            <input type="submit" value="{MSG_MODE}" name="Submit" /></td>
+          </tr>
+        </table>
+        <input type="hidden" name="callback" value="1">
+        </form>
+        <div class="msg_getpw">{MSG_ACTION_TERM}</div>

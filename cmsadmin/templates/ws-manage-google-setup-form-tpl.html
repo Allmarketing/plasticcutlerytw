@@ -1,0 +1,46 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>Google 相關設定</h1>
+<form name="myform" method="post" action="google.php?func=g_replace"  class="formular" id="formID">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtable">
+    <!-- START BLOCK : GA_CODE_ZONE -->
+    <tr>
+        <th>Google Analytics Code 設定</th>
+        <td>
+            <input name="sc_ga_code" type="text" value="{VALUE_SC_GA_CODE}" size="50"><br>
+            請填寫在Google Analytics申請的追蹤碼編號(範例：UA-10357098-1)
+        </td>
+    </tr>
+    <!-- END BLOCK : GA_CODE_ZONE -->
+    <!-- START BLOCK : GS_CODE_ZONE -->
+    <tr>
+        <th>Google Sitemap 中繼標籤驗證碼設定</th>
+        <td>
+            <input name="sc_gs_code" type="text" value="{VALUE_SC_GS_CODE}" size="50"><br>
+            請填寫在Google Sitemap申請的驗証碼(每一個網站申請的都不同，請勿輸入範例圖檔中的驗証碼)<br>
+        </td>
+    </tr>
+    <tr>
+    <td colspan="2"><img src="images/gs_code_notics1.jpg" width="950"></td>
+    </tr>
+    <tr>
+        <th>Google Sitemap 檔案</th>
+        <td>
+            {VALUE_SC_GS_FILENAME}&nbsp;&nbsp;&nbsp;<a href="google.php?func=gs_make_file"><font color="blue">重新產生檔案</font></a>
+        </td>
+    </tr>
+    <!-- END BLOCK : GS_CODE_ZONE -->
+    <tr>
+        <th>&nbsp;</th>
+        <td>
+         <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="type" value="{VALUE_TYPE}">
+<input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+<input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+<input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}"> 
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

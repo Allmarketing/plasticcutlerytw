@@ -1,0 +1,79 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>最新消息分類{MSG_MODE}</h1>
+<form name="myform" method="post" action="news.php?func=nc_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>分類名稱:</th>
+            <td>
+                <input name="nc_subject" type="text" class="validate[required]"  value="{VALUE_NC_SUBJECT}" size="60" maxlength="255"></td>
+        </tr> 
+        <tr>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="nc_status" value="1" {STR_NC_STATUS_CK1}> 啟用
+                <input type="radio" name="nc_status" value="0" {STR_NC_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="nc_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_NC_SORT}" size="4" maxlength="4"></td>
+        </tr>
+      <!-- START BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th colspan="2">SEO 設定區域</th>
+      </tr>
+      <tr>
+        <th>網頁檔名:</th>
+        <td>
+            <input name="nc_seo_filename"  id="{NOW_NC_ID}" class="validate[required,ajax[ajaxNCfilename]]" type="text" value="{VALUE_NC_SEO_FILENAME}" size="40" >
+            <br><font color="red">(檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'，特殊符號請用-代替)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題(Meta Title):</th>
+        <td>
+            <input name="nc_seo_title" type="text"  value="{VALUE_NC_SEO_TITLE}" size="60" />
+        </td>
+      </tr>
+      <tr>
+        <th>網頁關鍵字(Meta Keyword):</th>
+        <td>
+            <textarea name="nc_seo_keyword" cols="50" rows="3" >{VALUE_NC_SEO_KEYWORD}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁敘述(Meta Description):</th>
+        <td>
+            <textarea name="nc_seo_description" cols="50" rows="3" >{VALUE_NC_SEO_DESCRIPTION}</textarea>
+        </td>
+      </tr>
+        <tr>
+            <th>簡述:</th>
+            <td>
+                <textarea name="nc_seo_short_desc" cols="50" rows="3" >{VALUE_NC_SEO_SHORT_DESC}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>H1 標題:</th>
+            <td>
+                <input name="nc_seo_h1" type="text"  value="{VALUE_NC_SEO_H1}" size="40" >
+            </td>
+        </tr>
+      <!-- END BLOCK : SEO_EDIT_ZONE -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" /></td>
+        </tr>
+    </table>
+    <input type="hidden" name="nc_id" value="{VALUE_NC_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

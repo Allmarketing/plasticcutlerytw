@@ -1,0 +1,145 @@
+<!-- START BLOCK : PRODUCTS_DETAIL_CUSTOM -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+    {VALUE_P_CUSTOM}
+	</td>
+  </tr>
+</table>
+<!-- END BLOCK : PRODUCTS_DETAIL_CUSTOM -->
+<form name="myform" method="post" action="{TAG_ROOT_PATH}cart.php" style="margin:0px;padding:0px;">
+    <input name="amount" value="1" size="2" type="hidden" />
+    <input type="hidden" name="func" value="c_add">
+    <input type="hidden" name="cart_type" value="{VALUE_P_CART_TYPE}">
+    <input type="hidden" name="p_id" value="{VALUE_P_ID}">    
+    <!-- START BLOCK : PRODUCTS_DETAIL_DEFAULT -->
+
+        <!-- START BLOCK : BIG_IMG_MUTI -->
+        <div id="products-show-pic">
+            <div id="ifocus">
+              <div id="ifocus_pic">
+                <div id="ifocus_piclist">
+                    <ul>
+                      <!-- START BLOCK : BIG_IMG_LIST -->
+                      <li><a href="{VALUE_P_BIG_IMG}" class = "cloud-zoom" rel="lightbox[roadtrip]" ><img src="{VALUE_P_BIG_IMG}" alt="{VALUE_P_NAME_ALIAS}" width="{VALUE_P_BIG_IMG_W}" height="{VALUE_P_BIG_IMG_H}" border="0" /></a></li>
+                      <!-- END BLOCK : BIG_IMG_LIST -->
+                    </ul>
+                </div>
+                <div id="ifocus_opdiv"></div>
+                <div id="ifocus_tx">
+                    <ul>
+                      <li class="current"></li>
+                      <li class="normal"></li>
+                      <li class="normal"></li>
+                      <li class="normal"></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="ifocus_btn">
+          <ul>
+              <!-- START BLOCK : SMALL_IMG_LIST -->
+              <li class="{TAG_CURRENT}"><img src="{VALUE_P_SMALL_IMG}" width="75" height="75" border="0" /></li>
+              <!-- END BLOCK : SMALL_IMG_LIST -->
+          </ul>
+        </div>
+        <!-- END BLOCK : BIG_IMG_MUTI -->
+
+        <!-- START BLOCK : BIG_IMG_SINGLE -->
+        <div id="products-show-pic">
+            <a href="{VALUE_P_BIG_IMG}" rel="lightbox[roadtrip]" class = "cloud-zoom">
+                <img src="{VALUE_P_BIG_IMG}" alt="{VALUE_P_NAME_ALIAS}" width="{VALUE_P_BIG_IMG_W}" height="{VALUE_P_BIG_IMG_H}" border="0" />
+            </a>
+        </div>
+        <!-- END BLOCK : BIG_IMG_SINGLE -->
+        <div id="products_show_data">
+            <div class="awards_icon">
+                <!-- START BLOCK : CA_LIST -->
+                <img src="{VALUE_CA_IMG}" title="{VALUE_CA_NAME}" alt="{VALUE_CA_NAME}" width="26" height="26"/>
+                <!-- END BLOCK : CA_LIST -->
+            </div>  
+            <!-- START BLOCK : BTN_YOUTUBE_MV_SHOW -->
+            <div class="icon01 video"><a href="#">VIDEO</a></div>       
+            <!-- END BLOCK : BTN_YOUTUBE_MV_SHOW -->            
+            <!-- START BLOCK : BTN_LINK_MV_SHOW -->
+            <div class="icon01 video"><a href="{VALUE_P_MV_URL}" target="_blank">VIDEO</a></div>       
+            <!-- END BLOCK : BTN_LINK_MV_SHOW -->            
+            <!-- START BLOCK : CART_TYPE_SHOPPING -->
+            <div>{MSG_PRODUCT_LIST_PRICE}:<s>{VALUE_P_LIST_PRICE}</s></div>
+            <div>{MSG_PRODUCT_SPECIAL_PRICE}:<span class="red">{VALUE_P_SPECIAL_PRICE}</span></div>
+            <!-- END BLOCK : CART_TYPE_SHOPPING -->
+
+            <!-- START BLOCK : SHOW_DISCOUNT -->
+            <div>{MSG_PRODUCT_DISCOUNT_PRICE}:<span class="red">{VALUE_P_DISCOUNT_PRICE}</span></div>
+            <!-- END BLOCK : SHOW_DISCOUNT -->
+
+            <input type="image" src="{TAG_THEME_PATH}{TAG_LANG}_inquire.jpg" border="0" />&nbsp;<a href="#" onClick="javascript:addBookmarkForBrowser(document.title,document.URL);"><img src="{TAG_THEME_PATH}{TAG_LANG}_favorite.jpg"  border="0" /></a>
+            <!-- START BLOCK : ATTACH_FILE1 -->
+            <a href="{VALUE_PAF_LINK}" target="_blank"><img src="{ATTACH_ICON}" border="0"/></a>
+            <!-- END BLOCK : ATTACH_FILE1 -->
+
+            <!-- START BLOCK : ATTACH_FILE2 -->
+            <a href="{VALUE_PAF_LINK}" target="_blank"><img src="{ATTACH_ICON}" border="0"/></a>
+            <!-- END BLOCK : ATTACH_FILE2 -->
+
+            <!-- START BLOCK : SINGLE_INQUIRY -->
+            <div><a href="#" onClick="javascript:popinquiry({VALUE_P_ID})"><img src="{TAG_THEME_PATH}ws-product-inquire.jpg" border="0" /></a></div>
+            <!-- END BLOCK : SINGLE_INQUIRY -->
+          
+        </div>    
+       <!-- START BLOCK : DOMTAB_AREA -->
+    <div class="wrap">
+        <div class="domtab">
+            <ul class="domtabs">
+                <!-- START BLOCK : DOMTAB_TITLE -->
+                <li><a href="#p{SERIAL}">{VALUE_DOMTAB_TITLE}</a></li>
+                <!-- END BLOCK : DOMTAB_TITLE -->
+            </ul>            
+        </div>
+        <!-- START BLOCK : DOMTAB_DATA -->
+        <div class="page-word" style="display: none; "><h2><a name="p{SERIAL}" id="p{SERIAL}"> </a></h2>
+            <div class="products_show_introduction">
+                {VALUE_DOMTAB_DATA}
+            </div>            
+        </div>        
+        <!-- END BLOCK : DOMTAB_DATA -->    
+    </div>
+       <!-- END BLOCK : DOMTAB_AREA -->
+    
+    <!-- START BLOCK : PRODUCT_DESC_LIST -->
+    <div class="products_show_title">{TAG_DESC_TITLE}</div>
+    <div class="products_show_introduction">{VALUE_DESC_CONTENT}</div>
+    <!-- END BLOCK : PRODUCT_DESC_LIST -->
+
+    <!-- END BLOCK : PRODUCTS_DETAIL_DEFAULT -->
+
+    <!-- START BLOCK : RELATED_PRODUCTS_ZONE -->
+    <div class="products_show_title">Related Products</div>
+    <div id="related_products">
+      <div id="imageFlow">	
+        <div class="bank">
+        <!-- START BLOCK : RELATED_PRODUCTS -->
+        <a rel="{VALUE_P_SMALL_IMG}" href="{VALUE_P_LINK}" title="{VALUE_PC_NAME}">{VALUE_P_NAME}</a>
+        <!-- END BLOCK : RELATED_PRODUCTS -->
+        </div>
+        <div class="text">
+            <div class="title">Loading</div>
+            <div class="legend">Please wait...</div>
+        </div>	
+        <div class="scrollbar">
+            <img class="track" src="{TAG_ROOT_PATH}js/imageflow/sb.gif" >
+            <img class="arrow-left" src="{TAG_ROOT_PATH}js/imageflow/sl.gif" >
+            <img class="arrow-right" src="{TAG_ROOT_PATH}js/imageflow/sr.gif" >
+            <img class="bar" src="{TAG_ROOT_PATH}js/imageflow/sc.gif" >
+        </div>
+      </div>
+    </div>
+    <!-- END BLOCK : RELATED_PRODUCTS_ZONE -->
+    <div id="back"><a href="javascript:void(0);history.back();"><img src="{TAG_THEME_PATH}{TAG_LANG}_back.jpg" border="0"></a></div>
+</form>
+<!-- START BLOCK : MV_CONTAINER -->
+<div id="movie" title="Video of Products" style="display:none">
+       <div id="ytplayer"></div>
+</div>
+<!-- END BLOCK : MV_CONTAINER -->

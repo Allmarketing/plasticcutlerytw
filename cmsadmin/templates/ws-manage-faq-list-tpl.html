@@ -1,0 +1,79 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>常見問題</h1>
+<form action="faq.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+      <tr>
+      <!-- START BLOCK : FAQ_CATE_LIST -->
+        <td width="25%" valign="top">
+        <table>
+         <tr>
+           <td valign="top">
+           <a href="faq.php?func=f_list&fc_id={VALUE_FC_ID}"><div class="on">{VALUE_FC_SUBJECT}</div></a>
+           </td>
+         </tr>
+        </table>
+        </td>
+        {TAG_FAQ_CATE_TRTD}
+      <!-- END BLOCK : FAQ_CATE_LIST -->
+      </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="10">
+      目前分類 : <a href="faq.php?func=f_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="faq.php?func=f_add&fc_id={VALUE_NOW_FC_ID}" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+        </ul>
+        <ul>
+          <li>
+            <select name="st" class="seinput">
+                  <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                  <option value="f_name" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                  <option value="f_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="15%">分類名稱</th>
+      <th width="55%">標題</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : FAQ_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_F_ID}"></td>
+      <td>{VALUE_F_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_F_ID}]" value="{VALUE_F_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_FC_SUBJECT}</td>
+      <td>{VALUE_F_SUBJECT}</td>
+      <td><a href="faq.php?func=f_mod&f_id={VALUE_F_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','faq.php?func=f_del&f_id={VALUE_F_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}'  border="0" /></td>
+    </tr>
+    <!-- END BLOCK : FAQ_LIST -->
+    <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+    <input type="hidden" name="box_check" value="1" />
+    <input type="hidden" name="ws_table" value="f" />
+  </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

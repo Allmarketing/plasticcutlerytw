@@ -1,0 +1,101 @@
+
+          {MSG_CONTACTUS_TERM}
+        <form name="myform" method="post" action="contactus.php?func=cu_replace"  id="formID" class="formular" >
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="contact_table">
+          <tr class="altrow">
+            <th>{MSG_CATE}</th>
+            <td>
+            <select name="cu_cate" id="cu_cate">
+            <!-- START BLOCK : TAG_SELECT_CONTACTUS_CATE -->
+            <option value="{TAG_SELECT_CONTACTUS_CATE_VALUE}" {STR_CU_SEL}> {TAG_SELECT_CONTACTUS_CATE_NAME}</option>
+            <!-- END BLOCK : TAG_SELECT_CONTACTUS_CATE -->
+            </select></td>
+          </tr>
+          <!-- START BLOCK : PRODUCTS_LIST -->
+          <tr>
+              <th>{MSG_PRODUCT_LIST}</th>
+              <td>
+                  <ul class="contact_prod_list">
+                      <!-- START BLOCK : PRODUCT_LIST_CHECKBOX -->
+                      <li><input type="checkbox" name="cu_pid[]" id="cu_pid_{VALUE_PRODUCT_LIST_KEY}" value="{VALUE_PRODUCT_LIST_KEY}" {CHECKED}/><label for="cu_pid_{VALUE_PRODUCT_LIST_KEY}">{VALUE_PRODUCT_LIST_NAME}</label></li>
+                      <!-- END BLOCK : PRODUCT_LIST_CHECKBOX -->                      
+                  </ul>
+              </td>
+          </tr>
+          <!-- END BLOCK : PRODUCTS_LIST -->
+          <tr>
+              <th>{MSG_COMPANY_NAME}</th>
+              <td><input name="cu_company_name" size="42" value="{VALUE_CU_COMPANY_NAME}" type="text" /></td>
+            </tr>
+            <tr class="altrow">
+              <th>{MSG_CONTACT_PERSON}</th>
+              <td>
+                 <!-- INCLUDE BLOCK : CONTACT_S -->
+                </td>
+            </tr>
+            <!-- START BLOCK : POSITION_FIELD -->
+          <tr>
+              <th>{MSG_POSITION}</th>
+              <td><input name="cu_position" size="42" value="{VALUE_CU_POSITION}" type="text" /></td>
+            </tr>
+            <!-- END BLOCK : POSITION_FIELD -->
+          <!-- START BLOCK : SELECT_COUNTRY -->
+          <tr>
+              <th><font color="#ff0000">*</font>{MSG_COUNTRY}</th>
+              <td><select name="cu_country" id="cu_country" class="validate[required]">
+                  {TAG_SELECT_OPTION_COUNTRY}
+                  </select></td>
+          </tr>
+          <!-- END BLOCK : SELECT_COUNTRY -->
+          <tr class="altrow">
+            <th>{MSG_TEL}</th>
+            <td><input name="cu_tel" type="text" class="input" value="{VALUE_CU_TEL}" size="50"></td>
+          </tr>
+          <tr>
+            <th>{MSG_FAX}</th>
+            <td><input name="cu_fax" type="text" class="input" value="{VALUE_CU_FAX}" size="50"></td>
+          </tr>
+          <tr class="altrow">
+            <th>{MSG_ADDRESS}</th>
+            <td><input name="cu_address" type="text" class="input" value="{VALUE_CU_ADDRESS}" size="50"></td>
+          </tr>
+          <tr>
+            <th><font color="#ff0000">*</font>E-mail</th>
+            <td><input name="cu_email" type="text" id="cu_email" class="validate[required,custom[email]]" class="input" value="{VALUE_CU_EMAIL}" size="50"></td>
+          </tr>
+          <tr class="altrow">
+            <th><font color="#ff0000">*</font>{MSG_CONTENT}</th>
+            <td><textarea name="cu_content" id="cu_content" class="validate[required]" cols="50" rows="5" class="text_area">{VALUE_CU_CONTENT}</textarea></td>
+          </tr>
+          <!-- START BLOCK : ATTACH_FILES -->
+              <!-- START BLOCK : AF_FIRST_ROW -->
+              <tr class="altrow">
+                <th rowspan="{AF_ROWS}">{MSG_ATTACH_FILES}</th>
+                <td><input type="file" class="hide_file" id="file_{SERIAL}" name="cu_file[]" /></td>
+              </tr>
+              <!-- END BLOCK : AF_FIRST_ROW -->
+              <!-- START BLOCK : AF_OTHER_ROW -->
+              <tr>
+                <td><input type="file" class="hide_file" id="file_{SERIAL}" name="cu_file[]" /></td>
+                </tr>
+              <!-- END BLOCK : AF_OTHER_ROW -->
+          <!-- END BLOCK : ATTACH_FILES -->       
+          <!-- START BLOCK : MATH_SECURITY_ZONE -->
+          <tr>
+            <th>{MSG_LOGIN_SECURITY}</th>
+            <td>{TAG_MATH_SECURITY}&nbsp;{TAG_MATH_INPUT}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+          </tr>
+          <!-- END BLOCK : MATH_SECURITY_ZONE -->
+          <!-- START BLOCK : IMAGE_SECURITY_ZONE -->
+          <tr>
+            <th>{MSG_LOGIN_SECURITY}</th>
+            <td>{TAG_IMAGE_SECURITY_IMAGE}&nbsp;{TAG_INPUT_SECURITY}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+          </tr>
+          <!-- END BLOCK : IMAGE_SECURITY_ZONE -->
+          <tr class="altrow">
+            <th>&nbsp;</th>
+            <td align="center"><input type="submit" value="{MSG_MODE}" name="Submit" /></td>
+          </tr>
+          </table>
+        <input type="hidden" name="callback" value="1">
+        </form>

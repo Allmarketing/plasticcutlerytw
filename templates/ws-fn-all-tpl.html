@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- INCLUDE BLOCK : HEADER -->
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="header">
+<div id="menu">
+<ul>
+<li><a href="{TAG_ROOT_PATH}">HOME</a></li>
+<li><a href="{TAG_ROOT_PATH}aboutus.htm" {TAG_ABOUTUS_CURRENT}>COMPANY</a></li>
+<li><a href="{TAG_ROOT_PATH}products.htm" {TAG_PRODUCTS_CURRENT}>PRODUCTS</a></li>
+<li><a href="{TAG_ROOT_PATH}news.htm" {TAG_NEWS_CURRENT}>NEWS</a></li>
+<li><a href="{TAG_ROOT_PATH}upload_files/e-catalogue.jpg" target="_blank">E-CATALOGUE</a></li>
+<li><a href="{TAG_ROOT_PATH}contactus.htm" {TAG_CONTACTUS_CURRENT}>CONTACT US</a></li>
+<li><a href="{TAG_ROOT_PATH}sitemap.htm" {TAG_SITEMAP_CURRENT}>SITEMAP</a></li></ul>
+</div>
+</div>
+
+<div id="left">
+<div id="logo"><a href="{TAG_ROOT_PATH}">TAIR CHU</a></div>
+
+<div id="language">
+<ul>
+<li><a href="/cht/" rel="nofollow" >繁中</a></li>
+<li><a href="{TAG_ROOT_PATH}" class="current">EN</a></li>
+</ul>
+</div>
+
+<div class="submenu">
+<ul>
+<!-- START BLOCK : LEFT_CATE_LIST -->
+<li><a href="{VALUE_CATE_LINK}" {TAG_CURRENT_CLASS}>{VALUE_CATE_NAME}</a>
+	{TAG_SUB_UL1}
+	<!-- START BLOCK : LEFT_SUBCATE_LIST -->
+	<li><a href="{VALUE_SUBCATE_LINK}" {TAG_CURRENT_CLASS}>{VALUE_SUBCATE_NAME}</a></li>
+	<!-- END BLOCK : LEFT_SUBCATE_LIST -->
+	{TAG_SUB_UL2}
+</li>
+<!-- END BLOCK : LEFT_CATE_LIST -->
+</ul>
+</div>
+
+<div id="search">
+<form name="search_form" method="post" action="{TAG_ROOT_PATH}products.php?func=search">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td><input name="kw" type="text" value="Enter the keyword" /></td><td>&nbsp;<a href="#" onclick="javascript:search_form.submit();"><img src="{TAG_THEME_PATH}icon-search.png" /></a></td></tr>
+</table>
+</form>
+</div>
+
+<ul id="contacts">
+<li><img src="{TAG_THEME_PATH}icon-tel.png" />+886-4-23350398</li>
+<li><img src="{TAG_THEME_PATH}icon-fax.png" />+886-4-23355209</li>
+<li><a href="mailto:sales@tairchu.com.tw"><img src="{TAG_THEME_PATH}icon-email.png" />sales@tairchu.com.tw</a></li>
+<li>&nbsp;</li>
+<li>Follow Us : <a href="https://www.facebook.com/PlasticCutlery" target="_blank"><img src="{TAG_THEME_PATH}icon-facebook.png" /></a></li>
+</ul>
+
+</div>
+
+<div id="master">
+<h1>{TAG_MAIN_FUNC}</h1>
+<div id="path">
+<ul>
+{TAG_LAYER}
+</ul>
+</div>
+
+<!-- INCLUDE BLOCK : MAIN -->
+
+</div>
+
+<div id="footer">&copy; 2014 TAIR CHU All rights reserved.</div>
+
+</div>
+
+</body>
+</html>
+<!-- START BLOCK : JQUERY_MCUSTOMSCROLLBAR -->
+<script type="text/javascript">
+(function($){
+	$(window).load(function(){
+		$("#productslistmain").mCustomScrollbar({
+			set_width:705, /*optional element width: boolean, pixels, percentage*/
+			set_height: true, /*optional element height: boolean, pixels, percentage*/
+			horizontalScroll:true, /*scroll horizontally: boolean*/
+			scrollInertia:550, /*scrolling inertia: integer (milliseconds)*/
+			scrollEasing:"easeOutCirc", /*scrolling easing: string*/
+			mouseWheel:"auto", /*mousewheel support and velocity: boolean, "auto", integer*/
+			autoDraggerLength:false, /*auto-adjust scrollbar dragger length: boolean*/
+			scrollButtons:{ /*scroll buttons*/
+				enable:false, /*scroll buttons support: boolean*/
+				scrollType:"continuous", /*scroll buttons scrolling type: "continuous", "pixels"*/
+				scrollSpeed:100, /*scroll buttons continuous scrolling speed: integer*/
+				scrollAmount:100 /*scroll buttons pixels scroll amount: integer (pixels)*/
+			},
+			advanced:{
+				updateOnBrowserResize:true, /*update scrollbars on browser resize (for layouts based on percentages): boolean*/
+				updateOnContentResize:false, /*auto-update scrollbars on content resize (for dynamic content): boolean*/
+				autoExpandHorizontalScroll:false /*auto expand width for horizontal scrolling: boolean*/
+			},
+			callbacks:{
+				onScroll:function(){}, /*user custom callback function on scroll event*/
+				onTotalScroll:function(){}, /*user custom callback function on bottom reached event*/
+				onTotalScrollOffset:0 /*bottom reached offset: integer (pixels)*/
+			}
+		});
+	});
+})(jQuery);
+</script>
+<!-- END BLOCK : JQUERY_MCUSTOMSCROLLBAR -->
+<script type="text/javascript">
+(function($){
+	$(".sub_menu").menu_box({
+		TOP : 0, //選單上方位置
+		LEFT : 180, //選單左方位置
+		Z_INDEX : 10, //選單Z軸位置
+		ALIGN : "center", //文字對齊 (left,center,right)
+		BG : "#efaa5d", //背景顏色
+		COLOR : "#FFF", //文字顏色
+		CH_BG : "#efaa5d", //反白背景顏色
+		CH_COLOR : "#e31e80", //反白文字顏色
+	});
+})(jQuery);
+</script>

@@ -1,0 +1,205 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>{IMPORT_ACTION}</h1>
+<!-- START BLOCK : PREVIEW_LIST -->
+<form name="myform" id="myform" action="member.php?func=m_import&act=save" method="post">
+    <input type="hidden" name="mc_id" value="{VALUE_MC_ID}"/>
+    <!-- START BLOCK : MAP_TO_LIST -->
+    <input type="hidden" name="mapto[{VALUE_COL_INDEX}]" value="{VALUE_MAPTO_CNAME}"/>
+    <!-- END BLOCK : MAP_TO_LIST -->
+    <table  class="formtable">
+        <!-- START BLOCK : TITLE_ROW -->
+        <tr>
+            <th><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+            <!-- START BLOCK : SELECTED_COLUMN -->
+            <th><input type="checkbox" name="mapto[{VALUE_COL_INDEX}]" value="{VALUE_MAPTO_CNAME}" checked/>{VALUE_COL_DATA}({ORIGIN_COLUMN_NAME})</th>
+            <!-- END BLOCK : SELECTED_COLUMN -->
+        </tr>
+        <!-- END BLOCK : TITLE_ROW -->
+        <!-- START BLOCK : DATA_ROW -->
+        <tr>
+            <td><input type="checkbox" name="row_id[]" value="{VALUE_ROW_INDEX}" checked="checked"/></td>
+            <!-- START BLOCK : SELECTED_DATA -->
+            <td>{VALUE_COL_DATA}</td>
+            <!-- END BLOCK : SELECTED_DATA -->
+        </tr>
+        <!-- END BLOCK : DATA_ROW -->
+        <!-- START BLOCK : SEND_TO_SAVE -->
+        <!-- END BLOCK : SEND_TO_SAVE -->
+        <!-- START BLOCK : SEND_TO_SAVE -->
+        <tr>
+            <td colspan="{COL_SPAN}"><input type="submit" value="匯入"/></td>
+        </tr>
+        <!-- END BLOCK : SEND_TO_SAVE -->
+        <!-- START BLOCK : NO_COLUMN_SELECTED -->
+        <tr>
+            <td>未選擇任何對應欄位</td>
+        </tr>
+        <!-- END BLOCK : NO_COLUMN_SELECTED -->
+    </table>
+</form>
+<!-- END BLOCK : PREVIEW_LIST -->
+<!-- START BLOCK : SELECT_IMPORT_COLUMN -->
+<form name="myform" id="myform" action="member.php?func=m_import&act=map" method="post"> 
+    <input type="hidden" name="mc_id" value="{VALUE_MC_ID}"/>
+    <table class="formtable">
+        <tr>
+            <th width="150">資料庫欄位
+        <div class="mem_im_desc">系統裡會員可記錄的欄位</div>
+            </th>
+            <td>
+                <!-- START BLOCK : DATA_COLUMN -->
+                {VALUE_DATA_COLUMN}
+                <!-- END BLOCK : DATA_COLUMN -->
+            </td>
+        </tr>        
+        <tr>
+            <th width="150">csv欄位
+                    <div class="mem_im_desc">欲匯入的csv檔案的所有欄位。此步驟所選欄位在後續步驟仍可取消，但無法選擇選擇其他欄位</div>
+            </th>
+            <td>
+                <!-- START BLOCK : CSV_COLUMNS -->
+                <label for="csvcol_{VALUE_COL_INDEX}" style="word-break:  keep-all;display:inline-block"><input type="checkbox" name="csvcol[]" id="csvcol_{VALUE_COL_INDEX}" value="{VALUE_COL_INDEX}"/>
+                {VALUE_COL_NAME}</label>
+                <!-- END BLOCK : CSV_COLUMNS -->
+                <!-- START BLOCK : SELECT_ALL_BUTTON -->
+                <div style="marign:0 5px;"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" />全選</a></div>
+                <!-- END BLOCK : SELECT_ALL_BUTTON -->
+                <!-- START BLOCK : NO_DATA_TO_IMPORT -->
+                沒有資料可以匯入
+                <!-- END BLOCK : NO_DATA_TO_IMPORT -->
+            </td>
+        </tr>
+        <!-- START BLOCK : SEND_TO_MAP -->
+        <tr>
+            <td colspan="2"><input type="submit" value="送出"/></td>
+        </tr>
+        <!-- END BLOCK : SEND_TO_MAP -->
+    </table>
+</form>
+<!-- END BLOCK : SELECT_IMPORT_COLUMN -->
+<!-- START BLOCK : SAVING_RESULT -->
+<table class="formtable">
+    <tr>
+        <th>已寫入記錄</th>
+    </tr>
+    <!-- START BLOCK : WRITED_RECORD -->
+    <tr>
+        <td>{VALUE_RECORD}
+        <!--<br/>{VALUE_QUERY}-->
+        </td>
+    </tr>
+    <!-- END BLOCK : WRITED_RECORD -->
+    <tr>
+        <th>衝突記錄
+            <div class="mem_im_desc">列於此處的衝突記錄是因為系統裡已有該筆記錄的e-mail所建立的帳號，所以無法再匯入。</div>
+        </th>
+    </tr>
+    <!-- START BLOCK : CONFLIC_RECORD -->
+    <tr>
+        <td>{VALUE_RECORD}</td>
+    </tr>
+    <!-- END BLOCK : CONFLIC_RECORD -->
+    <tr>
+        <th>結果</th>
+    </tr>
+    <tr>
+        <td>
+            匯入筆數：{VALUE_SUCCESS_NUMS}<br/>
+            未匯入筆數：{VALUE_CONFLICT_NUMS}
+        </td> 
+    </tr>
+</table>
+<!-- END BLOCK : SAVING_RESULT -->
+<!-- START BLOCK : SELECT_CSV_FILE -->
+<form name="myform" method="post" action="member.php?func=m_import&act=select" class="formular" id="formID" enctype="multipart/form-data">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <!-- START BLOCK : SINGLE_CATE -->
+        <tr>
+            <td>
+                匯入類別：<select name="mc_id">
+                            <!-- START BLOCK : SELECT_OPTION_MEMBER_SINGLE_CATE -->
+                            <option value="{OPTION_MEMBER_CATE_VALUE}" {STR_MC_SEL}>{OPTION_MEMBER_CATE_NAME}</option>
+                            <!-- END BLOCK : SELECT_OPTION_MEMBER_SINGLE_CATE -->
+                         </select>
+                
+            </td>
+        </tr>
+        <!-- END BLOCK : SINGLE_CATE -->
+        <tr>
+            <td>
+                <input type="file" name="csvfile"/><input type="submit" value="載入"/><br/>
+                csv編碼：<select id="charset_of_file" name="charset_of_file" size="1">
+                    <option value="iso-8859-1">iso-8859-1</option>
+                    <option value="iso-8859-2">iso-8859-2</option>
+                    <option value="iso-8859-3">iso-8859-3</option>
+                    <option value="iso-8859-4">iso-8859-4</option>
+                    <option value="iso-8859-5">iso-8859-5</option>
+                    <option value="iso-8859-6">iso-8859-6</option>
+                    <option value="iso-8859-7">iso-8859-7</option>
+                    <option value="iso-8859-8">iso-8859-8</option>
+                    <option value="iso-8859-9">iso-8859-9</option>
+                    <option value="iso-8859-10">iso-8859-10</option>
+                    <option value="iso-8859-11">iso-8859-11</option>
+                    <option value="iso-8859-12">iso-8859-12</option>
+                    <option value="iso-8859-13">iso-8859-13</option>
+                    <option value="iso-8859-14">iso-8859-14</option>
+                    <option value="iso-8859-15">iso-8859-15</option>
+                    <option value="windows-1250">windows-1250</option>
+                    <option value="windows-1251">windows-1251</option>
+                    <option value="windows-1252">windows-1252</option>
+                    <option value="windows-1256">windows-1256</option>
+                    <option value="windows-1257">windows-1257</option>
+                    <option value="koi8-r">koi8-r</option>
+                    <option value="big5">big5</option>
+                    <option value="gb2312">gb2312</option>
+                    <option value="utf-16">utf-16</option>
+                    <option value="utf-8" selected="selected">utf-8</option>
+                    <option value="utf-7">utf-7</option>
+                    <option value="x-user-defined">x-user-defined</option>
+                    <option value="euc-jp">euc-jp</option>
+                    <option value="ks_c_5601-1987">ks_c_5601-1987</option>
+                    <option value="tis-620">tis-620</option>
+                    <option value="SHIFT_JIS">SHIFT_JIS</option> 
+                </select>                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                僅接受匯入csv檔案
+            </td>
+        </tr>
+    </table>
+</form>
+<!-- END BLOCK : SELECT_CSV_FILE -->
+
+<!-- START BLOCK : COLUMN_MAP -->
+<form name="myform" method="post" action="member.php?func=m_import&act=preview"  class="formular" id="formID">
+    <input type="hidden" name="mc_id" value="{VALUE_MC_ID}"/>
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>csv欄位</th>
+            <th>資料庫欄位</th>
+        </tr>
+        <!-- START BLOCK : CSV_COLUMN -->
+        <tr>
+            <th>
+                {VALUE_COL_NAME}
+            </th>
+            <td>
+                <!-- START BLOCK : MAPTO_LIST -->
+                <input type="radio" name="mapto[{VALUE_COL_INDEX}]" id="mapto_{VALUE_COL_INDEX}_{SERIAL}" value="{VALUE_MAPTO_CNAME}"/>
+                <label for="mapto_{VALUE_COL_INDEX}_{SERIAL}">{VALUE_MAPTO_NAME}</label>
+                <!-- END BLOCK : MAPTO_LIST -->
+            </td>
+        </tr>
+        <!-- END BLOCK : CSV_COLUMN -->
+        <tr>
+            <td colspan="3"><input type="submit" value="儲存"/><input type="reset" value="重設"/></td>
+        </tr>
+    </table>
+</form>
+<!-- END BLOCK : COLUMN_MAP -->
+
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

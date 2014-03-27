@@ -1,0 +1,114 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>電子報發送</h1>
+<form name="myform" method="post" action="epaper.php?func=e_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>標題:</th>
+            <td>
+                &nbsp;{VALUE_E_SUBJECT}
+            </td>
+        </tr> 
+        <tr>
+            <th>選擇發送對象</th>
+            <td>
+                <INPUT type="radio" name="e_st" class="form-checkbox" value="2" onClick="document.getElementById('member_cate_checkbox').style.display='';" checked> 選擇會員群組發送
+                <INPUT type="radio" name="e_st" class="form-checkbox" value="1" onClick="document.getElementById('member_cate_checkbox').style.display='none';"> 全部發送(<font color="red">含未分類會員訂閱人數:{VALUE_E_TOTAL}</font>)
+                <div>因會員可能會跨群組，所以全部訂閱會員並非是所有群組的訂閱數加總</div>
+            </td>
+        </tr>
+        <tr id="member_cate_checkbox" style="display:">
+            <th>&nbsp;</th>
+            <td>
+                <!--<div id="member_cate_checkbox" style="display:">-->
+                <!-- START BLOCK : MEMBER_CATE -->
+                    <INPUT TYPE="checkbox" NAME="mc_id[]" class="form-checkbox" value="{VALUE_MC_ID}" >{VALUE_MC_SUBJECT}(<font color="red">訂閱人數:{VALUE_E_SUBTOTAL}</font>)<br>
+                <!-- END BLOCK : MEMBER_CATE -->
+                <!--</div>&nbsp;-->
+            </td>
+        </tr>
+        <!-- START BLOCK : ATTACH_PRODUCTS_ZONE -->
+        <tr>
+            <th>勾選產品</th>
+            <td>
+                <div id="epaper-accordion">
+                    <!-- START BLOCK : PRODUCTS_CATE_LIST -->
+                        <h3>{VALUE_PC_NAME}</h3>
+                        <div>
+                            <!-- START BLOCK : PRODUCTS_LIST -->
+                            <div class="attach_product">
+                                <label for="attach_p_id_{VALUE_P_ID}"><img src="{VALUE_P_SMALL_IMG}" width="50" height="50"/></label>
+                                <input type="checkbox" name="attach_p_id[]" id="attach_p_id_{VALUE_P_ID}" value="{VALUE_P_ID}"/>
+                            </div>
+                            <!-- START BLOCK : PRODUCTS_LIST -->
+                        </div>
+                    <!-- END BLOCK : PRODUCTS_CATE_LIST -->
+                </div>
+            </td>
+        </tr>
+        <!-- END BLOCK : ATTACH_PRODUCTS_ZONE -->
+        <!-- START BLOCK : SENDING_SCHEDULE -->
+        <tr>
+            <th>發送時間</th>
+            <td>
+                <input type="text" name="eq_send_time" id="eq_send_time" value="" size="20"/><a href="#" onclick="displayCalendar(document.getElementById('eq_send_time'),'yyyy-mm-dd',this);return false">選擇</a>
+            </td>
+        </tr>
+        <!-- END BLOCK : SENDING_SCHEDULE -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="btnSubmit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" /><br>
+                <font color="red">(為了避免大量發送電子廣告信被列入黑名單，如果發送e-mail過多，時間會持續好幾個小時做間隔發送。送出後，系統程式未執行完成前，請勿關閉瀏覽器)</font>
+            </td>
+        </tr>
+        <tr>
+            <th>發送記錄</th>
+            <td>
+           <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+            <tr>
+              <th width="5%">No.</th>
+              <th width="25%">電子報</th>
+              <th width="35%">發送日期</th>
+              <th width="35%">發送群組</th>
+            </tr>
+            <!-- START BLOCK : EPAPER_SEND_HISTORY_LIST -->
+            <tr {TAG_TR_CLASS}>
+              <td>{VALUE_ES_SERIAL}</td>
+              <td>{VALUE_E_SUBJECT}</td>
+              <td>{VALUE_ES_MODIFYDATE}</td>
+              <td>{VALUE_ES_GROUP}</td>
+             </tr>
+            <!-- END BLOCK : EPAPER_SEND_HISTORY_LIST -->
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="e_id" value="{VALUE_E_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_E_ACTION_TYPE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+            $("#formID").submit(function(e){
+                e.preventDefault();
+                if(this['e_st'][0].checked){
+                    var chk=0;
+                    $(this['mc_id[]']).each(function(){
+                       chk+=(this.checked)?1:0; 
+                    });
+                    if(chk<1){
+                        alert('請至少選擇一個會員類別!');
+                        return false;
+                    }
+                }
+                this.submit();
+            });
+        });
+    })(jQuery);
+</script>

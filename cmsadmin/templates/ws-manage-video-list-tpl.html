@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>Youtube影片</h1>
+<br>
+<form action="video.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+        <tr>
+          <!-- START BLOCK : VIDEO_CATE_LIST -->
+          <td width="25%" valign="top">
+           <table>
+             <tr>
+               <td valign="top">
+               <a href="video.php?func=v_list&vc_id={VALUE_VC_ID}"><div class="on">{VALUE_VC_SUBJECT}</div></a>
+               </td>
+             </tr>
+          </table>
+          </td>
+          {TAG_VIDEO_CATE_TRTD}
+          <!-- END BLOCK : VIDEO_CATE_LIST -->
+        </tr>
+    </table>    
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="11">
+          目前分類 : <a href="video.php?func=v_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="7">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="video.php?func=v_add" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+          <li><img src="images/icon-copy.gif" /><a href="#" Onclick="Javascript:return FormCheckCopy(myform)">複製</a></li>
+        </ul>
+        <ul>
+          <li>
+            條件<select name="st" class="seinput">
+                  <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                  <option value="v_name" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                  <option value="v_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="20%">分類</th>
+      <th width="50%">標題</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : VIDEO_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" class="form-checkbox" name="id[]" value="{VALUE_V_ID}" {STR_DISABLE}></td>
+      <td>{VALUE_V_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_V_ID}]" value="{VALUE_V_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_VC_SUBJECT}</td>
+      <td>{VALUE_V_SUBJECT}</td>
+      <td><a href="video.php?func=v_mod&v_id={VALUE_V_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','video.php?func=v_del&v_id={VALUE_V_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}' border="0" /></td>
+    </tr>
+    <!-- END BLOCK : VIDEO_LIST -->
+      <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+      <input type="hidden" name="box_check" value="1" />
+      <input type="hidden" name="ws_table" value="v" />
+    </table>
+    <br>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

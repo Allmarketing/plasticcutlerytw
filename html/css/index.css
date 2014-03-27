@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,
+del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,sub,sup,tt,var,b,u,i,center,
+dl,dt,dd,ol,ul,li,fieldset,form,label,legend,input,img, p{font: 12px Arial, Helvetica, sans-serif;margin:0;padding:0;border:0;outline:0;vertical-align: baseline;}
+
+
+address,caption,cite,code,dfn,em,th,var {font-weight: normal;font-style: normal;}
+a,a:hover,img,div,input,background{text-decoration: none;outline: none; /* for Firefox */border:none;
+hlbr:expression(this.onFocus=this.blur()); /* for IE */}
+
+body{}
+
+/*WRAPPER*/
+#wrapper{margin:0px auto;}
+
+/*HEADER*/
+#left{background: url(../images/round01.png) no-repeat scroll left top rgba(0, 0, 0, 0);
+    left: -12%;
+    padding: 115px 85px 0 240px;
+    position: absolute;
+    top: -90px;
+    width: 255px}
+
+/*LOGO*/
+#logo{float: right; margin-right:20px;}
+#logo a{margin-bottom:37px;width:241px;height:147px;display:block;overflow:hidden;line-height:90000px;background: url(../images/logo.png) no-repeat top left;}
+
+/*LANGUAGE*/
+#language{ clear:both; margin-bottom:15px;overflow: hidden;}
+#language ul{list-style-type:none;}
+#language li{float:left;}
+#language li a{ font-family: Verdana,"微軟正黑體", Geneva, sans-serif; margin-right:10px; color:#808285; width:28px; text-align:center; line-height:28px; font-size:13px; display:block;}
+#language li a:hover{ color:#efaa5d; }
+#language li a.current{ color:#efaa5d; background:url(../images/lang_bg.png) no-repeat left top;}
+
+/*SEARCH*/
+#search{}
+
+
+/*MENU*/
+#menu{ clear:both; height:234px; margin-bottom:24px;}
+#menu ul{ list-style-type:none;}
+#menu li{}
+#menu li a{ color:#808285; font-size:20px; display: block; font-family:Verdana, Geneva, sans-serif; line-height:30px;}
+#menu li a:hover{ color:#08aca0; }
+#menu li a.current{ color:#08aca0; text-decoration:underline;}
+
+/*CONTACT*/
+#contacts{ list-style:none;}
+#contacts li{display:block; color:#ebebeb; font-family:Verdana, Geneva, sans-serif; clear:both; line-height:16px; padding-bottom:5px;}
+#contacts li a{color:#ebebeb;line-height:16px; }
+#contacts li img{  margin-right:10px;}
+#contacts li a:hover{ color:#fff;}
+/*MASTER*/
+#master{ background:url(../images/mainbg.png) repeat-x; position:absolute; bottom:-720px; width:100%; }
+#main{ font-family:Verdana, Geneva, sans-serif;width:1300px; margin:0px auto; padding:15px 10px; color:#fff; height:55px; font-size:13px; text-align:right;}
+/*FOOTER*/
+#footer{ width:1300px; margin:0px auto 10px; text-align:right; color:#efefef;}
+
+/*TYPEFACE*/
+.title{}
+.more{}
+h1{font-family:Verdana, Geneva, sans-serif; color:#fff;font-size:13px; line-height:18px;}
+p{font-family:Verdana, Geneva, sans-serif; color:#fff;font-size:13px;line-height:18px;}
+p a{font-family:Verdana, Geneva, sans-serif; color:#fff;font-size:13px;line-height:18px;}
+
+/*PRODUCTS*/
+#products{ height: 270px; left: 290px; list-style: none; position: absolute; top: 200px; width: 287px;}
+#products li{ position:absolute; font-weight:700; color:#fff; font-size:14px; font-family:Verdana, Geneva, sans-serif;text-indent: -500000px;width:66px; height:66px; z-index:10000;}
+#products li img{position:absolute; display: none; top: 50%;left: 50%;z-index:10; margin:-33px 0px 0px -33px;}
+
+#probtn_01{ left:22px; top:35px; background: url(../images/btn_cutlery.png);}
+#probtn_02{ left:0px; top:128px; background: url(../images/btn_food-container.png);}
+#probtn_03{ left:60px; bottom:0px; background: url(../images/btn_cake-cutlery.png);}
+#probtn_04{ right:66px; bottom:0px; background: url(../images/btn_cup.png);}
+#probtn_05{ right:0px; top:127px; background: url(../images/btn_lid.png);}
+#probtn_06{ right:19px; top:35px; background: url(../images/btn_oem.png);}
+#probtn_07{ right:110px; top:0px; background: url(../images/btn_love-earth.png);}

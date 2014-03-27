@@ -1,0 +1,105 @@
+<div id="productshow">
+<!-- START BLOCK : PRODUCTS_DETAIL_CUSTOM -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+    {VALUE_P_CUSTOM}
+	</td>
+  </tr>
+</table>
+<!-- END BLOCK : PRODUCTS_DETAIL_CUSTOM -->
+<!-- START BLOCK : PRODUCTS_DETAIL_DEFAULT -->
+<form name="myform" method="post" action="{TAG_ROOT_PATH}cart.php" style="margin:0px;padding:0px;">
+<input name="amount" value="1" size="2" type="hidden" />
+<input type="hidden" name="func" value="c_add">
+<input type="hidden" name="cart_type" value="{VALUE_P_CART_TYPE}">
+<input type="hidden" name="p_id" value="{VALUE_P_ID}">    
+
+<!-- START BLOCK : BIG_IMG_MUTI -->
+<!-- START BLOCK : BIG_IMG_LIST -->
+<div id="productshow_pic"><a href="{VALUE_P_BIG_IMG}" rel="lightbox[roadtrip]"><img src="{VALUE_P_BIG_IMG}" alt="{VALUE_P_NAME_ALIAS}" width="{VALUE_P_BIG_IMG_W}" height="{VALUE_P_BIG_IMG_H}" border="0" /></a></div>
+<!-- END BLOCK : BIG_IMG_LIST -->
+<ul id="productshow_picmenu">
+<!-- START BLOCK : SMALL_IMG_LIST -->
+<li><a href="#"><img src="{VALUE_P_SMALL_IMG}" width="57" height="57" border="0" /></a></li>
+<!-- END BLOCK : SMALL_IMG_LIST -->
+</ul>
+<!-- END BLOCK : BIG_IMG_MUTI -->
+
+<a href="#" id="btn_inquiry" onclick="javascript:myform.submit();">ADD INQUIRY</a>
+<!-- START BLOCK : PRODUCT_DESC_LIST -->
+<div class="products_introductiontitle2">{TAG_DESC_TITLE}</div>
+<div class="products_introduction2">{VALUE_P_DESC}</div>
+<!-- END BLOCK : PRODUCT_DESC_LIST -->
+<ul class="btn01">
+<li>{TAG_PREVIOUS_PRODUCT}</li>
+<li><a href="#" class="m" onclick="javascript:void(0); location.href='{VALUE_BACK_LINK}'">BACK<br />LIST</a></li>
+<li>{TAG_NEXT_PRODUCT}</li>
+</ul>
+<br />
+<table border="0" width="782" cellpadding="0" cellspacing="0">
+<tr><td valign="top" width="391">
+<!-- START BLOCK : PRODUCT_CHARACTER_LIST -->
+<div class="products_introductiontitle">{TAG_CHARACTER_TITLE}</div>
+<div class="products_introduction">{VALUE_P_CHARACTER}</div>
+<!-- END BLOCK : PRODUCT_CHARACTER_LIST -->
+<!-- START BLOCK : PRODUCT_SPEC_LIST -->
+<div class="products_introductiontitle">{TAG_SPEC_TITLE}</div>
+<div class="products_introduction">{VALUE_P_SPEC}</div>
+<!-- END BLOCK : PRODUCT_SPEC_LIST -->
+<!-- START BLOCK : PRODUCT_TXT1_LIST -->
+<div class="products_introductiontitle">{TAG_TXT1_TITLE}</div>
+<div class="products_introduction">{VALUE_P_TXT1}</div>
+<!-- END BLOCK : PRODUCT_TXT1_LIST -->
+<!-- START BLOCK : PRODUCT_TXT2_LIST -->
+<div class="products_introductiontitle">{TAG_TXT2_TITLE}</div>
+<div class="products_introduction">{VALUE_P_TXT2}</div>
+<!-- END BLOCK : PRODUCT_TXT2_LIST -->
+<!-- START BLOCK : PRODUCT_TXT3_LIST -->
+<div class="products_introductiontitle">{TAG_TXT3_TITLE}</div>
+<div class="products_introduction">{VALUE_P_TXT3}</div>
+<!-- END BLOCK : PRODUCT_TXT3_LIST -->
+<!-- START BLOCK : PRODUCT_TXT4_LIST -->
+<div class="products_introductiontitle">{TAG_TXT4_TITLE}</div>
+<div class="products_introduction">{VALUE_P_TXT4}</div>
+<!-- END BLOCK : PRODUCT_TXT4_LIST -->
+</td></tr>
+</table>
+</form>
+<!-- END BLOCK : PRODUCTS_DETAIL_DEFAULT -->
+</div>
+
+
+<!-- START BLOCK : RELATED_PRODUCTS_ZONE -->
+<div id="probox">
+<div class="probox_title">Related Products</div>
+<a href="#" class="arrow_l arrow"><img src="{TAG_THEME_PATH}arrow02_l.png" /></a>
+
+<ul>
+<div class="slide_move">
+<!-- START BLOCK : RELATED_PRODUCTS -->
+<li class="slide_pic">
+<div class="productslist"><a href="{VALUE_P_LINK}">
+<div class="productslist_pic"><img src="{VALUE_P_SMALL_IMG}" width="178" height="178" /></div>
+<div class="productslist_title">{VALUE_P_NAME}</div>
+<p>Material:{VALUE_P_SERIAL}</p></a>
+</div>
+</li>
+<!-- END BLOCK : RELATED_PRODUCTS -->
+</div>
+</ul>
+<a href="#" class="arrow_r arrow"><img src="{TAG_THEME_PATH}arrow02_r.png" /></a>
+</div>
+<!-- END BLOCK : RELATED_PRODUCTS_ZONE -->
+
+
+<script type="text/javascript">
+(function($){
+	$(document).ready(function(){
+		$("#productshow_picmenu img").mouseover(function(){
+			$("#productshow_pic img").attr("src", $(this).attr("src"));
+			$("#productshow_pic a").attr("href", $(this).attr("src"));
+		});
+	 });
+ })(jQuery);
+</script>

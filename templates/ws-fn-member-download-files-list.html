@@ -1,0 +1,26 @@
+<div class="member_dl_note">*按下載分類名稱可展開或縮放</div>
+<!-- START BLOCK : DOWNLOAD_CATE_LIST -->
+<div class="member_dl_cate"><div><input type="checkbox" class="checkall"/><span>{VALUE_DC_SUBJECT}</span></div>
+    <div class="member_dl_wrapper" style="display:{TAG_FILE_DS}">
+        <!-- START BLOCK : DOWNLOAD_FILE_LIST -->
+        <div class="member_dl_file"><input type="checkbox" name="d_files[]" id="d_files_{SERIAL}" value="{VALUE_D_ID}" {TAG_DOWN_CHK}/><label for="d_files_{SERIAL}">{VALUE_D_SUBJECT}</label></div>
+        <!-- END BLOCK : DOWNLOAD_FILE_LIST -->
+    </div>
+</div>
+<!-- END BLOCK : DOWNLOAD_CATE_LIST -->
+<script type="text/javascript">
+(function($){
+    $(document).ready(function(){
+        $(".member_dl_cate span").click(function(){
+            var dd = $(this).parent().next('div');
+            var ds = (dd.css('display')=='block')?dd.slideUp():dd.slideDown();
+        });
+        $(".checkall").click(function(){
+            var checked = this.checked;
+            $(this).parent().next('div').find(':checkbox').each(function(){
+                this.checked = checked;
+            });
+        });
+    });
+})(jQuery);
+</script>

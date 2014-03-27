@@ -1,0 +1,40 @@
+            <select name="st" id="st" class="seinput">
+                <!-- START BLOCK : SEARCH_FIELD_OPTION -->
+                <option value="{TAG_FIELD_VALUE}" {TAG_FIELD_SELECTED}>{TAG_FIELD_TITLE}</option>
+                <!-- END BLOCK : SEARCH_FIELD_OPTION -->
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/>
+            <input type="button" value="搜尋" id="smt_sform" />
+            <script type="text/javascript">
+                function get_query(){
+                    var search = location.search
+                    var query = {}
+                    if(search){
+                        search = search.substr(1);
+                        var tmp = search.split('&');
+                        for(var i=0;i<tmp.length;i++){
+                            var tmp2 = tmp[i].split('=');
+                            if(tmp2.length>1){
+                                query[tmp2[0]]=tmp2[1];
+                            }
+                        }
+                        return query;
+                    }
+                }
+                jQuery(function($){
+                   $(document).ready(function(){
+                       var query = get_query();
+                      $("<form name='sform' id='sform' method='get' action=''></form>").
+                              append("<input type='hidden' name='func' value='"+query.func+"'/>").
+                              append("<input type='hidden' name='st'/>").
+                              append("<input type='hidden' name='sk'/>").
+                              appendTo('body'); 
+                      $("#smt_sform").click(function(){
+                            var sform = $("#sform")[0];
+                            sform.st.value=$("#st").val();
+                            sform.sk.value=$.trim($("#sk").val());
+                            sform.submit();
+                      });
+                   });
+                });
+            </script>

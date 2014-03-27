@@ -1,0 +1,78 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>聯絡我們</h1>
+<form action="contactus.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+    <tr>
+      <!-- START BLOCK : CONTACTUS_CATE_LIST -->
+      <td width="25%" valign="top">
+       <table>
+         <tr>
+           <td valign="top">
+           <a href="contactus.php?func=cu_list&cu_cate={VALUE_CU_CATE}"><div class="on">{VALUE_CUC_SUBJECT}</div></a>
+           </td>
+         </tr>
+      </table>
+      </td>
+      {TAG_CONTACTUS_CATE_TRTD}
+      <!-- END BLOCK : CONTACTUS_CATE_LIST -->
+    </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="9">
+      目前分類 : <a href="contactus.php?func=cu_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="9">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+        </ul>
+        <ul>
+          <li>
+            <select name="st" class="seinput">
+                  <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                  <option value="cu_name" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                  <option value="cu_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="12%">分類</th>
+      <th width="12%">姓名</th>
+      <th width="35%">內容</th>
+      <th width="15%">時間</th>
+      <th width="5%">回覆</th>
+      <th width="5%">刪除</th>
+      <th width="8%">狀態</th>
+    </tr>
+    <!-- START BLOCK : CONTACTUS_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_CU_ID}"></td>
+      <td>{VALUE_CU_SERIAL}</td>
+      <td>{VALUE_CUC_SUBJECT}</td>
+      <td>{VALUE_CU_NAME}</td>
+      <td>{VALUE_CU_CONTENT}</td>
+      <td>{VALUE_CU_MODIFYDATE}</td>
+      <td><a href="contactus.php?func=cur_add&cu_id={VALUE_CU_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}">view</a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','contactus.php?func=cu_del&cu_id={VALUE_CU_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9"  border="0" /></a></td>
+      <td>{VALUE_CU_STATUS}</td>
+    </tr>
+    <!-- END BLOCK : CONTACTUS_LIST -->
+    <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+    <input type="hidden" name="box_check" value="1" />
+    <input type="hidden" name="ws_table" value="cu" />
+    <input type="hidden" name="cu_cate" value="{VALUE_CU_CATE}" />
+    </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

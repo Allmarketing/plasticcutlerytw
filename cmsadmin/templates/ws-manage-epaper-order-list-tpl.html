@@ -1,0 +1,22 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>訂閱名單列表</h1>
+    <table width="90%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <th width="5%">No.</th>
+	  <th width="27%">帳號</th>
+	  <th width="25%">姓名</th>
+	  <th width="25%">e-mail</th>
+    </tr>
+		<!-- START BLOCK : EPAPER_ORDER_LIST -->
+		<tr {TAG_TR_CLASS}>
+		  <td>{VALUE_M_SERIAL}</td>
+		  <td>{VALUE_M_ACCOUNT}</td>
+		  <td>{VALUE_M_NAME}</td>
+		  <td>{VALUE_M_EMAIL}</td>
+		 </tr>
+		<!-- END BLOCK : EPAPER_ORDER_LIST -->
+  </table>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

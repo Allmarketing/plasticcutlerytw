@@ -1,0 +1,27 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>留言版處理</h1>
+<form name="myform" method="post" action="guestbook.php?func=gb_replace"  class="formular" id="formID">
+    <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1" class="formtable">
+        <tr>
+          <th>回覆留言:</th>
+        <td>
+          <textarea name="gb_content"  rows="12" cols="80"></textarea>
+        </td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>
+            <input type="submit" value="確定送出" name="submit">&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+          </td>
+        </tr>
+    </table>
+    <input type="hidden" name="gb_reply_type" value="1">
+    <input type="hidden" name="gb_parent" value="{VALUE_GB_PARENT}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

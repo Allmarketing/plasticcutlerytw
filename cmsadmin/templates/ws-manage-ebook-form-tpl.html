@@ -1,0 +1,119 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>電子型錄管理</h1>
+<br>
+<form name="myform" method="post" action="ebook.php?func=eb_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>電子型錄名稱:</th>
+            <td>
+                <input name="eb_name" type="text" class="validate[required]"  value="{VALUE_EB_NAME}" size="60">
+            </td>
+        </tr>
+        <tr>
+            <th>電子型錄分類:</th>
+            <td>
+                <select name="ebc_id">
+                    <option value="0" > 未分類 </option> 
+                    {TAG_SELECT_EBOOK_CATE}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>電子型錄狀態:</th>
+            <td>
+                <input type="radio" name="eb_status" value="1" {STR_EB_STATUS_CK1}> 上架
+                <input type="radio" name="eb_status" value="0" {STR_EB_STATUS_CK0}> 下架
+            </td>
+        </tr>
+        <tr>
+        <th>資料權限:</th>
+        <td>
+            <input type="radio" name="eb_locked" value="1" {STR_EB_LOCK_CK1}> <img src="images/icon-lock.gif">上鎖
+            <input type="radio" name="eb_locked" value="0" {STR_EB_LOCK_CK0}> <img src="images/icon-key.gif">解鎖
+        </td>
+        </tr>
+        <tr>
+            <th>電子型錄排序:</th>
+            <td>
+                <input name="eb_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_EB_SORT}" size="4" maxlength="4">
+                <br><font color="red">(請輸入數字如：0,1,2,3...數字愈小，前台的電子型錄排列會愈前面)</font>
+            </td>
+        </tr>
+        <tr>
+            <th>電子型錄小圖:</th>
+            <td>
+              <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+              <tr>
+                <th rowspan="2" align="center">
+                  <a href="javascript:mcImageManager.open('myform','eb_small_img');">
+                    <img src="{VALUE_SMALL_PIC_PREVIEW1}" border="0" width="120" name="small_pic_preview1" id="small_pic_preview1">
+                  </a>
+                  <br>
+                  <font color="red">點選圖框更換圖片</font>
+                </td>
+                <td><input type="text" size="40" name="eb_small_img" value="{VALUE_SMALL_IMG}" id="eb_small_img" onchange="Javascript:onImageSelect(this,'small_pic_preview1');"></td>
+              </tr>
+              <tr>
+                <td><a href="javascript:LoadDefaultPic('eb_small_img','small_pic_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <th>外部連結:</th>
+            <td>
+                <input name="eb_link" type="text" value="{VALUE_EB_LINK}" size="60"/>
+                <br><font color="red">(如果有設連結，則以此連結代替大圖連結)</font>
+            </td>
+        </tr>        
+        <tr>
+            <th>電子型錄大圖:</th>
+            <td>
+             <ul class="tabs">
+               <li><a href="#pic1">圖1</a></li>
+             </ul>
+               <div class="panes">
+                <div>
+                  <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+                  <tr>
+                    <th rowspan="3" align="center">
+                      <a href="javascript:mcImageManager.open('myform','eb_big_img');">
+                    <img src="{VALUE_BIG_PIC_PREVIEW1}" border="0" width="120" name="big_pic_preview1" id="big_pic_preview1" /></a>
+                      </a>
+                      <br>
+                      <font color="red">點選圖框更換圖片</font>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;圖檔一</td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" size="60" name="eb_big_img" value="{VALUE_BIG_PIC1}" id="eb_big_img" onchange="Javascript:onImageSelect(this,'big_pic_preview1');"></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:LoadDefaultPic('eb_big_img','big_pic_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+                  </tr>
+                  </table>
+                </div>
+              </div>
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input name="root_path" id="root_path" type="hidden"  value="{TAG_ROOT_PATH}">
+    <input type="hidden" name="now_eb_id" value="{NOW_EB_ID}">
+    <input type="hidden" name="now_ebc_id" value="{NOW_EBC_ID}">
+    <input type="hidden" name="ebc_parent" value="{VALUE_EBC_PARENT}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+<br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

@@ -1,0 +1,83 @@
+<div id="contactus">
+
+<div class="itom01">
+{MSG_CONTACTUS_TERM}
+</div>
+
+<div class="itom02">
+<form name="myform" method="post" action="contactus.php?func=cu_replace" id="formID" class="formular" style="margin:0px;">
+<table  cellspacing="0" cellpadding="0" border="0" class="contact_table contact_table01">
+<tbody>
+<tr class="altrow">
+	<th width="110">{MSG_CATE}:</th>
+	<td width="186">
+	<select name="cu_cate" id="cu_cate">
+	<!-- START BLOCK : TAG_SELECT_CONTACTUS_CATE -->
+	<option value="{TAG_SELECT_CONTACTUS_CATE_VALUE}" {STR_CU_SEL}> {TAG_SELECT_CONTACTUS_CATE_NAME}</option>
+	<!-- END BLOCK : TAG_SELECT_CONTACTUS_CATE -->
+	</select>
+	</td>
+</tr>
+<tr>
+	<th>{MSG_COMPANY_NAME}:</th>
+	<td><input name="cu_company_name" value="{VALUE_CU_COMPANY_NAME}" type="text" /></td>
+</tr>
+<tr class="altrow">
+	<th>{MSG_CONTACT_PERSON}:</th>
+	<td>
+	<!-- INCLUDE BLOCK : CONTACT_S -->
+	</td>
+</tr>
+</tbody>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" class="contact_table contact_table02">
+<tbody>
+	<tr class="altrow">
+	<th width="110">{MSG_TEL}:</th>
+	<td width="186"><input name="cu_tel" type="text" class="input" value="{VALUE_CU_TEL}" /></td>
+	</tr>
+	<tr>
+	<th>{MSG_FAX}:</th>
+	<td><input name="cu_fax" type="text" class="input" value="{VALUE_CU_FAX}" /></td>
+	</tr>
+	<tr class="altrow">
+	<th>{MSG_ADDRESS}:</th>
+	<td><input name="cu_address" type="text" class="input" value="{VALUE_CU_ADDRESS}" /></td>
+	</tr>
+	<tr>
+	<th><span style="color:#e31e80">*</span>e-mail:</th>
+	<td><input name="cu_email" type="text" id="cu_email" class="validate[required,custom[email]]" class="input" value="{VALUE_CU_EMAIL}" /></td>
+	</tr>
+	<!-- START BLOCK : MATH_SECURITY_ZONE -->
+	<tr>
+	<td>{MSG_LOGIN_SECURITY}</td>
+	<td>{TAG_MATH_SECURITY}&nbsp;{TAG_MATH_INPUT}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+	</tr>
+	<!-- END BLOCK : MATH_SECURITY_ZONE -->
+	<!-- START BLOCK : IMAGE_SECURITY_ZONE -->
+	<tr>
+	<td>{MSG_LOGIN_SECURITY}</td>
+	<td>{TAG_IMAGE_SECURITY_IMAGE}&nbsp;{TAG_INPUT_SECURITY}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+	</tr>
+	<!-- END BLOCK : IMAGE_SECURITY_ZONE -->
+	<tr>
+	<td colspan="2"><a href="#" onclick="javascript:myform.submit();" class="btn02">Send<img src="{TAG_THEME_PATH}icon03.png" /></a></td>
+	</tr>
+</tbody>
+</table>
+
+<table cellspacing="0" cellpadding="0" border="0" class="contact_table contact_table03">
+<tbody>
+	<tr class="altrow">
+	<th><span style="color:#e31e80">*</span>{MSG_CONTENT}</th>
+	</tr>
+	<tr>
+	<td><textarea name="cu_content" id="cu_content" class="validate[required]" cols="25" rows="12" class="text_area">{VALUE_CU_CONTENT}</textarea></td>
+	</tr>
+</tbody>
+</table>
+<input type="hidden" name="callback" value="1" />
+</form>
+</div> 
+</div>

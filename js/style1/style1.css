@@ -1,0 +1,99 @@
+#products-show-pic {
+	margin: 0px;
+	padding: 0px 0px 30px 0px;
+	width: 370px;
+	float: left;
+}
+#products-show-pic * {
+	margin: 0px;
+	padding: 0px;
+	word-break: break-all;
+}
+#ifocus {
+	margin: 0px;
+	padding: 6px 0px 0px 5px;
+	width: 360px;
+	height: 310px;
+	float: left;
+}
+#ifocus_pic {
+	margin: 0px;
+	padding: 0px;
+	width: 340px;
+	height: 225px;
+	overflow: hidden;
+	position: relative;
+	display: inline;
+	word-break: break-all;
+	float: left;
+}
+#ifocus_piclist {
+	margin: 0px; 
+	padding: 0px;
+	width: 340px;
+	height: 225px;
+	position: absolute;
+	left: 0px;
+	text-align: center;
+}
+#ifocus_piclist li {
+	margin: 0px; 
+	padding: 0px;
+	width: 340px;
+	height: 225px;
+	list-style-type: none;
+	overflow: hidden;
+}
+#ifocus_piclist img {
+	vertical-align: middle;
+}
+#ifocus_btn {
+	margin: 0px;
+	width: 340px;
+	display: block;
+	float: left;
+}
+#ifocus_btn li {
+	margin: 0px;
+	padding: 12px 5px 5px 5px;
+	width: 75px; 
+	height: 50px;
+	list-style: none;
+	background: url('../../images/index/store-pic-s-bg.gif') no-repeat left top; 
+	cursor: pointer; 
+	filter: alpha(opacity=50); 
+	float: left; 
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+#ifocus_btn img {
+	margin: 0px;
+	width: 75px;
+	height: 50px;
+}
+#ifocus_btn .current {
+	margin: 0px; 
+	background: url('../../images/store-focus_bg.jpg') no-repeat left top;
+	filter: alpha(opacity=100); 
+	-moz-opacity: 1; 
+	opacity: 1;
+}
+#ifocus_opdiv {
+	width: 400px;
+	height: 35px;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+}
+#ifocus_tx {
+	color: #666666; 
+	position: absolute;
+	left: 8px;
+	bottom: 8px;
+}
+#ifocus_tx .normal {
+	display: none;
+}

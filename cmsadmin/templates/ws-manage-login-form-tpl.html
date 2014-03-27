@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script language="javascript" type="text/javascript" src="js/niceforms.js"></script>
+<link href="css/niceforms-default.css" rel="stylesheet" type="text/css" />
+<title>網站管理後台</title>
+<style type="text/css">
+<!--
+body {
+	margin: 0px;
+	background-image: url("images/index-bg.jpg");
+	background-repeat: repeat-x;
+	background-color: #F2F2F2;
+}
+-->
+</style>
+
+</head>
+
+<body>
+<div id="loin">
+<div id="board">
+<div class="sumit">
+ <form  method='post'  class="niceform" name="login_form" action='login.php?func=check_data'>
+ <table width="100%" border="0" cellpadding="5" cellspacing="5">
+    <tr>
+    <td colspan="2"><img src="images/in-logo.jpg" width="200" height="50" /><legend>{LANG_NAME}</legend></td>
+    </tr>
+  <tr>
+    <td align="right"><label for="password">帳號:</label></td>
+    <td><input type="text" name="ai_account"  size="20" /></td>
+  </tr>
+  <tr>
+    <td align="right"><label for="password">密碼:</label></td>
+    <td><input type="password" name="ai_password"  size="20" maxlength="20" /></td>
+  </tr>
+  <tr>
+    <td align="right"><label for="password">驗證碼:</label></td>
+    <td>{TAG_INPUT_SECURITY}{TAG_IMAGE_SECURITY_IMAGE}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><fieldset class="action">
+      <input type="submit" name="submit" value="登入" /> <input type="reset" name="Reset" value="清除" />
+    </fieldset>  </td>
+  </tr>
+</table>
+<input type="hidden" name="callback" value="1">
+</form>
+ </div></div>
+ 
+<p align="center"> 版權所有 © 2009 All Marketing Co.,Ltd. All Rights Reserved. IE7. FireFox2.0 / 1024 X 768 / <a href="http://www.allmarketing.com.tw/">歐鎷數位資訊股份有限公司</a> 網路行銷</p>
+
+</div>
+</body>
+</html>
+

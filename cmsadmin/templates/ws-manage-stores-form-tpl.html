@@ -1,0 +1,103 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>門市管理{MSG_MODE}</h1>
+<form name="myform" method="post" action="stores.php?func=sd_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>狀態:</th>
+            <td>
+                <input type="radio" name="sd_status" value="0" {STR_SD_STATUS_CK0}> 停用&nbsp;
+                <input type="radio" name="sd_status" value="1" {STR_SD_STATUS_CK1}> 啟用&nbsp;
+                </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="sd_sort" type="text"  class="validate[custom[onlyNumber]]" id="type_name" value="{VALUE_SD_SORT}" onBlur="CheckNum(this)" size="4" maxlength="4"></td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>門市名稱:</th>
+            <td>
+                <input name="sd_name" type="text" class="validate[required]" value="{VALUE_SD_NAME}" size="60" maxlength="255">
+            </td>
+        </tr>
+        <tr>
+            <th>門市類型:</th>
+            <td>
+                <input type="radio" name="sd_type" value="1" {STR_SD_TYPE_CK1} onClick="show_realstore_fields()"> 實體店面
+                <input type="radio" name="sd_type" value="2" {STR_SD_TYPE_CK2} onclick="show_webstore_fields()"> 網路商店
+            </td>
+        </tr>
+        <tr>
+        <th>門市小圖</th>
+        <td>
+        <input type="hidden" name="sd_img" value="{VALUE_SD_IMG}" id="attach_img" onchange="onImageSelect(this,'pic_preview');"> &nbsp;
+        <a href="javascript:mcImageManager.open('myform','sd_img');">
+        <img src="{VALUE_PIC_PREVIEW}" border="0" width="110" height="85" name="pic_preview" id="pic_preview"></a>
+        <a href="javascript:LoadDefaultPic('attach_img','pic_preview')">取消圖片</a>
+        <br> &nbsp; <br><font color="red">請點選上方圖框更換圖片</font>
+        </td>
+      </tr>
+        <tr class="real_store" style="display:{STR_SD_TYPE_DISPLAY1}">
+            <th>實體門市分類:</th>
+            <td>
+                <select name="sdc_id" >
+                    <option value="0">請選擇</option>
+                    <!-- START BLOCK : SELECT_OPTION_STORES_CATE -->
+                    <option value="{OPTION_STORES_CATE_VALUE}" {STR_SDC_SEL}> {OPTION_STORES_CATE_NAME}</option>
+                    <!-- END BLOCK : SELECT_OPTION_STORES_CATE -->
+                </select>
+            </td>
+        </tr>      
+        <tr class="real_store" style="display:{STR_SD_TYPE_DISPLAY1}">
+            <th>門市介紹:</th>
+            <td>
+                <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+                <textarea id="elm1" name="sd_desc" cols="70" rows="15">{VALUE_SD_DESC}</textarea>
+                <!-- END BLOCK : WYSIWYG_TINYMCE1 --> 
+            </td>
+        </tr>
+        <tr class="real_store" style="display:{STR_SD_TYPE_DISPLAY1}">
+            <th>門市地圖:</th>
+            <td>
+                <textarea name="sd_gmurl" cols="50" rows="5">{VALUE_SD_GMURL}</textarea>
+                <div>google地圖嵌入碼</div>
+            </td>
+        </tr>
+        <tr class="web_store" style="display:{STR_SD_TYPE_DISPLAY2}">
+            <th>網路商店連結:</th>
+            <td>
+                <input name="sd_url" type="text" class="form-textfield" value="{VALUE_SD_URL}" size="96" maxlength="255">
+                <br>
+                <img src="images/icosd_004.gif" width="9" height="7"> 必需輸入包含 http:// 的完整網址
+            </td>
+        </tr>
+        <tr id="last_row">
+            <th>&nbsp;</th>
+            <td>
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="sd_id" value="{VALUE_SD_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<div id="seo_zone_tmp" style="display:none"></div>
+<!-- INCLUDE BLOCK : FOOTER -->
+<script>
+    function show_realstore_fields(){
+        jQuery('.real_store').show();
+        jQuery('.web_store').hide();
+   
+    }
+    function show_webstore_fields(){
+        jQuery('.real_store').hide();
+        jQuery('.web_store').show();   
+        $("#formID")[0].elements['sdc_id'].selectedIndex=0;
+    }
+</script>

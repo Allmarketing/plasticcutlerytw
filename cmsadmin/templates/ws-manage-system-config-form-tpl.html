@@ -1,0 +1,188 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>系統基本設定</h1>
+<form name="myform" method="post" action="system-config.php?func=sc_replace"  class="formular" id="formID">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtable">
+     <tr>
+      <th colspan="2">基本設定</th>
+     </tr>
+     <tr>
+        <th>預設首頁:</th>
+        <td>
+            <select name="sc_default_front_page" size="1">
+                <!-- START BLOCK : TAG_SELECT_FRONT_PAGE -->
+                <option value="{TAG_SELECT_FRONT_PAGE_VALUE}" {STR_FRONT_PAGE_SEL}> {TAG_SELECT_FRONT_PAGE_NAME} </option>
+                <!-- END BLOCK : TAG_SELECT_FRONT_PAGE -->
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <th>網站狀態:</th>
+        <td>
+          <input type="radio" name="sc_status" value="1" {STR_SC_STATUS_CK1}> 開放
+          <input type="radio" name="sc_status" value="0" {STR_SC_STATUS_CK0}> 關閉
+        </td>
+      </tr>
+      <!-- START BLOCK : TAG_PRODUCTS_TITLE -->
+      <tr>
+        <th>產品說明1:</th>
+        <td>
+            <input type="text" name="sc_desc_title_default" value="{VALUE_SC_DESC_TITLE_DEFAULT}" size="30" />(預設:產品敘述)
+        </td>
+      </tr>
+      <tr>
+        <th>產品說明2:</th>
+        <td>
+            <input type="text" name="sc_character_title_default" value="{VALUE_SC_CHARACTER_TITLE_DEFAULT}" size="30" />(預設:產品特性)
+        </td>
+      </tr>
+      <tr>
+        <th>產品說明3:</th>
+        <td>
+            <input type="text" name="sc_spec_title_default" value="{VALUE_SC_SPEC_TITLE_DEFAULT}" size="30" />(預設:產品規格)
+        </td>
+      </tr>
+      <!-- END BLOCK : TAG_PRODUCTS_TITLE -->
+      <tr>
+        <th><font color="#cc0000">*</font>網站(公司)名稱:</th>
+        <td>
+          <input type="text" name="sc_company" class="validate[required]" value="{VALUE_SC_COMPANY}" size="50" />
+        </td>
+      </tr>
+      <!-- START BLOCK : AD_SETUP -->
+      <tr>
+          <th>廣告顯示排序:</th>
+          <td>
+              <input type="radio" name="sc_ad_sort_type" value="0" {STR_SC_AD_SORT_TYPE_CK0}> 隨機顯示廣告
+              <input type="radio" name="sc_ad_sort_type" value="1" {STR_SC_AD_SORT_TYPE_CK1}> 依修改時間(最新修改的排前面)
+              <input type="radio" name="sc_ad_sort_type" value="2" {STR_SC_AD_SORT_TYPE_CK2}> 依排序值(數字愈小排愈前面) 
+          </td>
+      </tr>
+    <!-- END BLOCK : AD_SETUP -->
+     <tr>
+      <th colspan="2">即時通訊軟體設定(MSN、SKYPE)</th>
+     </tr>
+      <tr>
+        <th>是否在前台顯示帳號及連結:</th>
+        <td>
+          <input type="radio" name="sc_im_status" value="0" {STR_SC_IM_STATUS_CK0}> 否
+          <input type="radio" name="sc_im_status" value="1" {STR_SC_IM_STATUS_CK1}> 是
+        </td>
+      </tr>
+      <tr>
+        <th>開始時間:</th>
+        <td>
+            <select name="sc_im_starttime_h" size="1">
+                <!-- START BLOCK : TAG_SELECT_IM_STARTTIME_H -->
+                <option value="{TAG_SELECT_IM_STARTTIME_VALUE_H}" {STR_IM_STARTTIME_SEL_H}> {TAG_SELECT_IM_STARTTIME_NAME_H} </option>
+                <!-- END BLOCK : TAG_SELECT_IM_STARTTIME_H -->
+            </select>
+            <select name="sc_im_starttime_i" size="1">
+                <!-- START BLOCK : TAG_SELECT_IM_STARTTIME_I -->
+                <option value="{TAG_SELECT_IM_STARTTIME_VALUE_I}" {STR_IM_STARTTIME_SEL_I}> {TAG_SELECT_IM_STARTTIME_NAME_I} </option>
+                <!-- END BLOCK : TAG_SELECT_IM_STARTTIME_I -->
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <th>結束時間:</th>
+        <td>
+            <select name="sc_im_endtime_h" size="1">
+                <!-- START BLOCK : TAG_SELECT_IM_ENDTIME_H -->
+                <option value="{TAG_SELECT_IM_ENDTIME_VALUE_H}" {STR_IM_ENDTIME_SEL_H}> {TAG_SELECT_IM_ENDTIME_NAME_H} </option>
+                <!-- END BLOCK : TAG_SELECT_IM_ENDTIME_H -->
+            </select>
+            <select name="sc_im_endtime_i" size="1">
+                <!-- START BLOCK : TAG_SELECT_IM_ENDTIME_I -->
+                <option value="{TAG_SELECT_IM_ENDTIME_VALUE_I}" {STR_IM_ENDTIME_SEL_I}> {TAG_SELECT_IM_ENDTIME_NAME_I} </option>
+                <!-- END BLOCK : TAG_SELECT_IM_ENDTIME_I -->
+            </select>
+        </td>
+      </tr>
+      <!-- START BLOCK : TAG_IM_MSN -->
+      <tr>
+        <th>MSN 帳號:</th>
+        <td>
+          <input type="text" name="sc_im_msn" value="{VALUE_SC_IM_MSN}" size="30" />
+        </td>
+      </tr>
+      <!-- END BLOCK : TAG_IM_MSN -->
+      <!-- START BLOCK : TAG_IM_SKYPE -->
+      <tr>
+        <th>SKYPE 帳號:</th>
+        <td>
+          <input type="text" name="sc_im_skype" value="{VALUE_SC_IM_SKYPE}" size="30" />
+        </td>
+      </tr>
+      <!-- END BLOCK : TAG_IM_SKYPE -->
+     <tr>
+      <th colspan="2">產品行銷設定</th>
+     </tr>
+      <tr>
+        <th>產品顯示模式:</th>
+        <td>
+        <!-- START BLOCK : IPB_MODE -->
+        <input type="radio" name="sc_cart_type" value="0" {STR_SC_CART_TYPE_CK0}> 詢價車
+        <!-- END BLOCK : IPB_MODE -->
+        <!-- START BLOCK : IPC_MODE -->
+        <input type="radio" name="sc_cart_type" value="1" {STR_SC_CART_TYPE_CK1}> 購物車
+        <!-- END BLOCK : IPC_MODE -->
+        <input type="radio" name="sc_cart_type" value="2" {STR_SC_CART_TYPE_CK2}> 一般產品展示
+        </td>
+      </tr>
+      <!-- START BLOCK : SHIPPING_PRICE_SETUP -->
+      <tr>
+        <th>運費:</th>
+        <td>
+          <input type="text" name="sc_shipping_price" value="{VALUE_SC_SHIPPING_PRICE}" size="5" />
+        </td>
+      </tr>
+      <tr>
+        <th>免運費金額:</th>
+        <td>
+          <input type="text" name="sc_no_shipping_price" value="{VALUE_SC_NO_SHIPPING_PRICE}" size="7" />&nbsp;<font color="#cc0000">購物訂單總金額超過此免運費額度 (含)，即不予計算運費</font>
+        </td>
+      </tr>
+      <!-- END BLOCK : SHIPPING_PRICE_SETUP -->
+      
+      <tr>
+        <th>信箱:</th>
+        <td>
+          <input type="text" name="sc_email" value="{VALUE_SC_EMAIL}" size="50" />&nbsp;<font color="#cc0000">聯絡我們、詢問車、購物車的收信信箱</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題:</th>
+        <td>
+          <input type="text" name="sc_meta_title" value="{VALUE_SC_META_TITLE}" size="50" />&nbsp;<font color="#cc0000">此為網頁之標題設定，通常會顯示在瀏覽器之左上方標題列中。</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網站關鍵字:</th>
+        <td>
+          <textarea name="sc_meta_keyword" cols="50" rows="3" />{VALUE_SC_META_KEYWORD}</textarea>&nbsp;<font color="#cc0000">設定網頁 meta 的 keywords (關鍵字)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網站說明</th>
+        <td>
+          <textarea name="sc_meta_description" cols="50" rows="3" />{VALUE_SC_META_DESCRIPTION}</textarea>&nbsp;<font color="#cc0000">設定網頁 meta 的 description (摘要說明)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>前台產品個數分頁:</th>
+        <td>
+          <input type="text" name="sc_one_page_limit" class="validate[custom[onlyNumber]]" value="{VALUE_SC_ONE_PAGE_LIMIT}" size="5" maxlength="5"/>
+        </td>
+      </tr>
+     <tr>
+     <th>&nbsp;</th>
+        <td>
+          <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+     </tr>
+       <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    </table>
+ </form>
+ </div>
+<!-- INCLUDE BLOCK : FOOTER -->

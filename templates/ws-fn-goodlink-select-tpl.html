@@ -1,0 +1,19 @@
+<select name="goodlink-select" id="goodlink-select">
+    <option value="">相關網站</option>
+    <!-- START BLOCK : GOODLINK_SELECT_OPTION -->
+    <option value="{GOODLINK_URL}" rel="{GOODLINK_POP}">{GOODLINK_NAME}</option>
+    <!-- END BLOCK : GOODLINK_SELECT_OPTION -->
+</select>
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+             $("#goodlink-select").change(function(e){
+                 if(this.value!=""){
+                      var idx = this.selectedIndex;
+                      var url = this.options[idx].value;
+                      location.href = url;
+                 }
+             });
+        });
+    })(jQuery);
+</script>

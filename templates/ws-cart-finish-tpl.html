@@ -1,0 +1,200 @@
+
+    <!-- START BLOCK : MEMBER_LOGIN_FORM -->
+            <table width="60%" border="0" align="center" cellpadding="4" cellspacing="1" >
+                <tr>
+                    <td>
+                      {MSG_LOGIN_NOTICE1}</td>
+                    <td>
+                 </tr>
+            </table>
+            <form name="myform" method="post" action="login.php?func=check_data" id="formID" class="formular">
+              <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1" class="inquiry_table">
+                    <tr class="altrow1">
+                        <td colspan="2">{MSG_MEMBER_LOGIN}</td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_ACCOUNT}</td>
+                        <td>
+                            <input name="mm_account" class="validate[required]" type="text" class="search_product" id="mm_account" size="20" /></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_PASSWORD}</td>
+                        <td><input name="mm_password" class="validate[required]" type="password" class="search_product" id="mm_password" size="20" /></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td>{MSG_LOGIN_SECURITY}</td>
+                        <td>{TAG_INPUT_SECURITY}&nbsp;{TAG_IMAGE_SECURITY_IMAGE}&nbsp;&nbsp;<font color="#ff0000">{MSG_ERROR_MESSAGE}</font></td>
+                    </tr>
+                    <tr class="altrow2">
+                        <td align="center" colspan="2"><input type="submit" name="login" value="Login"></td>
+                    </tr>
+                </table>
+            <input type="hidden" name="callback" value="1">
+            <input type="hidden" name="rp" value="1">
+            </form>
+    <!-- END BLOCK : MEMBER_LOGIN_FORM -->
+    <!-- START BLOCK : SHOPPING_CART_ZONE -->
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="inquiry_table">
+            <tr>
+                <th width="5%"> No.</th>
+                <th width="10%"> {MSG_PRODUCT_IMAGE}</th>
+                <th width="40%"> {MSG_PRODUCT}</th>
+                <th width="10%"> {MSG_AMOUNT}</th>
+                <th width="25%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+                <th width="20%"> {MSG_SUBTOTAL}</th>
+            </tr>
+            <!-- START BLOCK : SHOPPING_CART_LIST -->
+            <tr {TAG_TR_CLASS}>
+                <td>{VALUE_P_SERIAL}</td>
+                <td><a href="{VALUE_P_LINK}" target="_blank"><img src="{VALUE_P_SMALL_IMG}" width="40" alt="{VALUE_P_NAME}" border="0"/></a></td>
+                <td><a href="{VALUE_P_LINK}" target="_blank">{VALUE_P_NAME}</a></td>
+                <td>{VALUE_P_AMOUNT}</td>
+                <td>{VALUE_P_SPECIAL_PRICE}</td>
+                <td>{VALUE_P_SUBTOTAL_PRICE}</td>
+            </tr>
+            <!-- END BLOCK : SHOPPING_CART_LIST -->
+            <tr>
+                <td colspan="4">
+                    <div align="right">{MSG_SHIPPING_PRICE}:&nbsp;</div>
+                </td>
+                <td colspan="2"> {VALUE_SHIPPING_PRICE}</td>
+            </tr>
+            <tr>
+                <th colspan="4">
+                    <div align="right"> {MSG_TOTAL}:&nbsp;</div>
+                </th>
+                <th colspan="2"> {VALUE_TOTAL}
+                </th>
+            </tr>
+        </table>
+    <!-- END BLOCK : SHOPPING_CART_ZONE -->
+    <!-- START BLOCK : INQUIRY_CART_ZONE -->
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="inquiry_table">
+            <tr>
+                <th width="5%"> No.</th>
+                <th width="15%"> {MSG_PRODUCT_IMAGE}</th>
+                <th width="60%"> {MSG_PRODUCT}</th>
+                <th width="20%"> {MSG_AMOUNT}</th>
+            </tr>
+            <!-- START BLOCK : INQUIRY_CART_LIST -->
+            <tr>
+                <td class="no">{VALUE_P_SERIAL}</td>
+                <td><center><a href="{VALUE_P_LINK}" target="_blank"><img src="{VALUE_P_SMALL_IMG}" width="60" alt="{VALUE_P_NAME}" border="0"/></a></center></td>
+                <td class="title"><a href="{VALUE_P_LINK}" target="_blank">{VALUE_P_NAME}</a></td>
+                <td>{VALUE_P_AMOUNT}</td>
+            </tr>
+            <!-- END BLOCK : INQUIRY_CART_LIST -->
+        </table>
+    <!-- END BLOCK : INQUIRY_CART_ZONE -->
+    <!-- START BLOCK : MEMBER_DATA_FORM -->
+<form name="myform" method="post" action="cart.php?func=c_replace" id="formID" class="formular">
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="member_table">
+            <!-- START BLOCK : PAYMENT_TYPE -->
+            <tr class="altrow">
+                <th>
+                    {MSG_PAYMENT_TYPE}</th>
+                <td>
+                    <select name="o_payment_type">
+                    <!-- START BLOCK : PAYMENT_TYPE_ITEMS -->
+                        <option value="{VALUE_PAYMENT_TYPE_ID}">{VALUE_PAYMENT_TYPE}</option>
+                    <!-- END BLOCK : PAYMENT_TYPE_ITEMS -->
+                    </select>
+                    <div id="atm_last5">
+                    匯款帳號後五號:<input type="text" name="o_atm_last5" size="10" maxlength="5"/>
+                    </div>
+                    </td>
+            </tr>
+            <!-- END BLOCK : PAYMENT_TYPE -->
+            <tr class="altrow">
+              <th>{MSG_COMPANY_NAME}</th>
+              <td><input name="m_company_name" size="42" value="{VALUE_M_COMPANY_NAME}" type="text" /></td>
+            </tr>
+            <tr>
+              <th><font color="#ff0000">*</font>{MSG_CONTACT_PERSON}</th>
+              <td>
+                    <!-- INCLUDE BLOCK : CONTACT_S -->
+                </td>
+            </tr>
+            <!-- START BLOCK : SELECT_COUNTRY -->
+            <tr>
+                <th><font color="#ff0000">*</font>{MSG_COUNTRY}</th>
+                <td><select name="m_country" id="m_country" class="validate[required]">
+                    {TAG_SELECT_OPTION_COUNTRY}
+                    </select></td>
+            </tr>
+            <!-- END BLOCK : SELECT_COUNTRY -->
+            <tr class="altrow">
+                <th>{MSG_ZIP}</th>
+                <td>
+                    <input name="m_zip" type="text"   value="{VALUE_M_ZIP}" size="10" ></td>
+            </tr>
+            <tr>
+                <th>{MSG_ADDRESS}</th>
+                <td>
+                    <input name="m_address" type="text"   value="{VALUE_M_ADDRESS}" size="60" ></td>
+            </tr>
+            <tr  class="altrow">
+                <th><font color="#ff0000">*</font>{MSG_TEL}</th>
+                <td>
+                    <input name="m_tel" type="text" id="m_tel" class="validate[required]"   value="{VALUE_M_TEL}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>{MSG_FAX}</th>
+                <td>
+                    <input name="m_fax" type="text" value="{VALUE_M_FAX}" size="40" >
+                    </td>
+            </tr>
+            <tr class="altrow">
+                <th>{MSG_CELLPHONE}</th>
+                <td>
+                    <input name="m_cellphone" type="text"   value="{VALUE_M_CELLPHONE}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>e-mail</th>
+                <td>
+                    <input name="m_email" type="text" id="m_email" class="validate[required,custom[email]]"   value="{VALUE_M_EMAIL}" size="40" >
+                    </td>
+            </tr>
+            <!-- START BLOCK : TIME_SEC_ZONE -->
+            <tr>
+                <th>到貨日期</th>
+                <td><input type="text" class="datepicker" name="o_deliver_date" id="o_deliver_date" value=""  size="20"/></td>
+            </tr>
+            <tr  class="altrow">
+                <th>配送時段</th>
+                <td>
+                    <select name="o_deliver_time_sec">
+                        <!-- START BLOCK : TIME_SEC_LIST -->
+                        <option value="{TS_ID}">{TS_SEC}</option>
+                        <!-- END BLOCK : TIME_SEC_LIST -->
+                    </select>
+                </td>
+            </tr>
+            <!-- END BLOCK : TIME_SEC_ZONE -->
+            <tr>
+              <th>{MSG_CONTENT}</th>
+              <td>
+                 <textarea name="content" cols="50" rows="12" ></textarea>
+              </td>
+            </tr>
+            <tr class="altrow">
+              <th>
+                    &nbsp;</th>
+              <td>
+                 <input type="submit" value="{MSG_MODE}">
+              </td>
+            </tr>
+        </table>
+        <input type="hidden" name="o_plus_price" value="{VALUE_SHIPPING_PRICE}">
+        <input type="hidden" name="o_subtotal_price" value="{VALUE_SUBTOTAL}">
+        <input type="hidden" name="o_total_price" value="{VALUE_TOTAL}">
+        </form>
+    <!-- END BLOCK : MEMBER_DATA_FORM -->
+    <p>
+    <div>
+        {MSG_PAYMENT_TERM}
+    </div>
+    </p>

@@ -1,0 +1,92 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>Youtube影片{MSG_MODE}</h1>
+<form name="myform" method="post" action="video.php?func=v_replace"  class="formular" id="formID">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtable">
+  <tr>
+        <th>啟用狀態:</th>
+        <td>
+          <input type="radio" name="v_status" value="1" {STR_V_STATUS_CK1}> 啟用
+          <input type="radio" name="v_status" value="0" {STR_V_STATUS_CK0}> 停用
+        </td>
+  </tr>
+  <tr>
+        <th>排序:</th>
+        <td>
+            <input name="v_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_V_SORT}" size="4" maxlength="4">
+        </td>
+  </tr>
+    <tr>
+        <th><font color="#cc0000">*</font>分類</th>
+        <td>
+            <select name="vc_id" id="vc_id">
+                <!-- START BLOCK : VIDEO_CATE_LIST -->
+                <option value="{VALUE_VC_ID}" {TAG_SELECTED}>{VALUE_VC_SUBJECT}</option>
+                <!-- END BLOCK : VIDEO_CATE_LIST -->
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th><font color="#cc0000">*</font>標題</th>
+        <td>
+            <input name="v_subject" type="text" class="validate[required]" value="{VALUE_V_SUBJECT}" size="50">
+        </td>
+    </tr>
+    <tr>
+        <th>內容</th>
+        <td>
+            <textarea id="v_content" name="v_content" cols="50" rows="15" >{VALUE_V_CONTENT}</textarea>
+        </td>
+    </tr>
+      <!-- START BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th colspan="2">SEO 設定區域</th>
+      </tr>
+      <tr>
+        <th>網頁檔名:</th>
+        <td>
+            <input name="v_seo_filename"  id="{NOW_V_ID}" class="validate[required,ajax[ajaxVfilename]]" type="text" value="{VALUE_V_SEO_FILENAME}" size="40" >
+            <br><font color="red">(檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'，特殊符號請用-代替)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題(Meta Title):</th>
+        <td>
+            <input name="v_seo_title" type="text"  value="{VALUE_V_SEO_TITLE}" size="60" />
+        </td>
+      </tr>
+      <tr>
+        <th>網頁關鍵字(Meta Keyword):</th>
+        <td>
+            <textarea name="v_seo_keyword" cols="50" rows="3" >{VALUE_V_SEO_KEYWORD}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁敘述(Meta Description):</th>
+        <td>
+            <textarea name="v_seo_description" cols="50" rows="3" >{VALUE_V_SEO_DESCRIPTION}</textarea>
+        </td>
+      </tr>
+        <tr>
+            <th>H1 標題:</th>
+            <td>
+                <input name="v_seo_h1" type="text"  value="{VALUE_V_SEO_H1}" size="40" >
+            </td>
+        </tr>
+      <!-- END BLOCK : SEO_EDIT_ZONE -->
+    <tr>
+        <th>&nbsp;</th>
+        <td>
+         <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="v_id" value="{VALUE_V_ID}">
+<input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+<input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+<input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+<input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+<input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}"> 
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

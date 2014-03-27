@@ -1,0 +1,83 @@
+#<FilesMatch "\.(css)">  
+#    ForceType application/x-httpd-php  
+#    php_value auto_prepend_file "/home/httpd/vhosts/jefu.com.tw/httpdocs/libs/libs-gzip-css.php"
+#</FilesMatch>
+#<FilesMatch "\.(js)">  
+#    ForceType application/x-httpd-php  
+#    php_value auto_prepend_file "/home/httpd/vhosts/jefu.com.tw/httpdocs/libs/libs-gzip-js.php"
+#</FilesMatch>
+
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes
+
+RewriteEngine On
+
+#防盜連
+#圖片request的HTTP_REFERER不包括主機的網域
+#RewriteCond %{HTTP_REFERER} !http://localhost/ [NC]
+#而且是圖片類型
+#RewriteCond %{REQUEST_FILENAME} \.(jpg|jpeg|png|gif)$ [NC]
+#而且也不是預設圖片類型
+#RewriteCond %{REQUEST_FILENAME} !ws-no-image.jpg$ [NC]
+#RewriteRule ^.*$ ws-no-image.jpg [L]
+
+#預設圖片，圖片不存在時使用
+#檔案不存在，或檔案size為0
+#RewriteCond %{REQUEST_FILENAME} !-s
+#且副檔名是這些
+#RewriteCond %{REQUEST_FILENAME} \.(jpg|jpeg|gif|png|tif|tiff|bmp)$
+#設定預設圖片，絕對路徑或相對路徑皆可
+#RewriteRule ^.*$ ../ws-no-image.jpg
+
+#禁跨網域POST
+#來自非本機的網域
+#RewriteCond %{HTTP_REFERER} !http://localhost/ [NC]
+#而且是post
+#RewriteCond %{REQUEST_METHOD} POST [NC]
+#RewriteCond %{REQUEST_FILENAME} contactus.htm$ [NC]
+#RewriteRule ^.*$ 404.htm [L]
+
+#替圖片加上浮水印
+#RewriteCond %{REQUEST_FILENAME} \.(jpg|jpeg|png|gif)$ [NC]
+#RewriteCond %{REQUEST_FILENAME} upload_files [NC]
+#RewriteRule ^.*$ watermark.php?src=$0 [L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+#獨立aboutus類別
+#showroom
+#RewriteRule ^showroom.htm$  aboutus.php?au_cate=showroom [L]
+#RewriteRule ^showroom/([^/]+).html$  aboutus.php?au_cate=showroom&f=$1 [L]
+
+RewriteRule ^new-products.html$  products.php?func=p_new [L]
+RewriteRule ^application-(\d+).htm$  application.php?pa_id=$1 [L]
+#主功能頁
+RewriteRule ^(news|aboutus|contactus|sitemap|products|download|faq|guestbook|stores|factory|goodlink|gallery|application|video|ebook).htm$  $1.php [L]
+#主功能列表頁-無檔名
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery)/([^/]+)list-([0-9]+).htm$  $1.php?func=$2_list&$2c_id=$3 [L]
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery)/([^/]+)list-([0-9]+)-pages-([0-9]+)-([0-9]+).htm$  $1.php?func=$2_list&$2c_id=$3&nowp=$4&jp=$5 [L]
+#主功能詳細頁-無檔名
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery)/([^/]+)detail-([0-9]+)-([0-9]+).html$  $1.php?func=$2_show&$2c_id=$3&$2_id=$4 [L]
+#主功能詳細頁-有檔名
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery|application)/([^/]+)-pages-([0-9]+)-([0-9]+).htm$  $1.php?type=list&f=$2&nowp=$3&jp=$4 [L]
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery)/([^/]+).html$  $1.php?type=show&f=$2 [L]
+#主功能詳細頁-有檔名-功能主頁分頁
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery)-pages-([0-9]+)-([0-9]+).htm$  $1.php?nowp=$2&jp=$3 [L]
+#主功能列表頁-有檔名
+RewriteRule ^(news|aboutus|download|faq|goodlink|gallery|application|video)/([^/]+).htm$  $1.php?type=list&f=$2 [L]
+RewriteRule ^(video)/([^/]+)/([^/]+).html$  $1.php?type=show&d=$2&f=$3 [L]
+
+
+
+#無設定檔名目錄
+RewriteRule ^category-([0-9]+)-pages-([0-9]+)-([0-9]+).htm$  products.php?func=p_list&pc_parent=$1&nowp=$2&jp=$3 [L]
+RewriteRule ^category-([0-9]+).htm$  products.php?func=p_list&pc_parent=$1 [L]
+#有設定檔名目錄
+RewriteRule ^([^/]+)-pages-([0-9]+)-([0-9]+).htm$  products.php?func=p_list&f=$1&nowp=$2&jp=$3 [L]
+RewriteRule ^([^/]+).htm$  products.php?func=p_list&f=$1 [L]
+#無設定檔名產品
+RewriteRule ^([^/]+)/products-([0-9]+)-([0-9]+).html$  products.php?func=p_detail&p_id=$2&&pc_parent=$3&d=$1 [L]
+#有設定檔名產品
+RewriteRule ^([^/]+)/([^/]+).html$  products.php?func=p_detail&d=$1&f=$2 [L]

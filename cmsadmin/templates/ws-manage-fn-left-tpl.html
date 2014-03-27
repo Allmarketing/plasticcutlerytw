@@ -1,0 +1,184 @@
+  <div id="left_content">
+  <div id="user_info">歡迎您，<strong>{TAG_USER_ACCOUNT}</strong><br />[{TAG_USER_NAME}，<a href="login.php?func=logout" target="_top">退出</a>]</div>
+  </div>
+  <div id="accordion">
+    <h2>系統設定</h2>
+    <div class="pane" {CSS_BLOCK_SYSTEM}>
+        <!-- START BLOCK : AUTHORITY_SYSCONFIG -->
+        <h3><a href="system-config.php?func=sc_mod" {TAG_SC_CURRENT}>系統設定</a></h3>
+        <!-- END BLOCK : AUTHORITY_SYSCONFIG -->
+        <!-- START BLOCK : AUTHORITY_ADMIN -->
+        <h3><a href="admin.php?func=ai_list" {TAG_AI_CURRENT}>後台管理員</a></h3>
+        <!-- END BLOCK : AUTHORITY_ADMIN -->
+        <!-- START BLOCK : INDEX_BANNER -->
+        <h3><a href="system-config.php?func=sc_banner" {TAG_IB_CURRENT}>首頁banner管理</a></h3>
+        <!-- END BLOCK : INDEX_BANNER -->        
+        <h3><a href="javascript:mcImageManager.open('myform','temp_filepath');">圖檔管理</a></h3>
+        <h3><a href="javascript:mcFileManager.open('myform','temp_filepath');">檔案管理</a></h3>
+    </div>
+    <!-- START BLOCK : AUTHORITY_CONTACTUS -->
+    <h2>聯絡我們</h2>
+    <div class="pane" {CSS_BLOCK_CONTACTUS}>
+        <h3><a href="contactus.php?func=cu_list" {TAG_CU_CURRENT}>聯絡我們管理</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_contactus_term" {TAG_ST_CONTACTUS_CURRENT}>聯絡我們說明</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_CONTACTUS -->
+    <!-- START BLOCK : AUTHORITY_ABOUTUS -->
+    <h2>關於我們</h2>
+    <div class="pane" {CSS_BLOCK_ABOUTUS}>
+        <h3><a href="aboutus.php?func=au_list" {TAG_AU_CURRENT}>關於我們列表</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_ABOUTUS -->
+    <!-- START BLOCK : AUTHORITY_VIDEO -->
+    <h2>影片管理</h2>
+    <div class="pane" {CSS_BLOCK_VIDEO}>
+        <h3><a href="video.php?func=vc_list" {TAG_VC_CURRENT}>影片分類列表</a></h3>
+        <h3><a href="video.php?func=v_list" {TAG_V_CURRENT}>影片列表</a></h3>
+    </div>    
+    <!-- END BLOCK : AUTHORITY_VIDEO -->
+    <!-- START BLOCK : AUTHORITY_PRODUCTS -->
+    <h2>產品管理</h2>
+    <div class="pane" {CSS_BLOCK_PRODUCTS}>
+        <!-- START BLOCK : AUTHORITY_PRODUCTS_CATE -->
+        <h3><a href="products.php?func=pc_list" {TAG_PC_CURRENT}>產品分類管理</a></h3>
+        <!-- END BLOCK : AUTHORITY_PRODUCTS_CATE -->
+        <h3><a href="products.php?func=p_list" {TAG_P_CURRENT}>產品管理</a></h3>
+        <!-- START BLOCK : AUTHORITY_NEW_PRODUCTS -->
+        <h3><a href="products.php?func=new_p_list" {TAG_PN_CURRENT}>新產品管理</a></h3>
+        <!-- END BLOCK : AUTHORITY_NEW_PRODUCTS -->
+        <!-- START BLOCK : AUTHORITY_PRODUCTS_APPLICATION -->
+        <h3><a href="products.php?func=pa_list" {TAG_PA_CURRENT}>應用領域管理</a></h3>
+        <!-- END BLOCK : AUTHORITY_PRODUCTS_APPLICATION -->
+        <!-- START BLOCK : AUTHORITY_CERTIFICATE_AUTHEN -->
+        <h3><a href="products.php?func=ca_list" {TAG_CA_CURRENT}>認證標章管理</a></h3>
+        <!-- END BLOCK : AUTHORITY_CERTIFICATE_AUTHEN -->        
+    </div>
+    <!-- END BLOCK : AUTHORITY_PRODUCTS -->
+    <!-- START BLOCK : AUTHORITY_NEWS -->
+    <h2>最新消息</h2>
+    <div class="pane" {CSS_BLOCK_NEWS}>
+        <h3><a href="news.php?func=nc_list" {TAG_NC_CURRENT}>最新消息分類管理</a></h3>
+        <h3><a href="news.php?func=n_list" {TAG_N_CURRENT}>最新消息管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_NEWS -->
+    <!-- START BLOCK : AUTHORITY_DOWNLOAD -->
+    <h2>檔案下載</h2>
+    <div class="pane" {CSS_BLOCK_DOWNLOAD}>
+        <h3><a href="download.php?func=dc_list" {TAG_DC_CURRENT}>檔案下載分類管理</a></h3>
+        <h3><a href="download.php?func=d_list" {TAG_D_CURRENT}>檔案下載管理</a></h3>
+        <h3><a href="javascript:mcImageManager.open('myform','temp_filepath');">圖檔管理</a></h3>
+        <h3><a href="javascript:mcFileManager.open('myform','temp_filepath');">檔案管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_DOWNLOAD -->
+    <!-- START BLOCK : AUTHORITY_FAQ -->
+    <h2>FAQ管理</h2>
+    <div class="pane" {CSS_BLOCK_FAQ}>
+        <h3><a href="faq.php?func=fc_list" {TAG_FC_CURRENT}>FAQ分類管理</a></h3>
+        <h3><a href="faq.php?func=f_list" {TAG_F_CURRENT}>FAQ管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_FAQ -->
+    <!-- START BLOCK : AUTHORITY_INQUIRY -->
+    <h2>詢價管理</h2>
+    <div class="pane" {CSS_BLOCK_INQUIRY}>
+        <h3><a href="inquiry.php?func=i_list" {TAG_I_CURRENT}>詢價單管理</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_inquiry_mail" {TAG_ST_INQUIRY_CURRENT}>詢價確認信編輯</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_INQUIRY -->
+    <!-- START BLOCK : AUTHORITY_ORDER -->
+    <h2>購物管理</h2>
+    <div class="pane" {CSS_BLOCK_ORDER}>
+        <h3><a href="order.php?func=o_list" {TAG_O_CURRENT}>訂單管理</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_order_mail" {TAG_ST_ORDER_CURRENT}>購物確認信編輯</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_shopping_term" {TAG_ST_SHOPPING_TERM_CURRENT}>購物說明</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_service_term" {TAG_ST_SERVICE_TERM_CURRENT}>服務條款</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_privacy_policy" {TAG_ST_PRIVACY_POLICY_CURRENT}>隱私權政策</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_payment_term" {TAG_ST_PAYMENT_TERM_CURRENT}>付款說明</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_shipping_term" {TAG_ST_SHIPPING_TERM_CURRENT}>運送說明</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_ORDER -->
+    <!-- START BLOCK : AUTHORITY_AD -->
+    <h2>廣告管理</h2>
+    <div class="pane" {CSS_BLOCK_AD}>
+        <h3><a href="ad.php?func=ad_list" {TAG_AD_CURRENT}>廣告列表</a></h3>
+        <h3><a href="ad.php?func=ad_add" {TAG_AD_ADD_CURRENT}>廣告新增</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_AD -->
+    <!-- START BLOCK : AUTHORITY_MEMBER -->
+    <h2>會員管理</h2>
+    <div class="pane" {CSS_BLOCK_MEMBER}>
+        <h3><a href="member.php?func=mc_list" {TAG_MC_CURRENT}>會員分類管理</a></h3>
+        <h3><a href="member.php?func=m_list" {TAG_M_CURRENT}>會員管理</a></h3>
+        <!-- START BLOCK : AUTHORITY_MEMBER_MANIUPULATE -->
+        <h3><a href="member.php?func=m_import" {TAG_M_IM_CURRENT}>匯入會員資料</a></h3>
+        <h3><a href="member.php?func=m_export" {TAG_M_EX_CURRENT}>匯出會員資料</a></h3>
+        <!-- END BLOCK : AUTHORITY_MEMBER_MANIUPULATE -->
+    </div>
+    <!-- END BLOCK : AUTHORITY_MEMBER -->
+    <!-- START BLOCK : AUTHORITY_EPAPER -->
+    <h2>電子報</h2>
+    <div class="pane" {CSS_BLOCK_EPAPER}>
+        <h3><a href="epaper.php?func=ec_list" {TAG_EC_CURRENT}>電子報分類管理</a></h3>
+        <h3><a href="epaper.php?func=e_list" {TAG_E_CURRENT}>電子報管理</a></h3>
+        <h3><a href="epaper.php?func=eo_list" {TAG_EO_CURRENT}>訂閱名單列表</a></h3>
+        <h3><a href="epaper.php?func=es_history" {TAG_ES_CURRENT}>發送記錄</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_epaper_header" {TAG_ESH_CURRENT}>編輯電子報HEADER</a></h3>
+        <h3><a href="service.php?func=st_term&term_type=st_epaper_footer" {TAG_ESF_CURRENT}>編輯電子報FOOTER</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_EPAPER -->
+    <!-- START BLOCK : AUTHORITY_SEO -->
+    <h2>行銷設定</h2>
+    <div class="pane" {CSS_BLOCK_METATITLE}>
+        <h3><a href="metatitle.php?func=mt_setup" {TAG_MT_CURRENT}>各項Meta設定</a></h3>
+        <!-- START BLOCK : AUTHORITY_GOOGLE_SITEMAP -->
+        <h3><a href="google.php?func=gs" {TAG_GS_CURRENT}>Google sitemap</a></h3>
+        <!-- END BLOCK : AUTHORITY_GOOGLE_SITEMAP -->
+        <!-- START BLOCK : AUTHORITY_GOOGLE_ANALYTICS -->
+        <h3><a href="google.php?func=ga" {TAG_GA_CURRENT}>Google Analytics</a></h3>
+        <!-- END BLOCK : AUTHORITY_GOOGLE_ANALYTICS -->
+    </div>
+    <!-- END BLOCK : AUTHORITY_SEO -->
+    <!-- START BLOCK : AUTHORITY_EBOOK -->
+    <h2>電子型錄</h2>
+    <div class="pane" {CSS_BLOCK_EBOOK}>
+        <h3><a href="ebook.php?func=ebc_list" {TAG_EBC_CURRENT}>型錄分類管理</a></h3>
+        <h3><a href="ebook.php?func=eb_list" {TAG_EB_CURRENT}>型錄管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_EBOOK -->
+    <!-- START BLOCK : AUTHORITY_GALLERY -->
+    <h2>活動剪影</h2>
+    <div class="pane" {CSS_BLOCK_GALLERY}>
+        <h3><a href="gallery.php?func=gc_list" {TAG_GC_CURRENT}>活動剪影分類管理</a></h3>
+        <!-- START BLOCK : GALLERY_ITEM -->
+        <h3><a href="gallery.php?func=g_list" {TAG_G_CURRENT}>活動剪影管理</a></h3>
+        <!-- END BLOCK : GALLERY_ITEM -->
+    </div>
+    <!-- END BLOCK : AUTHORITY_GALLERY -->
+    <!-- START BLOCK : AUTHORITY_GOODLINK -->
+    <h2>好站連結</h2>
+    <div class="pane" {CSS_BLOCK_GOODLINK}>
+        <h3><a href="goodlink.php?func=lc_list" {TAG_LC_CURRENT}>好站連結分類管理</a></h3>
+        <h3><a href="goodlink.php?func=l_list" {TAG_L_CURRENT}>好站連結管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_GOODLINK -->
+    <!-- START BLOCK : AUTHORITY_GUESTBOOK -->
+    <h2>留言版</h2>
+    <div class="pane" {CSS_BLOCK_GUESTBOOK}>
+        <h3><a href="guestbook.php?func=gb_list" {TAG_GB_CURRENT}>留言版管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_GUESTBOOK -->
+    <!-- START BLOCK : AUTHORITY_STATISTIC -->
+    <h2>統計報表</h2>
+    <div class="pane" {CSS_BLOCK_STATISTIC}>
+        <h3><a href="statistic.php?mode=visitors" {TAG_SR_VISITORS_CURRENT}>訪客統計</a></h3>
+        <h3><a href="statistic.php?mode=country" {TAG_SR_COUNTRY_CURRENT}>國別統計</a></h3>
+        <h3><a href="statistic.php?mode=views" {TAG_SR_VIEWS_CURRENT}>流量統計</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_STATISTIC -->
+    <!-- START BLOCK : AUTHORITY_STORES -->
+    <h2>門市管理</h2>
+    <div class="pane" {CSS_BLOCK_STORES}>
+        <h3><a href="stores.php?func=sdc_list" {TAG_SDC_CURRENT}>門市分類管理</a></h3>
+        <h3><a href="stores.php?func=sd_list" {TAG_SD_CURRENT}>門市管理</a></h3>
+    </div>
+    <!-- END BLOCK : AUTHORITY_STORES -->       
+</div>

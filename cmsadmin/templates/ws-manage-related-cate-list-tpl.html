@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <title> 相關產品 </title>
+        <link href="css/common.css" rel="stylesheet" type="text/css" />
+    </head>
+    <script language="JavaScript" src="js/cms_main.js"></script>
+    <script>
+    function change_div_display(divzone,type)   {
+        if(type=="hide"){
+            document.getElementById(divzone).style.display='none';
+        }
+        if(type=="open"){
+            document.getElementById(divzone).style.display='';
+        }
+    }
+    </script>
+    <body>
+      <br><br>
+      <form name="related_items" method="get">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class="related_table" align="center">
+        <tr><th>相關分類</td></tr>
+        <tr>
+          <td>
+                <!-- START BLOCK : PRODUCT_CATE_MAIN -->
+                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="related_table">
+                   <tr>
+                     <td colspan="4">
+                     <font color="red">{VALUE_PC_MAIN_NAME}(主分類)</font>
+                     <a href="javascript:change_div_display('div_{VALUE_PC_ID}','open')" >展開</a> <a href="javascript:change_div_display('div_{VALUE_PC_ID}','hide')">隱藏</a>
+                     </td>
+                   </tr>
+                   <tr>
+                     <td colspan="4">
+                       <div id="div_{VALUE_PC_ID}" style="display:{TAG_DIV_DISPLAY}">
+                         <table cellpadding="0" cellspacing="0" class="related_table">
+                           <tr>
+                   <!-- START BLOCK : PRODUCT_CATE_SUB -->
+                     <td>
+                         <input type='checkbox' name="related_id[]" value='{VALUE_PC_ID}' {TAG_CHECKED}><font color="{TAG_FONT_COLOR}">{VALUE_PC_SUB_NAME}</font>
+                         <input type='hidden' name="pc{VALUE_PC_ID}" id="pc{VALUE_PC_ID}" value='{VALUE_PC_SUB_NAME}'>
+                     </td>
+                     {TAG_TR}
+                   <!-- END BLOCK : PRODUCT_CATE_SUB -->
+                  </tr>
+                         </table>
+                       </div>
+                     </td>
+                   </tr>
+                </table>
+                <!-- END BLOCK : PRODUCT_CATE_MAIN -->
+          </td>
+        </tr>
+        <tr>
+          <td><a href='javascript:sel_related_items("{VALUE_RETURN_ID}")'><p class="clsItem">※核選完畢時，請按此處※</p></a></td>
+        </tr>
+    </table>
+    </form>
+    </body>
+</html>

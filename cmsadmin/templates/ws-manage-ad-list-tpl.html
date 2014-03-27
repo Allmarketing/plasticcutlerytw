@@ -1,0 +1,87 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>廣告管理</h1>
+<br>
+<form action="ad.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+      <tr>
+      <!-- START BLOCK : AD_CATE_LIST -->
+      <td width="25%" valign="top">
+       <table>
+         <tr>
+           <td valign="top">
+           <a href="ad.php?func=ad_list&ad_cate={VALUE_AD_CATE}"><div class="on">{VALUE_ADC_SUBJECT}</div></a>
+           </td>
+         </tr>
+      </table>
+      </td>
+      {TAG_AD_CATE_TRTD}
+      <!-- END BLOCK : AD_CATE_LIST -->
+      </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="10">
+      目前分類 : <a href="ad.php?func=ad_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="10">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="ad.php?func=ad_add" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+          <li><img src="images/icon-copy.gif" /><a href="#" Onclick="Javascript:return FormCheckCopy(myform)">複製</a></li>
+        </ul>
+        <ul>
+          <li>
+            <select name="st" class="seinput">
+                  <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                  <option value="ad_name" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                  <option value="ad_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="22%">分類名稱</th>
+      <th width="30%">標題</th>
+      <th width="10%">廣告開始日</th>
+      <th width="8%">廣告展示</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : AD_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" class="form-checkbox" name="id[]" value="{VALUE_AD_ID}"></td>
+      <td>{VALUE_AD_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_AD_ID}]" value="{VALUE_AD_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_ADC_SUBJECT}</td>
+      <td>{VALUE_AD_SUBJECT}</td>
+      <td>{VALUE_AD_STARTDATE}</td>
+      <td>{VALUE_AD_PUBLISH_STATUS}</td>
+      <td><a href="ad.php?func=ad_mod&ad_id={VALUE_AD_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif"  width="11"  height="9"  border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','ad.php?func=ad_del&ad_id={VALUE_AD_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}' border="0" /></td>
+    </tr>
+    <!-- END BLOCK : AD_LIST -->
+    <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+    <input type="hidden" name="box_check" value="1" />
+    <input type="hidden" name="ws_table" value="ad" />
+    <input type="hidden" name="ad_cate" value="{VALUE_AD_CATE}" />
+  </table>
+    <br>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

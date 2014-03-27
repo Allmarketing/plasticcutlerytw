@@ -1,0 +1,114 @@
+<!-- START BLOCK : PRODUCTS_CATE_CUSTOM -->
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+	<td>
+	{VALUE_PC_CUSTOM}</td>
+  </tr>
+</table>
+<!-- END BLOCK : PRODUCTS_CATE_CUSTOM -->
+<!-- START BLOCK : PRODUCTS_CATE_SHORT_DESC -->
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+	<td>{VALUE_PC_SHORT_DESC}</td>
+  </tr>
+</table>
+<!-- END BLOCK : PRODUCTS_CATE_SHORT_DESC -->
+<div id="productslistmain">
+
+<!-- START BLOCK : TAG_ADD_CART_TOP -->
+<form name="myform" id="myform" action="{TAG_ROOT_PATH}cart.php" method="post">
+<input type="hidden" name="func" value="c_add">
+<input type="hidden" name="cart_type" value="{VALUE_P_CART_TYPE}">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+	<tr>
+		<td width="45%"><p>To inquire or purchase, select products on  and click</p></td>
+		<td width="5%"><img src="images/icon17.jpg" /></td>
+		<td width="15%"><div class="icon04"><a href="javascript:" onclick="myform.submit();">Send Inquiry</a></div></td>
+		<td width="5%"><img src="images/icon19.jpg" /></td>
+		<td width="15%"><div class="icon04"><a href="#" class="selectAll">Select All</a></div></td>
+		<td width="20%"><div class="icon04"><a href="#" class="unselectAll">Unselect All</a></div></td>
+	</tr>
+</table>        
+<!-- END BLOCK : TAG_ADD_CART_TOP -->
+<!-- START BLOCK : SHOW_STYLE_PC1 -->
+<div class="productslist productslist02">
+<div class="productslist_pic"><a href="{VALUE_PC_LINK}"><img src="{VALUE_PC_CATE_IMG}" width="{VALUE_PC_SMALL_IMG_W}" height="{VALUE_PC_SMALL_IMG_H}" alt="{VALUE_PC_NAME_ALIAS}" border="0"/></a></div>
+<div class="productslist_title">{VALUE_PC_NAME}</div>
+{TAG_PRODUCTS}
+</div>
+<!-- END BLOCK : SHOW_STYLE_PC1 -->
+<!-- START BLOCK : SHOW_STYLE_P1 -->
+<div class="productslist"><a href="{VALUE_P_LINK}">
+<div class="productslist_pic"><img src="{VALUE_P_SMALL_IMG}" width="{VALUE_P_SMALL_IMG_W}" height="{VALUE_P_SMALL_IMG_H}" alt="{VALUE_P_NAME_ALIAS}" border="0"/></div>
+<div class="productslist_title">{VALUE_P_NAME}</div>
+<p>Material:{VALUE_P_SERIAL}</p></a>
+</div>
+<!-- END BLOCK : SHOW_STYLE_P1 -->
+<!-- START BLOCK : SHOW_STYLE_P2 -->
+<div class="product_list">
+	<div class="product_pic"><a href="{VALUE_P_LINK}"><img src="{VALUE_P_SMALL_IMG}" width="{VALUE_P_SMALL_IMG_W}" height="{VALUE_P_SMALL_IMG_H}" alt="{VALUE_P_NAME_ALIAS}" border="0"/></a></div>  
+	<div class="product_list_title"><input name="p_id[]" type="checkbox" value="{VALUE_P_ID}" /><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></div>
+	<input name="amount[]" value="1" size="2" type="hidden" />
+</div>
+<!-- END BLOCK : SHOW_STYLE_P2 -->
+<!-- START BLOCK : SHOW_STYLE_PC1_APP -->     
+<div class="product_list">
+	<div class="product_pic"><a href="{VALUE_PC_LINK}"><img src="{VALUE_PC_CATE_IMG}" width="{VALUE_PC_SMALL_IMG_W}" height="{VALUE_PC_SMALL_IMG_H}" alt="{VALUE_PC_NAME_ALIAS}" border="0"/></a></div>  
+	<div class="product_list_title"><a href="{VALUE_PC_LINK}">{VALUE_PC_NAME}</a></div>
+</div>
+<!-- END BLOCK : SHOW_STYLE_PC1_APP -->        
+<!-- START BLOCK : SHOW_STYLE_P1_APP -->
+<div class="product_list">
+	<div class="product_pic"><a href="{VALUE_P_LINK}"><img src="{VALUE_P_SMALL_IMG}" width="{VALUE_P_SMALL_IMG_W}" height="{VALUE_P_SMALL_IMG_H}" alt="{VALUE_P_NAME_ALIAS}" border="0"/></a></div>  
+	<div class="product_list_title"><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></div>
+</div>
+<!-- END BLOCK : SHOW_STYLE_P1_APP -->
+<!-- START BLOCK : TAG_PRODUCTS_SEARCH -->
+ <table width="90%" border="0" cellpadding="0" cellspacing="0" class="product_table">
+  <tr>
+	<th width="5%">No.</th>
+	<th width="25%">{MSG_CATE}</th>
+	<th width="45%">{MSG_NAME}</th>
+  </tr>
+  <!-- START BLOCK : PRODUCTS_SEARCH_LIST -->
+  <tr>
+	<td>{VALUE_P_SERIAL}</td>
+	<td><a href="{VALUE_PC_LINK}">{VALUE_PC_NAME}</a></td>
+	<td><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></td>
+  </tr>
+  <!-- END BLOCK : PRODUCTS_SEARCH_LIST -->
+</table>
+<!-- END BLOCK : TAG_PRODUCTS_SEARCH -->
+<!-- START BLOCK : TAG_ADD_CART_BOTTOM -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="clear:both;" >
+	<tr>
+		<td width="45%"><p>To inquire or purchase, select products on  and click</p></td>
+		<td width="5%"><img src="images/icon17.jpg" /></td>
+		<td width="15%"><div class="icon04"><a href="javascript:" onclick="myform.submit();">Send Inquiry</a></div></td>
+		<td width="5%"><img src="images/icon19.jpg" /></td>
+		<td width="15%"><div class="icon04"><a href="#" class="selectAll">Select All</a></div></td>
+		<td width="20%"><div class="icon04"><a href="#" class="unselectAll">Unselect All</a></div></td>
+	</tr>
+</table>        
+</form>
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			$('.selectAll').click(function(e){
+				e.preventDefault();
+				$('#myform :checkbox').each(function(){
+				   this.checked=true; 
+				});
+			});
+			$('.unselectAll').click(function(e){
+				e.preventDefault();
+				$('#myform :checkbox').each(function(){
+				   this.checked=false; 
+				});                        
+			});
+		});
+	})(jQuery);
+</script>
+<!-- END BLOCK : TAG_ADD_CART_BOTTOM -->
+<!-- INCLUDE BLOCK : ./templates/ws-fn-pagination-tpl.html -->
+</div>

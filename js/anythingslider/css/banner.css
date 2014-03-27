@@ -1,0 +1,80 @@
+	#features img, #mycarousel img { border: 0px; }
+	#features {
+		width: 721px;
+		height: 181px;
+		position: relative;
+		margin: 0;
+		padding: 0;
+	}
+	#features .wrapper {
+		width: 721px;
+		overflow: hidden;
+		height: 181px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	#features .wrapper ul {
+		width: 99999px;
+		list-style: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #fff;
+		margin: 0;
+		padding: 0;
+	}
+	#features ul li {
+		display: block;
+		float: left;
+		padding: 0;
+		height: 181px;
+		width: 721px;
+		margin: 0;
+	}
+	#features .thumb {
+		position: relative;
+		top: 157px;
+		float: right;
+		padding-right:40px;
+	}
+	#features .thumb a {
+		display: block;
+		width: 96px;
+		height: 23px;
+		float: left;
+		font-size:12px;
+		color: #FFFFFF;
+		opacity:0.85;filter:alpha(opacity=85);
+		background: url(/img/banner/menu.gif) no-repeat;
+		text-align: center;
+		line-height: 26px;
+		text-decoration: none;
+	}
+	#features .thumb a#t1:hover, #features .thumb a#t1.cur,
+	#features .thumb a#t2:hover, #features .thumb a#t2.cur, 
+	#features .thumb a#t3:hover, #features .thumb a#t3.cur, 
+	#features .thumb a#t4:hover, #features .thumb a#t4.cur, 
+	#features .thumb a#t5:hover, #features .thumb a#t5.cur, 
+	#features .thumb a#t6:hover, #features .thumb a#t6.cur, 
+	#features .thumb a#t7:hover, #features .thumb a#t7.cur
+	{ background: url(/img/banner/menu_m.gif) no-repeat; }
+	#features #start-stop { display: none; }
+
+	#cover_lt {
+		width:52px;
+		height:51px;
+		background:url(/img/banner/cover-lt.gif);
+		position:absolute;
+		margin-top:-181px;
+	}
+	#cover_rd {
+		width:52px;
+		height:51px;
+		background:url(/img/banner/cover-rb.gif);
+		position:absolute;
+		margin-top:-52px;
+		margin-left:669px; 
+	}

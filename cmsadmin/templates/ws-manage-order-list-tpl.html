@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>訂單管理</h1>
+<form action="order.php" method="get" name="myform" class="formular" id="formID">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+        <tr>
+          <!-- START BLOCK : ORDER_STATUS_LIST -->
+          <td width="25%" valign="top">
+           <table>
+             <tr>
+               <td valign="top">
+               <a href="order.php?func=o_list&o_status={VALUE_O_STATUS}"><div class="on">{VALUE_O_STATUS_SUBJECT}</div></a>
+               </td>
+             </tr>
+          </table>
+          </td>
+          {TAG_ORDER_STATUS_TRTD}
+          <!-- END BLOCK : ORDER_STATUS_LIST -->
+        </tr>
+      </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="9">
+      目前分類 : <a href="member.php?func=m_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="9">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+        </ul>
+        <ul>
+          <li>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="9%">訂單編號</th>
+      <th width="13%">姓名</th>
+      <th width="9%">建立日期</th>
+      <th width="9%">修改日期</th>
+      <th width="12%">總金額</th>
+      <!-- START BLOCK : TITLE_ATM_TRANSFER -->              
+      <th width="9%">匯款狀態</th>
+      <th width="12%">匯款金額</th>
+      <th width="9%">匯款時間</th>
+      <!-- END BLOCK : TITLE_ATM_TRANSFER -->             
+      <th width="5%">刪除</th>
+      <th width="10%">狀態</th>
+    </tr>
+    <!-- START BLOCK : ORDER_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_O_ID}"></td>
+      <td>{VALUE_O_SERIAL}</td>
+      <td><a href="order.php?func=o_reply&o_id={VALUE_O_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}">{VALUE_O_ID}</a></td>
+      <td>{VALUE_O_NAME}</td>
+      <td>{VALUE_O_CREATEDATE}</td>
+      <td>{VALUE_O_MODIFYDATE}</td>
+      <td>{VALUE_O_TOTAL_PRICE}</td>
+      <!-- START BLOCK : ATM_TRANSFER_STATE -->
+      <td>{VALUE_O_REMIT_STATUS}</td>
+      <td>{VALUE_O_CURAMT}</td>
+      <td>{VALUE_O_TRN_TIME}</td>
+      <!-- END BLOCK : ATM_TRANSFER_STATE -->
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','order.php?func=o_del&o_id={VALUE_O_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td>{VALUE_O_STATUS}</td>
+    </tr>
+    <!-- END BLOCK : ORDER_LIST -->
+  <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+  <input type="hidden" name="box_check" value="1" />
+  <input type="hidden" name="ws_table" value="o" />
+  </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

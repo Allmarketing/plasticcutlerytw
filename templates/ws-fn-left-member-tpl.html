@@ -1,0 +1,49 @@
+<!-- START BLOCK : LOGIN_ZONE --> 
+{MSG_ERROR_MESSAGE}
+<form method="post" name="login" action="login.php?func=check_data" style="margin:0px; padding:0px;">
+    <p> {MSG_LOGIN_ACCOUNT}:
+        <label>
+            <input name="mm_account" type="text" class="search_product"  size="20" />
+        </label>
+    </p>
+    <p> {MSG_LOGIN_PASSWORD}:
+        <label>
+            <input name="mm_password" type="password" class="search_product" size="20" />
+        </label>
+    </p>
+    <p> {MSG_LOGIN_SECURITY}:
+        <label> {TAG_INPUT_SECURITY}&nbsp;{TAG_IMAGE_SECURITY_IMAGE}
+        </label>
+    </p>
+    <table width="36%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="36%">
+                <a href="#" onclick="javascript:document.login.submit();">
+                    <img src="{TAG_THEME_PATH}ws-botton-login.jpg" width="36" height="27" border="0" /></a></td>
+            <td width="15%">
+                <div align="center">
+                    <img src="{TAG_THEME_PATH}ws-botton-line.jpg" width="2" height="23" />
+                </div></td>
+            <td width="49%">
+                <a href="member.php">
+                    <img src="{TAG_THEME_PATH}ws-botton-registration.jpg" width="36" height="27" border="0" /></a></td>
+        </tr>
+    </table>
+    <input type="hidden" name="callback" value="1">
+</form>
+<!-- END BLOCK : LOGIN_ZONE -->
+<!-- START BLOCK : MEMBER_INFO -->
+<div id="member_login_info">
+<div>{TAG_LOGIN_MEMBER_CATE}: {TAG_LOGIN_MEMBER_NAME}</div>
+<div><a href="login.php?func=logout"><img src="images/ws-logout-{TAG_LANG}.jpg" width="43" height="21" border="0" /></a></div>
+</div>
+<div id="member_login_func">
+<p><a href="member.php?func=m_mod">{TAG_LOGIN_MEMBER_DATA}</a></p>
+<p><a href="member.php?func=m_zone&mzt=order">{TAG_LOGIN_MEMBER_ORDER}</a></p>
+<p><a href="member.php?func=m_zone&mzt=inquiry">{TAG_LOGIN_MEMBER_INQUIRY}</a></p>
+<p><a href="member.php?func=m_zone&mzt=contactus">{TAG_LOGIN_MEMBER_CONTACTUS}</a></p>
+<!-- START BLOCK : MEMBER_DOWNLOAD -->
+<p><a href="{TAG_ROOT_PATH}download.htm">{TAG_LOGIN_MEMBER_DOWNLOAD}</a></p>
+<!-- END BLOCK : MEMBER_DOWNLOAD -->
+</div>
+<!-- END BLOCK : MEMBER_INFO -->

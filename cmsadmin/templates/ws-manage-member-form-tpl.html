@@ -1,0 +1,164 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>會員{MSG_MODE}</h1>
+<form name="myform" method="post" action="member.php?func=m_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <!-- START BLOCK : MULTIPLE_CATE -->
+        <tr>
+            <th rowspan="3">會員分類:</th>
+            <td rowspan="3">
+                <select name="mc_id[]" multiple="true" size="8" style="width:150px">
+                    <!-- START BLOCK : SELECT_OPTION_MEMBER_MULTI_CATE -->
+                    <option value="{OPTION_MEMBER_CATE_VALUE}" {STR_MC_SEL}>{OPTION_MEMBER_CATE_NAME}</option>
+                    <!-- END BLOCK : SELECT_OPTION_MEMBER_MULTI_CATE -->
+                </select>
+                <div>會員分類可多選，請搭配shift或control鍵選取</div>
+            </td>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="m_status" value="1" {STR_M_STATUS_CK1}> 啟用
+                <input type="radio" name="m_status" value="0" {STR_M_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="m_sort" id="m_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_M_SORT}" size="4" maxlength="4">
+            </td>
+        </tr>
+        <tr>
+            <th>訂閱電子報</th>
+            <td>
+                <input type="radio" name="m_epaper_status" value="0" {STR_M_EPAPER_STATUS_CK0} /> 否
+                <input type="radio" name="m_epaper_status" value="1" {STR_M_EPAPER_STATUS_CK1} /> 是
+            </td>            
+        </tr>
+        <!-- END BLOCK : MULTIPLE_CATE -->        
+        <!-- START BLOCK : SINGLE_CATE -->    
+        <tr>
+            <th>會員分類:</th>
+            <td>
+                <select name="mc_id">
+                    <!-- START BLOCK : SELECT_OPTION_MEMBER_SINGLE_CATE -->
+                    <option value="{OPTION_MEMBER_CATE_VALUE}" {STR_MC_SEL}>{OPTION_MEMBER_CATE_NAME}</option>
+                    <!-- END BLOCK : SELECT_OPTION_MEMBER_SINGLE_CATE -->
+                </select>
+            </td>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="m_status" value="1" {STR_M_STATUS_CK1}> 啟用
+                <input type="radio" name="m_status" value="0" {STR_M_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="m_sort" id="m_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_M_SORT}" size="4" maxlength="4">
+            </td>
+            <th>訂閱電子報</th>
+            <td>
+                <input type="radio" name="m_epaper_status" value="0" {STR_M_EPAPER_STATUS_CK0} /> 否
+                <input type="radio" name="m_epaper_status" value="1" {STR_M_EPAPER_STATUS_CK1} /> 是
+            </td>            
+        </tr>    
+        <!-- END BLOCK : SINGLE_CATE -->        
+        <tr>
+            <th><font color="red">*</font>帳號(e-mail):</th>
+            <td>
+               <!-- START BLOCK : MEMBER_ADD_MODE -->
+                <input name="m_account" type="text" class="validate[required,custom[email],ajax[ajaxUser]]" id="m_account" value="{VALUE_M_ACCOUNT}" size="40" >
+               <!-- END BLOCK : MEMBER_ADD_MODE -->
+               <!-- START BLOCK : MEMBER_MOD_MODE -->
+                   &nbsp;&nbsp;{VALUE_M_ACCOUNT}
+               <!-- END BLOCK : MEMBER_MOD_MODE -->
+            </td>
+            <th><font color="red">*</font>通訊e-mail:</th>
+            <td>
+                <input name="m_email" type="text" class="validate[required,custom[email]]" id="m_email" value="{VALUE_M_EMAIL}" size="40" >
+            </td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>密碼:</th>
+            <td>
+                <input name="m_password" id="m_password" type="password" class="validate[required]" value="{VALUE_M_PASSWORD}" size="20" maxlength="20" >
+            </td>
+            <th><font color="red">*</font>驗証密碼:</th>
+            <td>
+                <input name="v_password" id="v_password" type="password" class="validate[required,confirm[m_password]]" value="{VALUE_M_PASSWORD}" size="20" maxlength="20" >
+            </td>
+        </tr>
+        <tr>
+            <th>公司名稱:</td>
+            <td bgcolor="#FBF8E6"><input name="m_company_name" size="42" value="{VALUE_M_COMPANY_NAME}" type="text" />
+        </td>
+            <th>姓名:</th>
+            <td>
+<!--                <select name="m_contact_s">
+                  <option value="Mr." {STR_M_CS_CK1}>Mr.</option>
+                  <option value="Miss." {STR_M_CS_CK2}>Miss.</option>
+                  <option value="Mrs." {STR_M_CS_CK3}>Mrs.</option>
+                </select>-->
+                姓:<input name="m_lname" type="text" value="{VALUE_M_LNAME}" size="12" />
+                名:<input name="m_fname" type="text" value="{VALUE_M_FNAME}" size="12" />
+            </td>
+        </tr>
+          <!-- START BLOCK : SELECT_COUNTRY -->
+          <tr>
+              <th><font color="red">*</font>{MSG_COUNTRY}</th>
+              <td colspan="3"><select name="m_country" id="m_country" class="validate[required]">
+                  {TAG_SELECT_OPTION_COUNTRY}
+                  </select></td>
+          </tr>
+          <!-- END BLOCK : SELECT_COUNTRY -->    
+          <tr>
+              <th>生日</th>
+              <td colspan="3">
+                  <input type="text" name="m_birthday" id="m_birthday" size="20" value="{VALUE_M_BIRTHDAY}" class="datepicker"/>
+              </td>
+          </tr>  
+        <tr>
+            <th>住址:</th>
+            <td colspan="3">
+                &nbsp;&nbsp;郵遞區號:<input name="m_zip" type="text" value="{VALUE_M_ZIP}" size="3" >&nbsp;&nbsp;住址:<input name="m_address" type="text"  value="{VALUE_M_ADDRESS}" size="80" >
+            </td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>電話:</th>
+            <td>
+                <input name="m_tel" id="m_tel" type="text" class="validate[required]" value="{VALUE_M_TEL}" size="50" >
+            </td>
+            <th>行動電話:</th>
+            <td>
+                <input name="m_cellphone" type="text" value="{VALUE_M_CELLPHONE}" size="50" >
+            </td>
+        </tr>
+        <!-- START BLOCK : MEMBER_DOWNLOAD -->
+        <tr>
+            <th>下載檔案</th>
+            <td colspan="3">
+                <!-- INCLUDE BLOCK : templates/ws-fn-member-download-files-list.html -->
+            </td>
+        </tr>
+        <!-- END BLOCK : MEMBER_DOWNLOAD -->                
+        <tr>
+
+            <th>傳真:</th>
+            <td>
+                <input name="m_fax" type="text" value="{VALUE_M_FAX}" size="50" >
+            </td>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="m_id" value="{VALUE_M_ID}">
+    <input type="hidden" name="return_mc_id" value="{VALUE_MC_ID}"/>
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

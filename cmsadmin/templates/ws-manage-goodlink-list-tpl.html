@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>好站連結</h1>
+<br>
+<form action="goodlink.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+        <tr>
+          <!-- START BLOCK : GOODLINK_CATE_LIST -->
+          <td width="25%" valign="top">
+           <table>
+             <tr>
+               <td valign="top">
+               <a href="goodlink.php?func=l_list&lc_id={VALUE_LC_ID}"><div class="on">{VALUE_LC_SUBJECT}</div></a>
+               </td>
+             </tr>
+          </table>
+          </td>
+          {TAG_GOODLINK_CATE_TRTD}
+          <!-- END BLOCK : GOODLINK_CATE_LIST -->
+        </tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="8">
+          目前分類 : <a href="goodlink.php?func=l_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="goodlink.php?func=l_add" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+          <li><img src="images/icon-copy.gif" /><a href="#" Onclick="Javascript:return FormCheckCopy(myform)">複製</a></li>
+        </ul>
+        <ul>
+          <li>
+            <select name="st" class="seinput">
+                  <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>全部</option>
+                  <option value="l_name" {STR_SELECT_SEARCH_TARGET_CK1}>標題</option>
+                  <option value="l_content" {STR_SELECT_SEARCH_TARGET_CK2}>內容</option>
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="12%">好站連結分類</th>
+      <th width="40%">標題</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : GOODLINK_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_L_ID}"></td>
+      <td>{VALUE_L_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_L_ID}]" value="{VALUE_L_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_LC_SUBJECT}</td>
+      <td>{VALUE_L_SUBJECT}</td>
+      <td><a href="goodlink.php?func=l_mod&l_id={VALUE_L_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','goodlink.php?func=l_del&l_id={VALUE_L_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}'  border="0" /></td>
+    </tr>
+    <!-- END BLOCK : GOODLINK_LIST -->
+  </table>
+  <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+  <input type="hidden" name="box_check" value="1" />
+  <input type="hidden" name="ws_table" value="l" />
+  <br>
+  </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

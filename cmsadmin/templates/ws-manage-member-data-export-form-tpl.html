@@ -1,0 +1,40 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>會員資料匯出</h1>
+<form name="myform" method="post" action="member.php?func=m_export" target="_blank" class="formular" id="formID">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th width="20%">匯出分類:</th>
+            <td>
+                <!-- START BLOCK : MEMBER_CATE_LIST -->
+                <div class="member_export_mcate">
+                    <input type="checkbox" name="mc_id[]" id="mc_id_{VALUE_MC_ID}" value="{VALUE_MC_ID}"/>
+                    <label for="mc_id_{VALUE_MC_ID}">{VALUE_MC_SUBJECT}</label>
+                </div>
+                <!-- END BLOCK : MEMBER_CATE_LIST -->
+            </td>
+        </tr>
+        <tr>
+            <th>匯出欄位</th>
+            <td>
+                <!-- START BLOCK : DATA_COLUMN_LIST -->
+                <div class="member_export_column">
+                    <input type="checkbox" name="columns[]" id="{VALUE_M_COLUMN}" value="{VALUE_M_COLUMN}"/>
+                    <label for="{VALUE_M_COLUMN}">{VALUE_M_COLUMN_NAME}</label>
+                </div>                
+                <!-- END BLOCK : DATA_COLUMN_LIST -->
+                <div style="clear:both">
+                    <a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" />全選</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="匯出" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

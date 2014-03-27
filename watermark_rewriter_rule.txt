@@ -1,0 +1,1 @@
+RewriteRule ^upload_files/(.+).jpg watermark.php?src=upload_files/$1.jpg

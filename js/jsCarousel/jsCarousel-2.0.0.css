@@ -1,0 +1,28 @@
+/*Vertical Orientation CSS*/
+.jscarousal-vertical{width:299px;height:331px;margin: 0px;position: relative;overflow: hidden;}
+.jscarousal-contents-vertical{width:299px;height:331px;position: relative;absolute: hidden;top:0;left:0}
+.jscarousal-contents-vertical > div{position: absolute;width: 100%;height:100%}
+.jscarousal-contents-vertical > div > div{}
+/*Vertical Orientation CSS Ends*/
+
+/*Horizontal Orientation CSS*/
+#hWrapperAuto{clear:both;overflow:hidden;}
+
+.jscarousal-horizontal{width:626px;height: 161px;background:url(../images/downbg.jpg) repeat-x left top;margin: 0px;position: relative;overflow: hidden;}
+
+.jscarousal-horizontal-back, .jscarousal-horizontal-forward{float: left;width: 23px;height: 61px;color: White;position: relative;top: 45px;cursor: pointer;}
+.jscarousal-horizontal-back{background: url(../images/left_arrow.png) no-repeat left;}
+.jscarousal-horizontal-forward{background: url(../images/right_arrow.png) no-repeat right;}
+
+.jscarousal-contents-horizontal{top:1px;width:578px;height:160px;float: left;position: relative;overflow: hidden;border-left:1px solid #fff;border-right:1px solid #fff;}
+.jscarousal-contents-horizontal > div{position: absolute;width: 100%;}
+.jscarousal-contents-horizontal > div > div{float: left;/*margin-right:10px;*/}
+
+/*Horizontal Orientation CSS Ends*/
+
+/*Common*/
+.hidden{display: none;}
+.visible{display: block;}
+.thumbnail-active{cursor: pointer;}
+.thumbnail-inactive{cursor: pointer;}
+.thumbnail-text{color: #000;text-align: left;display: block;padding: 10px 2px 2px 0px;}

@@ -1,0 +1,57 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>常見問題{MSG_MODE}</h1>
+<form name="myform" method="post" action="faq.php?func=f_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>選擇的分類:</th>
+            <td>
+                <select name="fc_id" id="type_id">
+                    <!-- START BLOCK : TAG_SELECT_FAQ_CATE -->
+                    <option value="{TAG_SELECT_FAQ_CATE_VALUE}" {STR_FC_SEL}>
+                    {TAG_SELECT_FAQ_CATE_NAME}
+                    </option>
+                    <!-- END BLOCK : TAG_SELECT_FAQ_CATE -->
+                </select></td>
+        </tr> 
+        <tr>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="f_status" value="1" {STR_F_STATUS_CK1}> 啟用
+                <input type="radio" name="f_status" value="0" {STR_F_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="f_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_F_SORT}" size="4" maxlength="4"></td>
+        </tr> 
+        <tr>
+            <th><font color="red">*</font>主題:</th>
+            <td>
+                <input name="f_subject" type="text" class="validate[required]" value="{VALUE_F_SUBJECT}" size="60" maxlength="255"></td>
+        </tr> 
+        <tr id="div_content">
+            <th>內容:</th>
+            <td>
+                <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+                <textarea id="elm1" name="f_content" cols="50" rows="15">{VALUE_F_CONTENT}</textarea>
+                <!-- END BLOCK : WYSIWYG_TINYMCE1 -->
+            </td>
+        </tr>
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="f_id" value="{VALUE_F_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

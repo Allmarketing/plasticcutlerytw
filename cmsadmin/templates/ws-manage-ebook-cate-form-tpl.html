@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>電子型錄分類管理</h1>
+<br>
+<form name="myform" method="post" action="ebook.php?func=ebc_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+      <tr>
+        <th><font color="red">*</font>分類名稱:</th>
+        <td>
+            <input name="ebc_name" id="ebc_name" type="text" class="validate[required]"  value="{VALUE_EBC_NAME}" size="40" maxlength="255">
+        </td>
+      </tr>
+      <tr>
+        <th>所屬分類:</th>
+        <td>
+            <select name="ebc_parent">
+              <option value="0" > 未分類</option>
+              {TAG_SELECT_EBOOK_CATE}
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <th>狀態:</th>
+        <td>
+            <input type="radio" name="ebc_status" value="1" {STR_EBC_STATUS_CK1}> 啟用
+            <input type="radio" name="ebc_status" value="0" {STR_EBC_STATUS_CK0}> 停用
+        </td>
+      </tr>
+      <tr>
+        <th>資料權限:</th>
+        <td>
+            <input type="radio" name="ebc_locked" value="1" {STR_EBC_LOCK_CK1}> <img src="images/icon-lock.gif">上鎖
+            <input type="radio" name="ebc_locked" value="0" {STR_EBC_LOCK_CK0}> <img src="images/icon-key.gif">開放
+        </td>
+      </tr>
+      <tr>
+        <th>電子型錄分類排序:</th>
+        <td>
+            <input name="ebc_sort" id="ebc_sort" type="text" class="validate[custom[onlyNumber]]"  value="{VALUE_EBC_SORT}" size="4" maxlength="4">
+            <br><font color="red">(請輸入數字如：0,1,2,3...數字愈小前台的{MSG_EBOOK_CATE}排列會愈前面)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>電子型錄分類小圖:</th>
+        <td>
+            <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+              <tr>
+                <th rowspan="2" align="center">
+                  <a href="javascript:mcImageManager.open('myform','ebc_cate_img');">
+                    <img src="{VALUE_PIC_PREVIEW1}" border="0" width="120" name="pic_preview1" id="pic_preview1">
+                  </a>
+                  <br>
+                  <font color="red">點選圖框更換圖片</font>
+                </td>
+                <td><input type="text" size="40" name="ebc_cate_img" value="{VALUE_EBC_CATE_IMG}" id="attach_img1" onchange="Javascript:onImageSelect(this,'pic_preview1');"></td>
+              </tr>
+              <tr>
+                <td><a href="javascript:LoadDefaultPic('attach_img1','pic_preview1')">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a></td>
+              </tr>
+            </table>
+        </td>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td>
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+      </tr>
+    </table>
+    <input name="root_path" id="root_path" type="hidden"  value="{TAG_ROOT_PATH}">
+    <input type="hidden" name="now_ebc_id" value="{NOW_EBC_ID}">
+    <input type="hidden" name="now_ebc_parent" value="{NOW_EBC_PARENT}">
+    <input type="hidden" name="now_ebc_level" value="{NOW_EBC_LEVEL}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+    </form>
+    <br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

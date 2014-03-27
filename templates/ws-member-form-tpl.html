@@ -1,0 +1,119 @@
+{REGISTER_NOTIFICATION}
+<form name="myform" method="post" action="member.php?func=m_replace" id="formID" class="formular" >
+        <table width="90%" border="0" cellpadding="4" cellspacing="1" class="member_table">
+            <tr>
+                <th width="30%" align="right" >
+                    <font color="#ff0000">*</font>{MSG_ACCOUNT}(e-mail)</th>
+                <td width="70%">
+                   <!-- START BLOCK : MEMBER_ADD_MODE -->
+                    <input name="m_account" type="text" class="validate[required,custom[email],ajax[ajaxUser]]" id="m_account" value="{VALUE_M_ACCOUNT}" size="40" >
+                   <!-- END BLOCK : MEMBER_ADD_MODE -->
+                   <!-- START BLOCK : MEMBER_MOD_MODE -->
+                       {VALUE_M_ACCOUNT}
+                   <!-- END BLOCK : MEMBER_MOD_MODE -->
+                    </td>
+            </tr>
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>{MSG_PASSWORD}</th>
+                <td>
+                    <input name="m_password" type="password" class="validate[required]" id="m_password" value="{VALUE_M_PASSWORD}" size="20" ></td>
+            </tr>
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>{MSG_VALID_PASSWORD}</th>
+                <td>
+                    <input name="v_password" type="password" class="validate[required,confirm[m_password]]" id="v_password" value="{VALUE_M_PASSWORD}" size="20" ></td>
+            </tr>
+            <tr>
+              <th>{MSG_CONTACT_PERSON}</th>
+              <td>
+                    <!-- INCLUDE BLOCK : CONTACT_S -->
+                </td>
+            </tr>
+            <!-- START BLOCK : COMPANY_ZONE -->
+            <tr>
+              <th>{MSG_COMPANY_NAME}</th>
+              <td><input name="m_company_name" size="42" value="{VALUE_M_COMPANY_NAME}" type="text" /></td>
+            </tr>
+            <tr>
+                <th>
+                    {MSG_FAX}</th>
+                <td>
+                    <input name="m_fax" type="text" class="form-textfield" id="m_fax" value="{VALUE_M_FAX}" size="40" >
+                    </td>
+            </tr>
+            <!-- END BLOCK : COMPANY_ZONE -->
+            <!-- START BLOCK : SELECT_COUNTRY -->
+            <tr>
+                <th><font color="#ff0000">*</font>{MSG_COUNTRY}</th>
+                <td><select name="m_country" id="m_country" class="validate[required]">
+                    {TAG_SELECT_OPTION_COUNTRY}
+                    </select></td>
+            </tr>
+            <!-- END BLOCK : SELECT_COUNTRY -->
+            <!-- START BLOCK : MOD_EMAIL -->
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>E-mail:</th>
+                <td>
+                    <input name="m_email" type="text" class="validate[required,custom[email]]" id="m_email" value="{VALUE_M_EMAIL}" size="40" >
+                    </td>
+            </tr>
+            <!-- END BLOCK : MOD_EMAIL -->
+            <tr>
+                <th>
+                    {MSG_ADDRESS}</th>
+                <td>
+                    &nbsp;{MSG_ZIP}<input name="m_zip" type="text" class="form-textfield" id="m_zip" value="{VALUE_M_ZIP}" size="10" >&nbsp;{MSG_ADDRESS}<input name="m_address" type="text" class="form-textfield" id="m_address" value="{VALUE_M_ADDRESS}" size="50" ></td>
+            </tr>
+            <tr>
+                <th>
+                    <font color="#ff0000">*</font>{MSG_TEL}</th>
+                <td>
+                    <input name="m_tel" type="text" class="validate[required]" id="m_tel" value="{VALUE_M_TEL}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>
+                    {MSG_CELLPHONE}</th>
+                <td>
+                    <input name="m_cellphone" type="text" class="form-textfield" id="m_cellphone" value="{VALUE_M_CELLPHONE}" size="40" >
+                    </td>
+            </tr>
+            <tr>
+                <th>{MSG_BIRTHDAY}</th>
+                <td>
+                    <input type="text" name="m_birthday" id="m_birthday" class="datepicker" value="{VALUE_M_BIRTHDAY}"/>
+                    <!--<a href="#m_birthday" onclick="displayCalendar(document.myform.m_birthday,'yyyy-mm-dd',this)"><img src="{TAG_ROOT_PATH}js/calendar/calendar.gif" border="0"></a>-->
+                </td>
+            </tr>
+            <tr>
+                <th>
+                   {MSG_SUBSCRIBE}</th>
+                <td>
+                    Occasionally, we email newsletters to our members. Would you like to receive this information? <br>
+                    <input type="radio" name="m_epaper_status" class="form-checkbox" value="0" {STR_M_EPAPER_STATUS_CK0} /> {MSG_NO} &nbsp;
+                    <input type="radio" name="m_epaper_status" class="form-checkbox" value="1" {STR_M_EPAPER_STATUS_CK1} />
+                    {MSG_YES} </td>
+            </tr>
+            <!-- START BLOCK : SERVICE_TERM_SHOW -->
+            <tr>
+                <th>
+                    {MSG_ACCEPT_SERVICE_TERM}<input type="checkbox" name="m_agree_term" id="m_agree_term" class="validate[required] checkbox" value="0" onclick="CheckTerm(myform)" /></th>
+                <td>
+                    <iframe src="service.php?st=service&s=1" width="100%"></iframe>
+                    </td>
+            </tr>
+            <!-- END BLOCK : SERVICE_TERM_SHOW -->
+            <tr>
+                <th>&nbsp;</th>
+                <td>
+                <div id="div_send_show" style="display:{TAG_SEND_SHOW}">
+                    <INPUT type="submit" value="{MSG_MODE}" name="Submit" />
+                </div>
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}" />
+</form>

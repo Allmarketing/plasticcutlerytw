@@ -1,0 +1,36 @@
+<img src="{TAG_THEME_PATH}ws-tittle-search.jpg" />
+<div class="left_search">
+    <form name="product_search" action="products.php?func=search">
+        <input type="hidden" name="func" value="search">
+        <select name="st" id="term" class="form_text">
+            <option value="all" {STR_SELECT_SEARCH_TARGET_CK0}>
+            {TAG_SELECT_SEARCH_TARGET_ALL}
+            </option>
+            <option value="p_name" {STR_SELECT_SEARCH_TARGET_CK1}>
+            {TAG_SELECT_SEARCH_TARGET_NAME}
+            </option>
+            <option value="p_spec" {STR_SELECT_SEARCH_TARGET_CK2}>
+            {TAG_SELECT_SEARCH_TARGET_SPEC}
+            </option>
+            <option value="p_character" {STR_SELECT_SEARCH_TARGET_CK3}>
+            {TAG_SELECT_SEARCH_TARGET_CHARACTER}
+            </option>
+            <option value="p_desc" {STR_SELECT_SEARCH_TARGET_CK4}>
+            {TAG_SELECT_SEARCH_TARGET_DESC}
+            </option>
+        </select>
+        <input name="kw" type="text" class="search_product" size="20"/> &nbsp;&nbsp;
+        <a href="#" onclick="javascript:document.product_search.submit();">
+            <img src="{TAG_THEME_PATH}ws-search.jpg" border="0" /></a>
+    </form>
+</div>
+<img src="{TAG_THEME_PATH}ws-tittle-member.jpg" style="padding-left:5px" />
+<div class="left_articles">
+    <!-- START BLOCK : MEMBER_INFO --> {TAG_LOGIN_MEMBER_CATE}: {TAG_LOGIN_MEMBER_NAME}
+    <div align="center">
+        <a href="login.php?func=logout">
+            <img src="{TAG_THEME_PATH}ws-botton-logout.jpg" width="36" height="27" border="0" /></a>
+    </div>
+    <!-- END BLOCK : MEMBER_INFO -->
+</div>
+<img src="{TAG_THEME_PATH}ws-tittle-left-bg2.jpg" width="251" height="509" />

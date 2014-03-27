@@ -1,0 +1,33 @@
+<!-- INCLUDE BLOCK : ./templates/ws-fn-ad-h-tpl.html -->
+<form name="myform" method="post" action="{TAG_ROOT_PATH}cart.php">
+<table width="92%" align="center" border="0" cellpadding="4" cellspacing="1" class="from00">
+    <tr class="altrow1">                
+        <td width="15%" align="center" bgcolor="#FCF2D1">編號</td>
+        <td width="20%" align="center" bgcolor="#FCF2D1">商品圖片</td>
+        <td width="40%" bgcolor="#FCF2D1">商品名稱</td>
+        <td width="13%" align="center" bgcolor="#FCF2D1">價格</td>
+        <td width="12%" align="center" bgcolor="#FCF2D1">數量</td>
+    </tr>
+	<!-- START BLOCK : PRODUCTS_LIST -->  
+    <!-- START BLOCK : PRODUCTS_CATE_NAME -->
+    <tr>                         
+        <td colspan="5" bgcolor="#FBF8E6"><img src="{TAG_THEME_PATH}ws-left-04.jpg" width="9" height="9" border="0" />&nbsp;{VALUE_PC_NAME}</td>
+    </tr>
+    <!-- END BLOCK : PRODUCTS_CATE_NAME -->
+    <tr class="altrow2">
+        <td align="center" bgcolor="#FFFFFF">{VALUE_P_SERIAL}</td>
+        <td align="center" bgcolor="#FFFFFF"><a href="{VALUE_P_LINK}"><img src="{VALUE_P_SMALL_IMG}" width="80" alt="{VALUE_P_NAME}" title="{VALUE_P_NAME}"/></a></td>
+        <td bgcolor="#FFFFFF">{VALUE_P_NAME}</td>
+        <td align="center" bgcolor="#FFFFFF">{VALUE_P_SPECIAL_PRICE}</td>
+        <td align="center" bgcolor="#FFFFFF"><input type="text" name="amount[{VALUE_P_ID}]" size="3" value="" maxlength="20" /></td>
+    </tr>
+    <!-- END BLOCK : PRODUCTS_LIST -->
+</table>
+<table width="92%" align="center" border="0" cellpadding="4" cellspacing="1" class="from00">  
+    <tr class="altrow1">
+        <td colspan="5"  align="center" bgcolor="#FCF2D1"><input type="submit" name="" value="{CART_ADD}"></td>
+    </tr>
+</table>
+<input type="hidden" name="func" value="c_quick_add">
+<input type="hidden" name="cart_type" value="shopping">
+</form>

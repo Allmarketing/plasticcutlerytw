@@ -1,0 +1,177 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>最新消息{MSG_MODE}</h1>
+<form name="myform" method="post" action="news.php?func=n_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>分類:</th>
+            <td>
+                <select name="nc_id" >
+                    <!-- START BLOCK : SELECT_OPTION_NEWS_CATE -->
+                    <option value="{OPTION_NEWS_CATE_VALUE}" {STR_NC_SEL}> {OPTION_NEWS_CATE_NAME}</option>
+                    <!-- END BLOCK : SELECT_OPTION_NEWS_CATE -->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>狀態:</th>
+            <td>
+                <input type="radio" name="n_status" value="0" {STR_N_STATUS_CK0}> 停止刊登&nbsp;
+                <input type="radio" name="n_status" value="1" {STR_N_STATUS_CK1}> 永久刊登&nbsp;
+                <input type="radio" name="n_status" value="2" {STR_N_STATUS_CK2}> 刊登
+                從
+                <input type="text" name="n_startdate" id="n_startdate" size="8" value="{VALUE_N_STARTDATE}" ><a href="#" onclick="displayCalendar(document.myform.n_startdate,'yyyy-mm-dd',this)"><img src="../js/calendar/calendar.gif" border="0"></a>
+                至
+                <input type="text" name="n_enddate" id="n_enddate" size="8" value="{VALUE_N_ENDDATE}" ><a href="#" onclick="displayCalendar(document.myform.n_enddate,'yyyy-mm-dd',this)"><img src="../js/calendar/calendar.gif"  border="0"></a>
+                </td>
+        </tr>
+        <tr>
+            <th>前台顯示日期:</th>
+            <td><input type="text" name="n_showdate" id="n_showdate" size="8" value="{VALUE_N_SHOWDATE}" ><a href="#" onclick="displayCalendar(document.myform.n_showdate,'yyyy-mm-dd',this)"><img src="../js/calendar/calendar.gif"  border="0"></a></td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="n_sort" type="text"  class="validate[custom[onlyNumber]]" id="type_name" value="{VALUE_N_SORT}" onBlur="CheckNum(this)" size="4" maxlength="4"></td>
+        </tr>
+        <tr>
+            <th><font color="red">*</font>標題:</th>
+            <td>
+                <input name="n_subject" type="text" class="validate[required]" value="{VALUE_N_SUBJECT}" size="60" maxlength="255">
+            </td>
+        </tr>
+        <tr>
+            <th>熱門訊息:</th>
+            <td> 
+                <input name="n_hot" type="radio" value="0" {STR_N_HOT_CK0}> 否
+                <input name="n_hot" type="radio" value="1" {STR_N_HOT_CK1}> 是
+            </td>
+        </tr>
+        <tr>
+            <th>另開視窗:</th>
+            <td> 
+                <input name="n_pop" type="radio" value="0" {STR_N_POP_CK0}> 否
+                <input name="n_pop" type="radio" value="1" {STR_N_POP_CK1}> 是
+            </td>
+        </tr>
+        <tr>
+            <th>News列表頁簡述:</th>
+            <td> 
+                <textarea name="n_short" cols="60" rows="8">{VALUE_N_SHORT}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>類型:</th>
+            <td>
+                <input type="radio" name="n_content_type" value="1" {STR_N_CONTENT_TYPE_CK1} onClick="document.getElementById('div_url').style.display='none';document.getElementById('div_content').style.display='';"> 自訂內容
+                <input type="radio" name="n_content_type" value="2" {STR_N_CONTENT_TYPE_CK2} onclick="document.getElementById('div_content').style.display='none';document.getElementById('div_url').style.display='';"> 超連結
+            </td>
+        </tr>
+        <tr>
+        <th>最新消息小圖</th>
+        <td>
+        <input type="hidden" name="n_s_pic" value="{VALUE_N_S_PIC}" id="attach_img" onchange="onImageSelect(this,'pic_preview');"> &nbsp;
+        <a href="javascript:mcImageManager.open('myform','n_s_pic');">
+        <img src="{VALUE_PIC_PREVIEW}" border="0" width="110" height="85" name="pic_preview" id="pic_preview"></a>
+        <a href="javascript:LoadDefaultPic('attach_img','pic_preview')">取消圖片</a>
+        <br> &nbsp; <br><font color="red">請點選上方圖框更換圖片</font>
+        </td>
+      </tr>
+        <tr id="div_content" style="display:{STR_N_CONTENT_TYPE_DISPLAY1}">
+            <th>內容:</th>
+            <td>
+                <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+                <textarea id="elm1" name="n_content" cols="50" rows="15">{VALUE_N_CONTENT}</textarea>
+                <!-- END BLOCK : WYSIWYG_TINYMCE1 --> 
+            </td>
+        </tr>
+        <tr id="div_url" style="display:{STR_N_CONTENT_TYPE_DISPLAY2}">
+            <th>網址連結:</th>
+            <td>
+                <input name="n_url" type="text" class="form-textfield" value="{VALUE_N_URL}" size="96" maxlength="255">
+                <br>
+                <img src="images/icon_004.gif" width="9" height="7"> 必需輸入包含 http:// 的完整網址
+            </td>
+        </tr>
+        <!-- START BLOCK : NEWS_UPFILES_BLOCK -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <!-- START BLOCK : UPLOAD_NEWS_FILE -->
+                <a href="news.php?func=n_file&n_id={VALUE_N_ID}" rel="dialog">上傳檔案</a>
+                <!-- END BLOCK : UPLOAD_NEWS_FILE -->
+                <div style="color:#f00;{TAG_STYLE_HIDDEN}">上傳檔案需先儲存記錄才可使用</div>
+            </td>
+        </tr>
+        <!-- END BLOCK : NEWS_UPFILES_BLOCK -->
+      <!-- START BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th colspan="2">SEO 設定區域</th>
+      </tr>
+      <tr>
+        <th>網頁檔名:</th>
+        <td>
+            <input name="n_seo_filename"  id="{NOW_N_ID}" class="validate[required,ajax[ajaxNfilename]]" type="text" value="{VALUE_N_SEO_FILENAME}" size="40" >
+            <br><font color="red">(檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'，特殊符號請用-代替)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題(Meta Title):</th>
+        <td>
+            <input name="n_seo_title" type="text"  value="{VALUE_N_SEO_TITLE}" size="60" />
+        </td>
+      </tr>
+      <tr>
+        <th>網頁關鍵字(Meta Keyword):</th>
+        <td>
+            <textarea name="n_seo_keyword" cols="50" rows="3" >{VALUE_N_SEO_KEYWORD}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁敘述(Meta Description):</th>
+        <td>
+            <textarea name="n_seo_description" cols="50" rows="3" >{VALUE_N_SEO_DESCRIPTION}</textarea>
+        </td>
+      </tr>
+        <tr>
+            <th>H1 標題:</th>
+            <td>
+                <input name="n_seo_h1" type="text"  value="{VALUE_N_SEO_H1}" size="40" >
+            </td>
+        </tr>
+      <!-- END BLOCK : SEO_EDIT_ZONE -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="n_id" value="{VALUE_N_ID}">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<div id="dialog" title="上傳附檔" style="display:none"><iframe id="nfwin" style="border:none;width:430px;height:300px;overflow:auto" ></iframe></div>
+<script type="text/javascript">
+    jQuery(function($){
+       $(document).ready(function(){
+          var nfwin = $("#nfwin");
+          $("#dialog").dialog({
+             autoOpen:false,
+             width:460,
+             height:400
+          });
+          $("a[rel=dialog]").click(function(e){
+              e.preventDefault();
+              nfwin.attr('src',$(this).attr('href'));
+              $("#dialog").dialog("open");
+          });
+       });
+    });
+</script>
+
+<!-- INCLUDE BLOCK : FOOTER -->

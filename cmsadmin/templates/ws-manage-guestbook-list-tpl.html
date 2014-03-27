@@ -1,0 +1,55 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>留言版管理</h1>
+<form action="guestbook.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="6">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+        </ul>
+        <ul>
+          <li>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="20%">留言者</th>
+      <th width="50%">內容</th>
+      <th width="17%">時間</th>
+      <th width="5%">刪除</th>
+    </tr>
+    <!-- START BLOCK : GUESTBOOK_LIST -->
+            <tr bgcolor="#BFD392">
+              <td align="center"><input type="checkbox" name="id[]" value="{VALUE_GB_ID}"></td>
+              <td>{VALUE_GB_SERIAL}</td>
+              <td><font color="blue">{VALUE_GB_NAME}</font></td>
+              <td><font color="blue"><a href="guestbook.php?func=gbr_add&gb_id={VALUE_GB_ID}">{VALUE_GB_CONTENT}</a></font></td>
+              <td><font color="blue">{VALUE_GB_MODIFYDATE}</font></td>
+              <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','guestbook.php?func=gb_del&gb_id={VALUE_GB_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+            </tr>
+            <!-- START BLOCK : GUESTBOOK_REPLY_LIST -->
+            <tr {TAG_TR_CLASS}>
+              <td align="center"><input type="checkbox" name="id[]" value="{VALUE_GB_R_ID}"></td>
+              <td></td>
+              <td><font color="{VALUE_COLOR}">&nbsp;&nbsp;{VALUE_GB_R_REPLY_TYPE}{VALUE_GB_R_NAME}回應：</font></td>
+              <td><font color="{VALUE_COLOR}">{VALUE_GB_R_CONTENT}</font></td>
+              <td><font color="{VALUE_COLOR}">{VALUE_GB_R_MODIFYDATE}</font></td>
+              <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','guestbook.php?func=gb_del&gb_id={VALUE_GB_R_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+            </tr>
+            <!-- END BLOCK : GUESTBOOK_REPLY_LIST -->
+    <!-- END BLOCK : GUESTBOOK_LIST -->
+    <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+    <input type="hidden" name="box_check" value="1" />
+    <input type="hidden" name="ws_table" value="gb" />
+  </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

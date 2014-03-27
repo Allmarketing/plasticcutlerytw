@@ -1,0 +1,127 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>聯絡我們回覆</h1>
+<form name="myform" method="post" action="contactus.php?func=cur_replace" class="formular" id="formID">
+<table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+    <tr>
+        <th>分類:</th>
+        <td>
+            {VALUE_CUC_SUBJECT}</td>
+    </tr>
+    <tr>
+        <th>回覆情形:</th>
+        <td>
+            {VALUE_CU_STATUS}</td>
+    </tr>
+    <tr>
+        <th>姓名:</th>
+        <!-- START BLOCK : CONTACT_S_1 -->
+        <td>{VALUE_CU_CONTACT_S} {VALUE_CU_NAME}</td>
+        <!-- END BLOCK : CONTACT_S_1 -->
+        <!-- START BLOCK : CONTACT_S_2 -->
+        <td>{VALUE_CU_NAME} {VALUE_CU_CONTACT_S}</td>
+        <!-- END BLOCK : CONTACT_S_2 -->
+    </tr>
+    <!-- START BLOCK : POSITION_FIELD -->
+    <tr>
+        <th>職稱:</th>
+        <td>
+            {VALUE_CU_POSITION}</td>
+    </tr>
+    <!-- END BLOCK : POSITION_FIELD -->
+    <!-- START BLOCK : CONTACTUS_COUNTRY_ZONE -->
+    <tr>
+        <th>國家:</th>
+        <td>
+            {VALUE_CU_COUNTRY}</td>
+    </tr>
+    <!-- END BLOCK : CONTACTUS_COUNTRY_ZONE -->
+    <tr>
+        <th>公司名稱:</th>
+        <td>
+            {VALUE_CU_COMPANY}</td>
+    </tr>
+    <tr>
+        <th>電話:</th>
+        <td>
+            {VALUE_CU_TEL}</td>
+    </tr>
+    <tr>
+        <th>傳真:</th>
+        <td>
+            {VALUE_CU_FAX}</td>
+    </tr>
+    <tr>
+        <th>住址:</th>
+        <td>
+            {VALUE_CU_ADDRESS}</td>
+    </tr>
+    <tr>
+        <th>e-mail:</th>
+        <td>
+            {VALUE_CU_EMAIL}</td>
+    </tr>
+    <!-- START BLOCK : IP_COUNTRY_ROW -->
+    <tr>
+        <th>IP:</th>
+        <td>
+            {VALUE_CU_IP}</td>
+    </tr>
+    <tr>
+        <th>IP國家:</th>
+        <td>
+            {VALUE_CU_IP_COUNTRY}</td>
+    </tr>    
+    <!-- END BLOCK : IP_COUNTRY_ROW -->
+    <!-- START BLOCK : UPFILE_ROW -->
+    <tr>
+    	<th>上傳檔案</th>
+        <td>{VALUE_CU_FILE}</td>
+    </tr>       
+    <!-- END BLOCK : UPFILE_ROW -->
+    <!-- START BLOCK : INQUIRY_PRODUCT_LIST -->
+    <tr>
+        <th>詢問產品清單</th>
+        <td>{PRODUCT_STR}</td>
+    </tr>
+    <!-- END BLOCK : INQUIRY_PRODUCT_LIST -->
+    <tr>
+        <th>留言訊息:</th>
+        <td>
+            {VALUE_CU_CONTENT}</td>
+    </tr>      
+    <tr>
+        <th colspan="2">已回覆內容</th>
+    </tr>
+    <!-- START BLOCK : CONTACTUS_REPLY_LIST -->
+    <tr>
+        <td colspan="2"> 回覆時間:{VALUE_CUR_MODIFYDATE}
+            <br>回覆內容:{VALUE_CUR_CONTENT}</td>
+    </tr>
+    <!-- END BLOCK : CONTACTUS_REPLY_LIST -->
+    <tr>
+        <th colspan="2">回覆</th>
+    </tr>
+    <tr >
+        <th>回覆內容:</th>
+        <td>
+            <textarea name="cur_content" cols="70" rows="20" id="cur_content">{VALUE_CU_DEFAULT_REPLY}</textarea>
+        </td>
+    </tr>
+    <tr>
+        <th>&nbsp;</td>
+        <td>
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="cu_id" value="{VALUE_CU_ID}">
+<input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+<input type="hidden" name="cu_email" value="{VALUE_CU_EMAIL}">
+<input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+<input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+<input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+<input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

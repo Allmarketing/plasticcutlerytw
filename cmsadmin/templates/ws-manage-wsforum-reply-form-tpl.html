@@ -1,0 +1,60 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>討論區處理</h1>
+<form name="myform" method="post" action="sugarforum.php"  class="formular" id="formID">
+<div class="topmenu">
+<a href="sugarforum.php?func=f_list&Discussion_ID={VALUE_DISCUSSION_ID}">回主題列表</a>&nbsp;|&nbsp;
+<a href="sugarforum.php?func=f_add&action_mode=reply&Theme_ID={VALUE_THEME_ID}&Discussion_ID={VALUE_DISCUSSION_ID}">回覆主題</a>&nbsp;|&nbsp;
+<a href="sugarforum.php?func=f_add&action_mode=theme&Discussion_ID={VALUE_DISCUSSION_ID}">發表新主題</a>
+</div>
+    <!-- START BLOCK : SUGARFORUM_THEME -->
+      <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+          <tr>
+              <th width="224">發文者：{VALUE_TM_NAME}</th>
+              <th width="234">日期：{VALUE_T_DATE}</th>
+              <th width="434"><font color="blue">{VALUE_T_NAME}</font></th>
+          </tr>
+          <tr class="altrow">
+            <td colspan="3">{VALUE_T_CONTENT}</td>
+          </tr>
+      </table>
+	<!-- END BLOCK : SUGARFORUM_THEME -->
+    <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+	<!-- START BLOCK : SUGARFORUM_REPLY -->
+    <tr>
+		<td width="224">&nbsp;回覆者：{VALUE_RM_NAME}</td>
+		<td width="234">&nbsp;回覆日期：{VALUE_R_DATE}</td>
+		<td width="434">&nbsp;<a href="sugarforum.php?func=fr_del&Reply_ID={VALUE_R_ID}&Theme_ID={VALUE_THEME_ID}"><font color="red">刪除</font></a></td>
+    </tr>
+	<tr>
+        <td colspan="3">
+            {VALUE_R_CONTENT}     
+        </td>
+	</tr>
+    <!-- END BLOCK : SUGARFORUM_REPLY -->
+</table>
+    <table width="90%" border="0" align="center" cellpadding="4" cellspacing="1" class="formtable">
+        <tr>
+          <th>回覆留言:</th>
+        <td>
+          <textarea id="elm1" name="Theme_Content"  rows="12" cols="80"></textarea>
+        </td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>
+            <input type="submit" value="確定送出" name="submit">&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+          </td>
+        </tr>
+    </table>
+    <input type="hidden" name="func" value="f_replace">
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="Theme_ID" value="{VALUE_THEME_ID}">
+    <input type="hidden" name="Discussion_ID" value="{VALUE_DISCUSSION_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

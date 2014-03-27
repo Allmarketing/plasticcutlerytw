@@ -1,0 +1,82 @@
+<div id="right_master">
+    <div id="products-show-pic">
+        <div id="ifocus">
+            <!-- START BLOCK : BIG_IMG_ZONE -->
+            <a href="{DEFAULT_BIG_IMG}" rel="lightbox"><div class="wrapper"><img src="{DEFAULT_BIG_IMG}" width="{BIG_IMG_WIDTH}" height="{BIG_IMG_HEIGHT}"/></div></a>
+            <!-- END BLOCK : BIG_IMG_ZONE -->
+        </div>
+    </div>
+    <div id="products_box">
+        <div class="arrow" id="arrow_left">
+            <a href="#" id="go-left"><img src="{TAG_THEME_PATH}arrow_left.jpg" /></a>
+        </div>
+        <div id="product_list">
+            <!-- START BLOCK : SHOW_STYLE_EB1 -->
+            <div class="product_list_pic"><a href="#" rel="{VALUE_EB_BIG_IMG};{BIG_IMG_WIDTH};{BIG_IMG_HEIGHT}"><img src="{VALUE_EB_SMALL_IMG}" /></a></div>
+            <!-- START BLOCK : SHOW_STYLE_EB1 -->
+        </div>
+
+        <div class="arrow" id="arrow_right">
+            <a href="#" id="go-right"><img src="{TAG_THEME_PATH}arrow_right.jpg" /></a>
+        </div>
+    </div>
+</div>
+  <script type="text/javascript">
+  (function($){
+      $(document).ready(function(){
+              list_width=0;
+              $(".product_list_pic").each(function(){
+                  list_width+=parseInt($(this).innerWidth());
+              });
+              $("<div id='list_wrapper'/>").width(list_width).append($(".product_list_pic")).appendTo("#product_list");
+              if($(".product_list_pic").size()>3){
+                  $(".arrow a").click(function(e){
+                        e.preventDefault();
+                        switch(this.id){
+                            case "go-left":
+                                $("#list_wrapper").prepend($(".product_list_pic:last").css("marginLeft",-127));
+                                $(".product_list_pic:first").animate({ marginLeft:0 },500);
+                                break;
+                            case "go-right":				  
+                                $(".product_list_pic:first").animate({ marginLeft:-127 },500,function(){
+                                    $(this).css({ margin:'' });
+                                    $("#list_wrapper").append(this);
+                                });
+                                break;
+                        }
+                  });
+              }else{
+                    $(".arrow a").click(function(e){
+                        e.preventDefault();
+                    });              
+              }
+              $(".product_list_pic a").click(function(e){
+                    e.preventDefault();
+                    if($("#ifocus").data("currentClick")!=this){
+                        if($("#loading").size()){
+                            $("#loading").show();
+                        }else{
+                            $("#products-show-pic").prepend($("<div id='loading'/>"));
+                        }
+                        var tmp = $(this).attr("rel").split(';');
+                        var img = tmp[0];
+                        var img_w = tmp[1];
+                        var img_h = tmp[2];
+                        var imgInstant =   $('<img src="'+img+'" width="'+img_w+'" height="'+img_h+'"/>').load(function(){
+                            $(this).parents('a').next().fadeOut(500,function(){
+                                $(this).remove();
+                                $("#loading").hide();
+                            }); 
+                        });
+                        var link = $('"<a href="'+img+'" rel="lightbox"/>');
+                        var wrapper = $("<div/>").addClass("wrapper").append(imgInstant);
+                        $(link).append(wrapper).lightBox({
+                            imageLoading: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-ico-loading.gif',
+                            imageBtnClose: '{TAG_ROOT_PATH}js/lightbox/images/lightbox-btn-close.gif'                            
+                        }).prependTo("#ifocus");
+                        $("#ifocus").data("currentClick",this);
+                    }
+              });
+	  });
+  })(jQuery);
+  </script>

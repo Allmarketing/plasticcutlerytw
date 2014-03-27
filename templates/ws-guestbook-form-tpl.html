@@ -1,0 +1,108 @@
+
+<form method="post" action="{TAG_ROOT_PATH}guestbook.php?func=gb_replace" name="myform">
+<table width="90%" border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#BFD392" class="from">
+<tr class="altrow1"> 
+<td width="100"><font size="2">留言者姓名</font></td>
+<td> 
+<input type=text name="gb_name" size="20"  value="{VALUE_GB_NAME}" style='FONT-SIZE: 9pt;color:blue;'> 
+<input type="hidden" name="gb_ip" value="{REMOTE_ADDR}">
+<input type="hidden" name="gb_reply_type" value="{VALUE_GB_REPLY_TYPE}">
+<input type="hidden" name="gb_parent" value="{VALUE_GB_PARENT}">
+</td>
+<td width="100"><font size="2">留言者性別</font></td>
+<td>
+<font size="2">
+<input type="radio" name="gb_sex" value="1" checked> 男 
+<input type="radio" name="gb_sex" value="0">女
+</font>
+</td>
+</tr>
+<tr class="altrow2"> 
+<td><font size="2">電子信箱</font></td>
+<td><input type="text" name="gb_email" size="20" value="{VALUE_GB_EMAIL}" style='FONT-SIZE: 9pt;color:red;'></td>
+<td><font size="2">留言字體顏色</font></td>
+<td>
+<select name="gb_textcolor" style='FONT-SIZE: 9pt'>
+<option value="#000000" style="FONT-SIZE: 9pt;color: #000000">黑暗</option>
+<option value="#0000ff" style="FONT-SIZE: 9pt;color: #0000ff">亮藍</option>
+<option value="#7878d8" style="FONT-SIZE: 9pt;color: #7878d8">淺藍</option>
+<option value="#0088ff" style="FONT-SIZE: 9pt;color: #0088ff">海洋</option>
+<option value="#000088" style="FONT-SIZE: 9pt;color: #0000aa">深藍</option>
+<option value="#ccaa00" style="FONT-SIZE: 9pt;color: #ccaa00">淺棕</option>
+<option value="#888800" style="FONT-SIZE: 9pt;color: #888800">中咖</option>
+<option value="#880000" style="FONT-SIZE: 9pt;color: #880000">咖啡</option>
+<option value="#B22222" style="FONT-SIZE: 9pt;color: #B22222">深咖</option>
+<option value="#ff8800" style="FONT-SIZE: 9pt;color: #ff8800">金色</option>
+<option value="#DDA0DD" style="FONT-SIZE: 9pt;color: #DDA0DD">淺紫</option>
+<option value="#ff00ff" style="FONT-SIZE: 9pt;color: #ff00ff">紅紫</option>
+<option value="#cc33ff" style="FONT-SIZE: 9pt;color: #cc33ff">深紫</option>
+<option value="#aa00cc" style="FONT-SIZE: 9pt;color: #aa00cc">紫色</option>
+<option value="#8800ff" style="FONT-SIZE: 9pt;color: #8800ff">藍紫</option>
+<option value="#808080" style="FONT-SIZE: 9pt;color: #808080">灰色</option>
+<option value="#008800" style="FONT-SIZE: 9pt;color: #008800">綠野</option>
+<option value="#008888" style="FONT-SIZE: 9pt;color: #008888">淺綠</option>
+<option value="#ff0000" style="FONT-SIZE: 9pt;color: #ff0000">深紅</option> 
+<option value="#ff0088" style="FONT-SIZE: 9pt;color: #ff0088">紅色</option> 
+<option value="#FF34B3" style="FONT-SIZE: 9pt;color: #FF34B3">深粉</option> 
+<option value="#fd95ed" style="FONT-SIZE: 9pt;color: #fd95ed">草莓</option> 
+<option value="#FF8C00" style="FONT-SIZE: 9pt;color: #FF8C00">深橘</option> 
+<option value="#ffb312" style="FONT-SIZE: 9pt;color: #ffb312">淺橘</option> 
+<option value="#ff88c2" style="FONT-SIZE: 9pt;color: #ff88c2">草橘</option>
+</select> 
+</td>
+</tr>
+
+<tr class="altrow1"> 
+<td><font size="2">說悄悄話</font></td>
+<td>
+<select name="gb_hidden">
+<option value="0" style="color:blue" selected>否</option>
+<option value="1" style="color:red">是</option>
+</select>
+</td>
+<td><font size="2">心情圖示選項</font></td>
+<td>
+<select name="gb_img" style='FONT-SIZE: 9pt'  size="1">
+<option value="1.gif">正常</option>
+<option value="2.gif">高興</option>
+<option value="3.gif">生氣</option>
+<option value="4.gif">傷心</option>
+<option value="5.gif">驚喜</option>
+<option value="6.gif">扁嘴</option>
+<option value="7.gif">害怕</option>
+<option value="8.gif">疑惑</option>
+</select>
+</td>
+</tr>
+
+<tr class="altrow2"> 
+<td><font size="2">首頁網址</font></td>
+<td colspan="3"><input type="text" name="gb_url" size="56"  value="{VALUE_GB_URL}" style='FONT-SIZE: 9pt;color:red;'></td>
+</tr>
+
+<tr class="altrow1"> 
+<td>
+
+<font size="2">留言內容</font>
+
+</td>
+<td colspan="3">
+<textarea name="gb_content" wrap="VIRTUAL" rows="10" cols="60" style="color:#000000;background-color:#f0f0f0;border-color:#ffffff;FONT-SIZE: 9pt;color:black;">{VALUE_GB_CONTENT}</textarea>
+</td>
+</tr>
+<tr class="altrow1">
+                        <td>
+                            驗証碼</td>
+                        <td colspan="3">
+                         {TAG_INPUT_SECURITY}&nbsp;{TAG_IMAGE_SECURITY_IMAGE}&nbsp;&nbsp;<font color="red">{MSG_ERROR_MESSAGE}</font></td>
+                    </tr>
+<tr align="center" class="altrow1"> 
+<td colspan="4">
+<input type="submit" value="確定送出" style='FONT-SIZE: 9pt' name="submit">
+<input type="reset" value="清除重來" style='FONT-SIZE: 9pt' name="reset">
+<input type="button" value="回上一頁" onClick="history.back()" style='FONT-SIZE: 9pt' name="button">
+</td>
+</tr>
+</table>
+<input type="hidden" name="callback" value="1">
+</form>

@@ -1,0 +1,147 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>訂單處理</h1>
+<form name="myform" method="post" action="order.php?func=o_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th>訂單編號:</th>
+            <td>
+                {VALUE_O_ID}
+            </td>
+        </tr>
+        <tr>
+            <th>訂單狀態:</th>
+            <td>
+            <!-- START BLOCK : ORDER_STATUS_LIST -->
+                <input type="radio" name="o_status" value="{VALUE_O_STATUS}" {TAG_STATUS_CHECKED}>{VALUE_O_STATUS_SUBJECT}&nbsp;&nbsp;{TAG_BR}
+            <!-- END BLOCK : ORDER_STATUS_LIST -->
+                <input type="submit" value="{MSG_MODE}">
+            </td>
+        </tr>
+        <tr>
+            <th>付款方式:</th>
+            <td>
+                {VALUE_O_PAYMENT_TYPE}
+            </td>
+        </tr>
+        <tr>
+            <th>匯款後五碼</th>
+            <td>{VALUE_O_ATM_LAST5}</td>
+        </tr>
+        <tr>
+            <th>姓名:</th>
+            <td>
+                {VALUE_O_NAME}</td>
+        </tr>
+        <tr>
+            <th>電話:</th>
+            <td>
+                {VALUE_O_TEL}</td>
+        </tr>
+        <tr>
+            <th>手機:</th>
+            <td>
+                {VALUE_O_CELLPHONE}</td>
+        </tr>
+        <tr>
+            <th>郵遞區號:</th>
+            <td>
+                {VALUE_O_ZIP}</td>
+        </tr>
+        <tr>
+            <th>住址:</th>
+            <td>
+                {VALUE_O_ADDRESS}</td>
+        </tr>
+        <tr>
+            <th>e-mail:</th>
+            <td>
+                {VALUE_O_EMAIL}</td>
+        </tr>
+        <!-- START BLOCK : DELIVERY_TIMESEC -->
+        <tr>
+            <th>配送日期及時段</th>
+            <td>{VALUE_O_DELIVERY_STR}</td>
+        </tr>
+        <!-- END BLOCK : DELIVERY_TIMESEC -->
+        <!-- START BLOCK : ATM_DATA -->
+        <tr>
+            <th>ATM虛擬帳號:</th>
+            <td>
+                {VALUE_O_VIRTUAL_ACCOUNT}</td>
+        </tr>
+        <tr>
+            <th>匯款金額:</th>
+            <td>
+                {VALUE_O_CURAMT}</td>
+        </tr>
+        <!-- END BLOCK : ATM_DATA -->
+        <tr>
+            <th colspan="2"  valign="top" class="table_title_color">
+                <center>
+                    訂單內容
+                </center>
+            </th>
+        </tr>
+        <tr>
+            <th>內容:</th>
+            <td>
+                &nbsp;{VALUE_O_CONTENT}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="producttable">
+                    <tr>
+                        <th width="5%"> No.</th>
+                        <th width="40%"> 產品</th>
+                        <th width="10%"> 數量</th>
+                        <th width="25%"> {MSG_PRODUCT_SPECIAL_PRICE}{VALUE_P_DISCOUNT}</th>
+                        <th width="20%"> 小計</th>
+                    </tr>
+                    <!-- START BLOCK : ORDER_ITEMS_LIST -->
+                    <tr>
+                        <td>
+                            {VALUE_P_SERIAL}
+                        </td>
+                        <td>
+                            {VALUE_P_NAME}
+                        </td>
+                        <td>
+                            {VALUE_P_AMOUNT}
+                        </td>
+                        <td>
+                            {VALUE_P_SELL_PRICE}
+                        </td>
+                        <td>
+                            {VALUE_P_SUBTOTAL_PRICE}
+                        </td>
+                    </tr>
+                    <!-- END BLOCK : ORDER_ITEMS_LIST -->
+                    <tr>
+                        <td colspan="4">
+                            <div align="right"> 運費:&nbsp;</div>
+                        </td>
+                        <td>
+                        {VALUE_O_PLUS_PRICE}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="4">
+                            <div align="right"> 合計:&nbsp;</div>
+                        </th>
+                        <th> 
+                        {VALUE_O_TOTAL_PRICE}
+                        </th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="o_id" value="{VALUE_O_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

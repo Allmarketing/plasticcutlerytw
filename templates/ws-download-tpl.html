@@ -1,0 +1,31 @@
+<!-- START BLOCK : SEO_SHORT_DESC -->
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+    <h2>{VALUE_SEO_SHORT_DESC}</h2></td>
+  </tr>
+</table>
+<!-- END BLOCK : SEO_SHORT_DESC -->
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="download_table">
+        <tr>
+          <th width="44" height="24" >NO.</th>
+          <th width="139" height="24" >{MSG_CATE}</th>
+          <!-- START BLOCK : THUMB_TITLE -->
+          <th>{MSG_THUMB}</th>
+          <!-- END BLOCK : THUMB_TITLE -->
+          <th width="341" height="24" >{MSG_SUBJECT}</th>
+          <th width="141" height="24" >{MSG_DATE}</th>
+        </tr>
+        <!-- START BLOCK : DOWNLOAD_LIST -->
+        <tr {TAG_TR_CLASS}>
+          <td height="24" class="no">{VALUE_D_SERIAL}</td>
+          <td>{TAG_DTYPE}<a href="{VALUE_DC_LINK}">{VALUE_DC_SUBJECT}</a></td>
+          <!-- START BLOCK : THUMB_COLUMN -->
+          <td><img src="{VALUE_D_THUMB}" width="80"/></td>
+          <!-- END BLOCK : THUMB_COLUMN -->
+          <td class="title"><a href="{VALUE_D_LINK}" target="_blank">{VALUE_D_SUBJECT}</a></td>
+          <td class="date">{VALUE_D_MODIFYDATE}</td>
+        </tr>
+        <!-- END BLOCK : DOWNLOAD_LIST -->
+        </table>
+        <!-- INCLUDE BLOCK : ./templates/ws-fn-pagination-tpl.html -->

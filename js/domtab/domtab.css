@@ -1,0 +1,152 @@
+		*{
+			padding:0;
+			border:none;
+		}
+		
+		div.domtab{
+
+		}
+		ul.domtabs{
+			float:left;
+			width:95%;	
+			list-style: none;
+			margin:0px;		
+		}
+		ul.domtabs li{
+	list-style:none;
+	float:left;
+	background-image: url(../../images/tabtn.jpg);
+	background-color:#CCC;
+	background-repeat: no-repeat;
+	background-position: center;
+	color:#131C5F;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-right:2px;
+	width:150px;
+	text-align:center;
+		}
+		ul.domtabs a:link,
+		ul.domtabs a:visited,
+		ul.domtabs a:active,
+		ul.domtabs a:hover{
+			padding:0 5px;
+			display:block;
+			color:#131c5f;
+			font-weight:normal;
+			text-decoration:none;
+		}
+		html>body ul.domtabs a:link,
+		html>body ul.domtabs a:visited,
+		html>body ul.domtabs a:active,
+		html>body ul.domtabs a:hover{
+			font-size:12px;
+			color:#000;
+			font-family:Arial, Helvetica, sans-serif;
+			text-decoration:none;
+			font-weight: normal;
+			line-height:1.5em;
+			padding:3px 15px;
+		}
+		html>body ul.domtabs a:hover{
+	color:#FFF;
+	background-color:#999;
+			}
+		div.domtab div{
+			clear:both;
+			width:auto;
+			height: auto;
+			list-style: decimal;
+			padding:10px 0px;
+		}
+		div.domtab div ol,.domtab div p{
+			font-size:14px;
+			color:#666666;
+			font-family:Arial, Helvetica, sans-serif;
+			line-height:22px;
+		}
+		div.domtab div ul{
+			padding-left: 10px;
+			list-style: decimal;
+		}
+		ul.domtabs li.active a:link,
+		ul.domtabs li.active a:visited,
+		ul.domtabs li.active a:active,
+		ul.domtabs li.active a:hover{
+	font-size:12px;
+	color:#FFF;
+	font-family:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	background-color:#999;
+		}
+		#domtabprintview{
+			float:right;
+		}
+		#domtabprintview a:link,
+		#domtabprintview a:visited,
+		#domtabprintview a:active,
+		#domtabprintview a:hover{
+		}
+		p{
+
+
+		}
+		pre{
+
+		}
+		div.domtab div a:link,
+		div.domtab div a:visited,
+		div.domtab div a:active
+		{
+			color:#333;
+			display:block;
+			font-weight:bold;
+		}
+		div.domtab div h2 a,
+		div.domtab div h2 a:hover,
+		div.domtab div h2 a:active
+		{
+			display:inline;
+			padding:0;
+		}
+		
+/* other scheme! */
+#other{
+	font-size:.8em;
+	margin-left:.3em;
+	width:60em;
+	margin-bottom:3em;
+	float:left;
+}
+div#other.domtab div{
+	clear:both;
+	width:54em;
+	background:#669;
+	color:#fff;
+	padding:1em 3em;
+}
+		
+#other ul.domtabs a:hover{
+	background:#669;
+}
+div#other ul.domtabs li.active a:link,
+div#other ul.domtabs li.active a:visited,
+div#other ul.domtabs li.active a:active,
+div#other ul.domtabs li.active a:hover{
+	background:#669;
+	color:#fff;
+}
+#other div{
+	float:left;
+}
+ul.prevnext{
+	float:left;
+	width:100%;
+}
+ul.prevnext li{
+	float:left;
+	width:49%;
+}
+ul.prevnext li.next{
+	float:right;
+	text-align:right;
+}

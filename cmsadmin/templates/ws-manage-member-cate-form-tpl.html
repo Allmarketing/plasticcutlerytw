@@ -1,0 +1,60 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>會員分類{MSG_MODE}</h1>
+<form name="myform" method="post" action="member.php?func=mc_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+        <tr>
+            <th><font color="red">*</font>分類名稱:</th>
+            <td>
+                <input name="mc_subject" type="text" class="validate[required]" value="{VALUE_MC_SUBJECT}" size="20" maxlength="255">
+            </td>
+        </tr> 
+        <tr>
+            <th>狀態:</th>
+            <td>
+                <input type="radio" name="mc_status" value="1" {STR_MC_STATUS_CK1}> 啟用
+                <input type="radio" name="mc_status" value="0" {STR_MC_STATUS_CK0}> 停用
+            </td>
+        </tr>
+        <tr>
+            <th>排序:</th>
+            <td>
+                <input name="mc_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_MC_SORT}" size="4" maxlength="4">
+            </td>
+        </tr>
+        <!-- START BLOCK : MEMBER_DOWNLOAD -->
+        <tr>
+            <th>下載檔案</th>
+            <td>
+                <!-- INCLUDE BLOCK : templates/ws-fn-member-download-files-list.html -->
+            </td>
+        </tr>
+        <!-- END BLOCK : MEMBER_DOWNLOAD -->
+        <!-- START BLOCK : SHOW_FORM_MC_DISCOUNT -->
+        <tr>
+            <th><font color="red">*</font>折扣率:</th>
+            <td>
+                <input name="mc_discount" type="text" class="validate[required,custom[onlyNumber]]"  value="{VALUE_MC_DISCOUNT}" size="3" maxlength="3"> %
+                &nbsp;&nbsp;<font color="#CC0000">(* 假如設為80% 即為產品特價再打8折)</font>
+            </td>
+        </tr>
+        <!-- END BLOCK : SHOW_FORM_MC_DISCOUNT -->
+        <!-- START BLOCK : SHOW_DEFAULT_FORM_MC_DISCOUNT -->
+        <input name="mc_discount" type="hidden" value="100">
+        <!-- END BLOCK : SHOW_DEFAULT_FORM_MC_DISCOUNT -->
+        <tr>
+            <th>&nbsp;</th>
+            <td>
+                <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+    <input type="hidden" name="mc_id" value="{VALUE_MC_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

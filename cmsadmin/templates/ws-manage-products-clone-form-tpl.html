@@ -1,0 +1,31 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>新增ㄧ個分身</h1>
+<br>
+<form name="myform" method="post" action="products.php?func=clone_replace"  class="formular" id="formID">
+    <table width="92%" border="0" align="center" cellpadding="0" cellspacing="0" class="formtable">
+      <tr>
+        <th>所屬分類:</th>
+        <td>
+            <select name="pc_id">
+              <option value="0" > 未分類</option>
+              {TAG_SELECT_PRODUCTS_CATE}
+            </select> <span style="color:#cc0000;">切記！本尊ㄧ旦被擊敗，分身也會隨即消失。</span>
+        </td>
+	  </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td colspan="3">
+            <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+      </tr>
+	</table>
+	<input name="p_clone" type="hidden" id="p_clone" value="{VALUE_CLONE_ID}">
+    <input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+    <input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+    <input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+    <input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}">
+    </form>
+    <br>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

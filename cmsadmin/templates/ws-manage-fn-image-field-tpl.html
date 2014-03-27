@@ -1,0 +1,21 @@
+<div>
+    <table border="0" cellpadding="0" cellspacing="0" width="200" class="pictable">
+        <tr>
+            <th rowspan="3" align="center">
+                <a href="javascript:mcImageManager.open('{TAG_FORM_NAME}','{TAG_IMG_FIELD_NAME}');"><img src="{TAG_PREVIEW_IMG_VALUE}" border="0" width="120" name="{TAG_PREVIEW_IMG_ID}" id="{TAG_PREVIEW_IMG_ID}"></a><br>
+                <font color="red">點選圖框更換圖片</font>
+            </th>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{TAG_IMG_TITLE}</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" size="60" name="{TAG_IMG_FIELD_NAME}" value="{TAG_IMG_FIELD_VALUE}" id="{TAG_IMG_FIELD_ID}" onchange="Javascript:onImageSelect(this,'{TAG_PREVIEW_IMG_ID}');">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="javascript:" onclick="LoadDefaultPic('{TAG_IMG_FIELD_ID}','{TAG_PREVIEW_IMG_ID}');">&nbsp;&nbsp;&nbsp;&nbsp;取消圖片</a>
+            </td>
+        </tr>
+    </table>
+</div>

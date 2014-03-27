@@ -1,0 +1,82 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>會員管理</h1>
+<form action="member.php" method="get" name="myform" class="formular" id="formID">
+	<table width="95%" border="0" cellpadding="0" cellspacing="0" class="catetable">
+	<tr>
+	  <!-- START BLOCK : MEMBER_CATE_LIST -->
+	  <td width="25%" valign="top">
+	   <table>
+		 <tr>
+		   <td valign="top">
+		   <a href="member.php?func=m_list&mc_id={VALUE_MC_ID}"><div class="on">{VALUE_MC_SUBJECT}</div></a>
+		   </td>
+		 </tr>
+	  </table>
+	  </td>
+	  {TAG_MEMBER_CATE_TRTD}
+	  <!-- END BLOCK : MEMBER_CATE_LIST -->
+	</tr>
+    </table>
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="8">
+      目前分類 : <a href="member.php?func=m_list">TOP</a> > {TAG_NOW_CATE}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="member.php?func=m_add&mc_id={VALUE_NOW_MC_ID}" >新增</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+          <li><img src="images/icon-open.gif" /><a href="#" Onclick="Javascript:return FormCheckOn(myform)">啟用</a></li>
+          <li><img src="images/icon-stop.gif" /><a href="#" Onclick="Javascript:return FormCheckOff(myform)">停用</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+        </ul>
+        <ul>
+          <li>
+                <select name="st" class="seinput">
+                  <option value="m_name" {STR_SELECT_SEARCH_TARGET_CK1}>會員姓名</option>
+                    <option value="m_email" {STR_SELECT_SEARCH_TARGET_CK2}>電子郵件</option>
+                    <option value="m_company" {STR_SELECT_SEARCH_TARGET_CK3}>公司名稱</option>
+                    <!--<option value="m_country" {STR_SELECT_SEARCH_TARGET_CK4}>國家</option>-->
+                </select>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="15%">會員分類</th>
+      <th width="55%">會員姓名</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+      <th width="5%">狀態</th>
+    </tr>
+    <!-- START BLOCK : MEMBER_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_M_ID}"></td>
+      <td>{VALUE_M_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_M_ID}]" value="{VALUE_M_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_MC_SUBJECT}</td>
+      <td>{VALUE_M_NAME}</td>
+      <td><a href="member.php?func=m_mod&m_id={VALUE_M_ID}&mc_id={VALUE_MC_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_STR_NOWP}&jp={VALUE_STR_JP}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','member.php?func=m_del&m_id={VALUE_M_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_STR_NOWP}&jp={VALUE_STR_JP}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+      <td><img src="images/{VALUE_STATUS_IMG}" alt='{VALUE_STATUS_IMG_ALT}{MSG_STATUS}'  border="0" /></td>
+    </tr>
+    <!-- END BLOCK : MEMBER_LIST -->
+    <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+    <input type="hidden" name="box_check" value="1" />
+    <input type="hidden" name="nowp" value="{VALUE_STR_NOWP}" />
+    <input type="hidden" name="jp" value="{VALUE_STR_JP}" />
+    <input type="hidden" name="ws_table" value="m" />
+  </table>
+    </form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language-pack>
+	<header>
+		<author>Moxiecode Systems AB</author>
+		<version minor="2" major="0" releasedate="2005-10-28" />
+		<description>
+			This is the English language pack for the MCFileManager.
+		</description>
+	</header>
+
+	<language code="zh" title="Chinese" dir="ltr">
+		<group target="error">
+			<item name="tofile_exists">檔案已存在</item>
+			<item name="no_from_file">來源檔案不存在</item>
+			<item name="demo">這個動作在展示模式中不執行</item>
+			<item name="invalid_filename">檔案名稱不合法</item>
+			<item name="no_read_access">無讀取此檔案/資料夾的權限</item>
+			<item name="no_write_access">無寫入此檔案/資料夾的權限</item>
+			<item name="copy_failed">複製失敗</item>
+			<item name="move_failed">移動失敗</item>
+			<item name="template_missing">找不到樣版</item>
+			<item name="createdoc_failed">建立文件失敗</item>
+			<item name="no_access">你沒有權限執行此項操作</item>
+			<item name="file_exists">檔案已存在</item>
+			<item name="upload_failed">上傳失敗,請檢查你的資料夾寫入權限</item>
+			<item name="error_to_large">檔案大小超過規定</item>
+			<item name="file_not_exists">檔案不存在</item>
+			<item name="delete_failed">刪除失敗</item>
+			<item name="folder_exists">資料夾已存在</item>
+			<item name="no_filesystem">找不到檔案系統</item>
+			<item name="createdir_failed">建立資料夾失敗</item>
+			<item name="createzip_failed">壓縮失敗</item>
+			<item name="rename_failed">重新命名失敗</item>
+			<item name="savecontent_failed">儲存內容失敗</item>
+		</group>
+
+		<group target="message">
+			<item name="zip_success">壓縮成功</item>
+			<item name="copy_success">複製成功</item>
+			<item name="move_success">移動成功</item>
+			<item name="createdoc_success">文件新增成功</item>
+			<item name="delete_success">刪除成功</item>
+			<item name="directory_ok">資料夾新增成功</item>
+			<item name="keepalive">Keepalive</item>
+			<item name="upload_ok">上傳成功</item>
+			<item name="confirm_cut">你確定要剪下選擇的檔案?</item>
+			<item name="confirm_copy">你確定要複製選擇的檔案?</item>
+			<item name="confirm_paste">你確定要貼上 剪下/複製 的檔案?</item>
+			<item name="confirm_delete">你確定要刪除選擇的檔案?</item>
+			<item name="insert">取得檔案資料, 請稍候...</item>
+			<item name="paste_in_progress">貼上正在處理中,請稍候...</item>
+		</group>
+
+		<group target="common">
+			<item name="createdir">建立資料夾</item>
+			<item name="createfile">開新檔案</item>
+			<item name="help">說明</item>
+			<item name="refresh">重新整理</item>
+			<item name="upload">上傳</item>
+			<item name="directory">已選擇的資料夾</item>
+			<item name="imagemanager">圖檔管理員</item>
+			<item name="title">檔案管理員</item>
+			<item name="alert_ok">Ok</item>
+			<item name="confirm_yes">是</item>
+			<item name="confirm_no">否</item>
+		</group>
+
+		<group target="button">
+			<item name="create">建立</item>
+			<item name="cancel">取消</item>
+			<item name="save">儲存</item>
+		</group>
+
+		<group target="panel">
+			<item name="categories">分類</item>
+			<item name="preview">預覽</item>
+
+			<!-- Legacy items -->
+			<item name="favorites">我的最愛</item>
+			<item name="history">歷史記錄</item>
+		</group>
+
+		<group target="edit">
+			<item name="title">編輯檔案</item>
+			<item name="description">編輯檔案內容</item>
+			<item name="loading_wait">載入內容中請稍候</item>
+			<item name="saving_wait">儲存內容中請稍候</item>
+			<item name="file_path">檔案路徑:</item>
+		</group>
+
+		<group target="actions">
+			<item name="insert">插入</item>
+			<item name="download">下載</item>
+			<item name="rename">重新命名</item>
+			<item name="cut">剪下</item>
+			<item name="copy">複製</item>
+			<item name="paste">貼上</item>
+			<item name="deleteit">刪除</item>
+			<item name="edit">編輯</item>
+			<item name="zip">壓縮</item>
+			<item name="view">檢視</item>
+			<item name="select_all">全選</item>
+			<item name="unselect_all">全取消</item>
+
+			<!-- Legacy items -->
+			<item name="addfavorites">新增我的最愛</item>
+			<item name="removefavorites">移除我的最愛</item>
+		</group>
+
+		<group target="filelist">
+			<item name="filename">檔案名稱</item>
+			<item name="size">大小</item>
+			<item name="type">類型</item>
+			<item name="modified">修改日期</item>
+			<item name="with_selected">從已核選的檔案:</item>
+			<item name="info_dirs">資料夾:</item>
+			<item name="info_files">檔案:</item>
+			<item name="info_size">總計大小:</item>
+			<item name="info_access">權限:</item>
+			<item name="loading">載入...</item>
+		</group>
+
+		<group target="createdir">
+			<item name="title">建立資料夾</item>
+			<item name="description">輸入你想要建立的資料夾名稱</item>
+			<item name="template">樣版:</item>
+			<item name="select_template">-- 選擇樣版 --</item>
+			<item name="directory_name">資料夾名稱:</item>
+			<item name="create_in">建立在:</item>
+			<item name="progress">資料夾建立中, 請稍候...</item>
+		</group>
+
+		<group target="createdoc">
+			<item name="title">建立文件</item>
+			<item name="description">輸入你想要從樣板建立的新文件名稱</item>
+			<item name="template">樣版:</item>
+			<item name="select_template">-- 選擇樣版 --</item>
+			<item name="name">名稱</item>
+			<item name="path">路徑</item>
+			<item name="preview">預覽</item>
+			<item name="preview_title">預覽 of: {file}</item>
+		</group>
+
+		<group target="upload">
+			<item name="title">上傳</item>
+			<item name="description">使用表單來上傳檔案</item>
+			<item name="valid_extensions">有效的副檔名:</item>
+			<item name="max_upload_size">最大上傳:</item>
+			<item name="file_to_upload">上傳檔案:</item>
+			<item name="as_file_name">檔案名稱:</item>
+			<item name="path">路徑:</item>
+			<item name="button_upload">上傳</item>
+			<item name="browse">新增檔案</item>
+			<item name="progress">上傳中...</item>
+			<item name="upload_warn">檔案已上傳,確定要取消?</item>
+			<item name="statusrow">你有{files}檔案(total {size}) 等待上傳</item>
+			<item name="progressinfo">{loaded} of {total} 已上傳共 {speed}/秒</item>
+			<item name="abort">中止上傳</item>
+			<item name="add_more">要新增其他的嗎?</item>
+			<item name="upload_to_server">上傳到伺服器</item>
+			<item name="cancelled">上傳取消</item>
+			<item name="choose_files">選擇檔案</item>
+			<item name="basic_upload">如果上傳有問題,你可以試著用{a}基本上傳{/a}.</item>
+			<item name="remove">移除</item>
+			<item name="file">檔案</item>
+			<item name="size">大小</item>
+			<item name="status">狀態</item>
+			<item name="no_valid_files">無效的檔案選取,請再重試一次</item>
+		</group>
+
+		<group target="createzip">
+			<item name="title">建立壓縮檔</item>
+			<item name="description">輸入你想要建立的壓縮檔名稱</item>
+			<item name="name">名稱:</item>
+			<item name="path">路徑</item>
+		</group>
+
+		<group target="tinymce">
+			<item name="insertfile_desc">插入檔案</item>	
+		</group>
+
+		<group target="favorites">
+			<item name="special_folder_title">我的最愛</item>
+			<item name="addfavorites">新增我的最愛</item>
+			<item name="removefavorites">移除我的最愛</item>
+			<item name="confirm_remove_favorite">你確定要從我的最愛中移除?</item>
+			<item name="remove_favorite_failed">從我的最愛中移除失敗</item>
+		</group>
+
+		<group target="history">
+			<item name="special_folder_title">歷史記錄</item>
+		</group>
+	</language>
+</language-pack>

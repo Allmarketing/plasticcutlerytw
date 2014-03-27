@@ -1,0 +1,52 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>認證標章管理</h1>
+<br>
+<form action="products.php" method="get" name="myform" class="formular" id="formID">
+    <table width="95%" border="0" cellpadding="0" cellspacing="0" class="zonetable">
+    <tr>
+      <td colspan="10">
+        <div class="title">
+        <ul>
+          <li><img src="images/icon-add.gif" /><a href="products.php?func=ca_add" >新增</a></li>
+          <li><img src="images/icon-refresh.gif" /><a href="#" Onclick="Javascript:return FormCheckSort(myform)">排序</a></li>
+          <li><img src="images/icon-del.gif" /><a href="#" Onclick="Javascript:return FormCheckDel(myform)">刪除</a></li>
+        </ul>
+        <ul class="se" style="width:250px;">
+          <li>
+            關鍵字<input type="text" id="sk" name="sk" class="seinput" value="{VALUE_SEARCH_KEYWORD}"/><input type="button" value="搜尋" Onclick="Javascript:return FormCheckQuery(myform)" />
+          </li>
+        </ul>
+      </div>
+      </td>
+    </tr>
+    <tr>
+      <th width="3%"><a href="javascript:click_all(myform);"><img src="images/ico-markers.gif" width="12" height="12" border="0" /></a></th>
+      <th width="5%">No.</th>
+      <th width="7%">排序</th>
+      <th width="43%">標章名稱</th>
+      <th width="32%">標章縮圖</th>
+      <th width="5%">修改</th>
+      <th width="5%">刪除</th>
+    </tr>
+    <!-- START BLOCK : PRODUCTS_CA_LIST -->
+    <tr {TAG_TR_CLASS}>
+      <td align="center"><input type="checkbox" name="id[]" value="{VALUE_CA_ID}"></td>
+      <td>{VALUE_CA_SERIAL}</td>
+      <td><input type="text" name="sort_value[{VALUE_CA_ID}]" value="{VALUE_CA_SORT}" class="validate[custom[onlyNumber]]" size="2" maxlength="4"></td>
+      <td>{VALUE_CA_NAME}</td>
+      <td><img src="{VALUE_CA_IMG}" width="70" height="70"/></td>
+      <td><a href="products.php?func=ca_mod&ca_id={VALUE_CA_ID}&st={VALUE_SEARCH_TARGET}&sk={SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}"><img src="images/icon-edit2.gif" width="11" border="0" alt="{MSG_MODIFY}" /></a></td>
+      <td><a href="#" onClick="javascript:ConfirmMSG('{TAG_DELETE_CHECK_STR}','products.php?func=ca_del&ca_id={VALUE_CA_ID}&st={VALUE_SEARCH_TARGET}&sk={VALUE_SEARCH_KEYWORD}&nowp={VALUE_NOW_PAGE}&jp={VALUE_JUMP_PAGE}');"><img src="images/icon-del2.gif" width="10" height="9" border="0" /></a></td>
+    </tr>
+    <!-- END BLOCK : PRODUCTS_CA_LIST -->
+ </table>
+ <input type="hidden" name="total_box" value="{VALUE_TOTAL_BOX}" />
+ <input type="hidden" name="box_check" value="1" />
+ <input type="hidden" name="ws_table" value="ca" />
+ <input type="hidden" name="nowp" value="{VALUE_NOW_PAGE}" />
+ <br>
+</form>
+    <!-- INCLUDE BLOCK : ./templates/ws-manage-fn-pagination-tpl.html -->
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->

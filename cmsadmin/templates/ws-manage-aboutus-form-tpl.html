@@ -1,0 +1,130 @@
+<!-- INCLUDE BLOCK : HEADER -->
+<div id="man_zone">
+<h1>關於我們(公司簡介){MSG_MODE}</h1>
+<form name="myform" method="post" action="aboutus.php?func=au_replace"  class="formular" id="formID">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="formtable">
+  <tr>
+        <th>啟用狀態:</th>
+        <td>
+          <input type="radio" name="au_status" value="1" {STR_AU_STATUS_CK1}> 啟用
+          <input type="radio" name="au_status" value="0" {STR_AU_STATUS_CK0}> 停用
+        </td>
+  </tr>
+  <tr>
+        <th>排序:</th>
+        <td>
+            <input name="au_sort" type="text" class="validate[custom[onlyNumber]]" value="{VALUE_AU_SORT}" size="4" maxlength="4">
+        </td>
+  </tr>
+  <!-- START BLOCK : UNIQUE_CATE -->
+    <tr>
+        <th>獨立類別:</th>
+        <td>
+            <label for="au_unique_1">是</label><input type="radio" name="au_unique" id="au_unique_1" value="1" {AU_CATE_CHECKED}/><label for="au_unique_0">否</label><input type="radio" name="au_unique" id="au_unique_0" value="0"/>
+            <div id="au_cate_area" style="display:{CATE_AREA_TYPE}">
+                <div>
+                    <ul>
+                        <li>如果要獨立於「關於我們」之外顯示，請設定獨立類別；如果是關於我們，請留空</li>
+                        <li>如果同時挑選類別及新增類別，會以新增類別為主</li>
+                    </ul>
+                </div>
+                <select name="au_cate_select" id="au_cate_select">
+                    <option value="">--請選擇--</option>
+                    <!-- START BLOCK : AU_CATE_OPTION -->
+                    <option {VALUE_AU_OPTION_SELECTED}>{VALUE_AU_CATE}</option>
+                    <!-- END BLOCK : AU_CATE_OPTION -->
+                </select>
+                <!-- START BLOCK : AU_CATE_INPUT -->
+                指定新類別：<input type="text" name="au_cate_input" id="au_cate_input" value=""/>
+                <!-- END BLOCK : AU_CATE_INPUT -->
+            </div>
+        </td>
+  </tr>
+  <!-- END BLOCK : UNIQUE_CATE -->
+
+    <tr>
+        <th><font color="#cc0000">*</font>標題</th>
+        <td>
+            <input name="au_subject" id="au_subject" type="text" class="validate[required]" value="{VALUE_AU_SUBJECT}" size="50">
+        </td>
+    </tr>
+    <tr>
+        <th>內容</th>
+        <td>
+            <!-- START BLOCK : WYSIWYG_TINYMCE1 -->
+            <textarea id="elm1" name="au_content" cols="50" rows="15" >{VALUE_AU_CONTENT}</textarea>
+            <!-- END BLOCK : WYSIWYG_TINYMCE1 -->
+        </td>
+    </tr>
+      <!-- START BLOCK : SEO_EDIT_ZONE -->
+      <tr>
+        <th colspan="2">SEO 設定區域</th>
+      </tr>
+      <tr>
+        <th>網頁檔名:</th>
+        <td>
+            <input name="au_seo_filename"  id="{NOW_AU_ID}" class="validate[required,ajax[ajaxAUfilename]]" type="text" value="{VALUE_AU_SEO_FILENAME}" size="40" >
+            <br><font color="red">(檔案名稱請勿輸入副檔名及特殊符號例如:.&@#$%&*`"'，特殊符號請用-代替)</font>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁標題(Meta Title):</th>
+        <td>
+            <input name="au_seo_title" type="text"  value="{VALUE_AU_SEO_TITLE}" size="60" />
+        </td>
+      </tr>
+      <tr>
+        <th>網頁關鍵字(Meta Keyword):</th>
+        <td>
+            <textarea name="au_seo_keyword" cols="50" rows="3" >{VALUE_AU_SEO_KEYWORD}</textarea>
+        </td>
+      </tr>
+      <tr>
+        <th>網頁敘述(Meta Description):</th>
+        <td>
+            <textarea name="au_seo_description" cols="50" rows="3" >{VALUE_AU_SEO_DESCRIPTION}</textarea>
+        </td>
+      </tr>
+        <tr>
+            <th>H1 標題:</th>
+            <td>
+                <input name="au_seo_h1" type="text"  value="{VALUE_AU_SEO_H1}" size="40" >
+            </td>
+        </tr>
+      <!-- END BLOCK : SEO_EDIT_ZONE -->
+    <tr>
+        <th>&nbsp;</th>
+        <td>
+         <input type="submit" name="submit" value="{MSG_MODE}" />&nbsp;&nbsp;&nbsp;<input type="button" name="back" value="回到上一頁" onclick="history.back();" />
+        </td>
+    </tr>
+</table>
+<input type="hidden" name="au_id" value="{VALUE_AU_ID}">
+<input type="hidden" name="action_mode" value="{VALUE_ACTION_MODE}">
+<input name="st" type="hidden" id="st" value="{VALUE_SEARCH_TARGET}">
+<input name="sk" type="hidden" id="sk" value="{VALUE_SEARCH_KEYWORD}">
+<input name="nowp" type="hidden" id="nowp" value="{VALUE_NOW_PAGE}">
+<input name="jp" type="hidden" id="jp" value="{VALUE_JUMP_PAGE}"> 
+</form>
+</div>
+<!-- INCLUDE BLOCK : FOOTER -->
+<script type="text/javascript">
+    (function($){
+        $(document).ready(function(){
+           $(":radio").click(function(e){
+               switch(this.name){
+                   case "au_unique":
+                       if(parseInt(this.value)){
+                          $("#au_cate_area").slideDown();    
+                       }else{
+                          $("#au_cate_area").slideUp(function(){
+                              $("#au_cate_input").val('');
+                              $("#au_cate_select")[0].selectedIndex=0;
+                          });    
+                       }
+                       break;
+               }
+           });
+        });
+    })(jQuery);
+</script>

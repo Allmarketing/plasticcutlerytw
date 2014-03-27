@@ -1,0 +1,64 @@
+<div align="left">{HEADER_SHORT_DESC}</div>
+<div id="sitemap">
+<ul>
+<li><a href="{TAG_ROOT_PATH}">{VALUE_STR_HOME}</a></li>
+<li><a href="{VALUE_ABOUTUS_LINK}">{VALUE_STR_ABOUTUS}</a></li>
+<!-- START BLOCK : SITEMAP_NEWS -->
+<li><a href="{VALUE_NEWS_LINK}">{VALUE_STR_NEWS}</a></li>
+<!-- END BLOCK : SITEMAP_NEWS -->
+<!-- START BLOCK : SITEMAP_NEW_PRODUCT -->
+<li><a href="{VALUE_NEW_PRODUCT_LINK}">{VALUE_STR_NEW_PRODUCT}</a></li>
+<!-- END BLOCK : SITEMAP_NEW_PRODUCT -->
+<li><a href="{VALUE_PRODUCTS_LINK}">{VALUE_STR_PRODUCTS}</a>
+    <ul>
+    <!-- START BLOCK : PRODUCTS_CATE_MAIN -->
+    <li><a href="{VALUE_PC_LINK}">{VALUE_PC_NAME}</a>
+        {TAG_UL1}
+        <!-- START BLOCK : PRODUCTS_CATE_SUB -->
+        <li><a href="{VALUE_PC_LINK}">{VALUE_PC_NAME}</a>
+            {TAG_PRODUCT_UL1}
+            <!-- START BLOCK : PRODUCTS_LIST -->
+            <li class="sitemap-products"><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></li>
+            <!-- END BLOCK : PRODUCTS_LIST -->
+            {TAG_PRODUCT_UL2}
+        </li>    
+        <!-- END BLOCK : PRODUCTS_CATE_SUB -->
+        <!-- START BLOCK : PRODUCTS_MAIN -->
+        <li class="sitemap-products"><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></li>
+        <!-- END BLOCK : PRODUCTS_MAIN -->
+        {TAG_UL2}
+    </li>    
+    <!-- END BLOCK : PRODUCTS_CATE_MAIN -->
+    <!-- START BLOCK : PRODUCTS_NONE -->
+    <li><a href="{VALUE_P_LINK}">{VALUE_P_NAME}</a></li>
+    <!-- END BLOCK : PRODUCTS_NONE -->
+    </ul>
+</li>    
+<!-- START BLOCK : SITEMAP_APPLICATION -->
+<li><a href="{VALUE_APPLICATION_LINK}">{VALUE_STR_APPLICATION}</a></li>
+<!-- END BLOCK : SITEMAP_APPLICATION -->
+<li><a href="{VALUE_CONTACTUS_LINK}">{VALUE_STR_CONTACTUS}</a></li>
+<!-- START BLOCK : SITEMAP_DOWNLOAD -->
+<li><a href="{VALUE_DOWNLOAD_LINK}">{VALUE_STR_DOWNLOAD}</a></li>
+<!-- END BLOCK : SITEMAP_DOWNLOAD -->
+<!-- START BLOCK : SITEMAP_FAQ -->
+<li><a href="{VALUE_FAQ_LINK}">{VALUE_STR_FAQ}</a></li>
+<!-- END BLOCK : SITEMAP_FAQ -->
+<!-- START BLOCK : SITEMAP_VIDEO -->
+<li><a href="{VALUE_VIDEO_LINK}">{VALUE_STR_VIDEO}</a></li>
+<!-- END BLOCK : SITEMAP_VIDEO -->
+<!-- START BLOCK : SITEMAP_EBOOK -->
+<li><a href="{VALUE_EBOOK_LINK}">{VALUE_STR_EBOOK}</a></li>
+<!-- END BLOCK : SITEMAP_EBOOK -->
+<!-- START BLOCK : SITEMAP_GUESTBOOK -->
+<li><a href="{VALUE_GUESTBOOK_LINK}">{VALUE_STR_GUESTBOOK}</a></li>
+<!-- END BLOCK : SITEMAP_GUESTBOOK -->
+<!-- START BLOCK : SITEMAP_STORES -->
+<li><a href="{VALUE_STORES_LINK}">{VALUE_STR_STORES}</a></li>
+<!-- END BLOCK : SITEMAP_STORES -->
+<!-- START BLOCK : SITEMAP_FACTORY -->
+<li><a href="{VALUE_FACTORY_LINK}">{VALUE_STR_FACTORY}</a></li>
+<!-- END BLOCK : SITEMAP_FACTORY -->
+<li><a href="{VALUE_SITEMAP_LINK}">{VALUE_STR_SITEMAP}</a></li>
+</ul>
+</div>
