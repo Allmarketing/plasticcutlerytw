@@ -490,6 +490,16 @@ class PRODUCTS{
         $row = $db->fetch_array($selectrs,1);
         $rsnum    = $db->numRows($selectrs);
         if ($rsnum > 0) {
+			if($row["p_clone"]){
+				$tp_id=$row["p_id"];
+				$tpc_id=$row["pc_id"];
+				$tp_sort=$row["p_sort"];
+				$tp_clone=$row["p_clone"];
+				$sql_clone="select p.*,pc.pc_seo_filename from ".$cms_cfg['tb_prefix']."_products as p left join ".$cms_cfg['tb_prefix']."_products_cate as pc on p.pc_id=pc.pc_id where p.p_id > '0' and p_id='".$row["p_clone"]."'";
+				$selectrs_clone = $db->query($sql_clone);
+				$row_clone = $db->fetch_array($selectrs_clone,1);
+				$row=$row_clone;
+			}
             //取得左方分類列表--brother layer
             //$this->left_cate_list($row["pc_id"]);
             $seo_H1=(trim($row["p_seo_h1"]))?$row["p_seo_h1"]:$row["p_name"];
@@ -503,7 +513,11 @@ class PRODUCTS{
             $main->header_footer($meta_array,$seo_H1);
             //顯示上一筆、下一筆連結
             if($cms_cfg["ws_module"]["ws_products_nextlink"]==1){
-                    $this->products_next_previous($row["p_id"],$row["pc_id"],$row["p_sort"]);
+					if($tp_clone){
+						$this->products_next_previous($tp_id,$tpc_id,$tp_sort);
+					}else{
+						$this->products_next_previous($row["p_id"],$row["pc_id"],$row["p_sort"]);
+					}
                     $tpl->assignGlobal(array(
                        "TAG_BACK_TO_LIST_LINK" => $cms_cfg['base_root'].$_GET['d'].".htm", 
                        "TAG_BACK_TO_LIST_NAME" => $TPLMSG['BACK_TO_LIST'], 
